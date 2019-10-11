@@ -1,0 +1,25 @@
+/*Dropdown Menu Styles*/
+.dropdown-menu .dropdown-item {
+  color: $body-color;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: $body-color;
+    background-color: $gray-200;
+  }
+}
+
+.split-dropdown {
+  & .dropdown-menu {
+    transform: translate3d(0px, 0px, 0px) !important;
+    top: 100% !important;
+  }
+}
+
+.dropdown-toggle.no-arrow {
+  &:after {
+    display: none;
+  }
+}

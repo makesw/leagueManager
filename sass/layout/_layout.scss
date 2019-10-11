@@ -1,0 +1,58 @@
+/*App Layout Styles*/
+.gx-container {
+  @include display-flex();
+  width: 100%;
+}
+
+.gx-sidebar {
+  @include display-flex(flex, column);
+  min-width: $side-nav-width;
+  max-width: $side-nav-width;
+  background-color: $sidebar-bg;
+  color: $sidebar-text-color;
+  z-index: 1000;
+  border-right: $gx-border;
+
+  @media screen and (max-width: 991px) {
+    z-index: 1025;
+  }
+}
+
+.gx-main-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gx-main-content {
+  width: 100%;
+  height: calc(100vh - 70px);
+  position: relative;
+  padding: 36px 40px 0 40px;
+  @include display-flex(flex, column);
+
+  @media screen and (max-width: 767px) {
+    padding: 20px 20px 0 20px;
+  }
+}
+
+.menu-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1020;
+  background-color: $black;
+  display: none;
+
+  &.fade {
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+
+  &.in {
+    filter: alpha(opacity=50);
+    opacity: .5;
+  }
+}

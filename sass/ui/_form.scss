@@ -1,0 +1,20 @@
+/*Form Styles*/
+form {
+  position: relative;
+}
+
+.control-label {
+  text-align: right;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  @media screen and (max-width: 575px) {
+    text-align: left;
+  }
+}
+
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

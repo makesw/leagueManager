@@ -1,0 +1,927 @@
+/*Theme Dark Amber Styles*/
+$gx-dark-theme-primary: #38424B !default;
+$secondary-dark-theme: lighten($gx-dark-theme-primary, 10%);
+$dark-theme-text: #E0E0E0 !default;
+
+$sidebar-dark-theme: $gx-dark-theme-primary !default;
+$sidebar-text-dark-theme: $dark-theme-text !default;
+$sidebar-darken-dark-theme: darken($gx-dark-theme-primary, 2%);
+
+// Links
+$link-hover-dark-theme: darken($dark-theme-text, 5%);
+
+//Default Body Style
+body.dark-theme {
+  color: $dark-theme-text;
+  background-color: $gx-dark-theme-primary;
+}
+
+//Default card style
+
+.dark-theme {
+  & .card,
+  & .gx-card {
+    background-color: darken($secondary-dark-theme, 5%);
+  }
+}
+
+.dark-theme {
+  & .sub-heading,
+  & .meta-date,
+  & .text-muted,
+  & .meta-comment,
+  & .user-detail .user-description {
+    color: darken($dark-theme-text, 20%);
+  }
+}
+
+//-Base-scss
+.dark-theme .right-arrow {
+  color: $link-hover-dark-theme;
+  &:after {
+    color: $link-hover-dark-theme;
+  }
+}
+
+//Button function
+@each $color_name, $color in $colors_palette {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .dark-theme .gx-btn-#{$color_name} {
+        background-color: $color_value;
+        color: $white;
+        &:hover,
+        &:focus {
+          background-color: darken($color_value, 5%);
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+//
+// Alternate buttons
+//
+@each $color, $value in $theme-colors {
+  .dark-theme .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .dark-theme a.btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .dark-theme .btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $link-hover-dark-theme);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .dark-theme a.btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $link-hover-dark-theme);
+    }
+  }
+}
+
+.dark-theme .btn-outline-primary,
+.dark-theme a.btn-outline-primary {
+  color: darken($dark-theme-text, 20%);
+  border-color: darken($dark-theme-text, 20%);
+
+  &:focus,
+  &:hover {
+    color: $dark-theme-text;
+    border-color: darken($gx-dark-theme-primary, 5%);;
+    background-color: darken($gx-dark-theme-primary, 5%);;
+  }
+}
+
+//- Bootstrap file Style
+.dark-theme {
+  & a {
+    color: $link-hover-dark-theme;
+    &:focus,
+    &:hover {
+      color: darken($link-hover-dark-theme, 10%);
+    }
+  }
+
+  & a.text-primary {
+    color: $link-hover-dark-theme !important;
+    &:focus,
+    &:hover {
+      color: darken($link-hover-dark-theme, 10%) !important;
+    }
+  }
+
+  & .text-primary {
+    color: $link-hover-dark-theme !important;
+  }
+
+  & a.badge-light {
+    color: darken($dark-theme-text, 50%);
+    &:focus,
+    &:hover {
+      color: darken($dark-theme-text, 60%) !important;
+    }
+  }
+
+  & .page-link {
+    color: lighten($gx-dark-theme-primary, 15%);
+    &:focus,
+    &:hover {
+      color: lighten($gx-dark-theme-primary, 10%);
+    }
+  }
+
+  & .page-item.active .page-link {
+    color: $link-hover-dark-theme;
+    background-color: lighten($gx-dark-theme-primary, 15%);
+    border-color: lighten($gx-dark-theme-primary, 15%);
+  }
+
+  & .badge-primary {
+    background-color: darken($gx-dark-theme-primary, 5%);
+    color: $dark-theme-text;
+  }
+
+  & .bg-primary {
+    background-color: darken($gx-dark-theme-primary, 5%) !important;
+    color: $dark-theme-text !important;
+  }
+
+  & .btn-primary,
+  & .gx-btn-primary,
+  & a.btn-primary,
+  & a.gx-btn-primary {
+    border-color: $gx-dark-theme-primary;
+    background-color: darken($gx-dark-theme-primary, 5%);
+    color: $dark-theme-text;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($gx-dark-theme-primary, 5%);
+      border-color: darken($gx-dark-theme-primary, 5%);
+      color: $link-hover-dark-theme;
+    }
+  }
+}
+
+//Secondary
+.dark-theme {
+  & a.text-secondary {
+    color: $secondary-dark-theme;
+    &:focus,
+    &:hover {
+      color: darken($secondary-dark-theme, 10%) !important;
+    }
+  }
+
+  & .text-secondary {
+    color: $secondary-dark-theme !important;
+  }
+
+  & .bg-secondary {
+    background-color: $secondary-dark-theme !important;
+    color: $link-hover-dark-theme !important;
+  }
+
+  & .badge-secondary {
+    background-color: darken($secondary-dark-theme, 10%) !important;
+    color: $link-hover-dark-theme !important;
+  }
+
+  & .btn-secondary,
+  & .gx-btn-secondary,
+  & a.btn-secondary,
+  & a.gx-btn-secondary {
+    background-color: $secondary-dark-theme;
+    border-color: $secondary-dark-theme;
+    color: $link-hover-dark-theme;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($secondary-dark-theme, 2%);
+      border-color: darken($secondary-dark-theme, 2%);
+      color: $link-hover-dark-theme;
+    }
+  }
+}
+
+//Button Group
+.dark-theme .btn-group > .gx-btn,
+.dark-theme .btn-group-vertical > .gx-btn {
+  &.active {
+    background-color: darken($gx-dark-theme-primary, 5%);
+    border-color: darken($gx-dark-theme-primary, 5%);
+  }
+
+  &.gx-flat-btn {
+    border-color: transparent;
+
+    &.active {
+      background-color: transparent;
+      color: $link-hover-dark-theme;
+
+      &:hover,
+      &:focus {
+        background-color: rgba($link-hover-dark-theme, 0.60);
+        color: $link-hover-dark-theme;
+      }
+    }
+  }
+}
+
+//Custom Checkbox
+.dark-theme .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: darken($gx-dark-theme-primary, 5%);
+}
+
+.dark-theme .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: darken($gx-dark-theme-primary, 5%);
+}
+
+//Custom button
+.dark-theme a.btn-link {
+  color: $dark-theme-text;
+  background-color: transparent;
+
+  @include hover {
+    color: darken($dark-theme-text, 20%);;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    border-color: transparent;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+}
+
+.dark-theme a.gx-btn-default {
+  background-color: $link-hover-dark-theme;
+  color: $gx-dark-theme-primary;
+  border: 1px solid $gx-dark-theme-primary;
+  &:hover,
+  &:focus {
+    background-color: darken($link-hover-dark-theme, 5%);
+    color: $gx-dark-theme-primary;
+  }
+}
+
+.dark-theme a.gx-flat-btn {
+  background-color: transparent;
+  color: $body-color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: map_get($gray, lighten-4);
+    color: $body-color;
+  }
+}
+
+.dark-theme a.gx-flat-btn.gx-btn-primary {
+  background-color: transparent;
+  color: darken($dark-theme-text, 20%);
+
+  &:hover,
+  &:focus {
+    background-color: rgba($gx-dark-theme-primary, 0.85);
+    color: darken($dark-theme-text, 20%);
+  }
+}
+
+.dark-theme a.gx-flat-btn.gx-btn-secondary {
+  background-color: transparent;
+  color: $dark-theme-text;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($secondary-dark-theme, 0.85);
+    color: $dark-theme-text;
+  }
+}
+
+//_header.scss
+.dark-theme .gx-toolbar {
+  background-color: $gx-dark-theme-primary;
+
+  & .menu-icon.icon-grey {
+    background-color: $white;
+  }
+}
+
+.dark-theme .module-box-header,
+.dark-theme .main-header {
+
+  & .search-bar input {
+    background-color: lighten($gx-dark-theme-primary, 5%);
+    color: $white;
+
+    &.form-control::placeholder {
+      color: $white;
+    }
+
+    &:focus.form-control::placeholder {
+      color: inherit;
+    }
+
+    & + .search-icon i {
+      color: rgba($white, 0.8);
+    }
+
+    &:focus {
+      background-color: $white;
+      color: $gray-default;
+
+      + .search-icon i {
+        color: rgba($gray-default, 0.8);
+      }
+    }
+  }
+
+  & .search-dropdown input {
+    @media screen and (max-width: 575px) {
+      background-color: $white;
+    }
+  }
+}
+
+.dark-theme .header-notifications {
+  & > li > a {
+    color: $white;
+
+    &:hover,
+    &:focus {
+      color: darken($white, 5%);
+    }
+  }
+}
+
+//Messages List
+.dark-theme {
+  & .messages-list ul li {
+    & .user-name a {
+      color: $gx-dark-theme-primary;
+    }
+  }
+}
+
+//_right-sidebar.scss
+.dark-theme {
+  & .color-theme-header {
+    background-color: $gx-dark-theme-primary;
+  }
+
+  & .color-theme {
+    background-color: darken($gx-dark-theme-primary, 5%);
+  }
+}
+
+//_sidebar.scss
+.dark-theme .side-nav {
+  background-color: darken($sidebar-dark-theme, 5%);
+  color: $sidebar-text-dark-theme;
+  @include box-shadow(none);
+
+  & .user-profile {
+    background-color: $sidebar-darken-dark-theme;
+    @include box-shadow(none);
+    position: relative;
+    z-index: 2;
+  }
+
+  & .customizer {
+    border-bottom: 0 none;
+  }
+
+  & .user-detail {
+    & .user-name {
+      color: $link-hover-dark-theme;
+    }
+  }
+}
+
+.dark-theme ul.nav-menu li a {
+  color: $sidebar-text-dark-theme;
+}
+
+.dark-theme ul.nav-menu {
+  & .nav-header {
+    color: $sidebar-text-dark-theme;
+  }
+}
+
+.dark-theme ul.nav-menu > li.selected > a,
+.dark-theme ul.nav-menu > li.open > a,
+.dark-theme ul.nav-menu > li > a:hover,
+.dark-theme ul.nav-menu > li > a:focus {
+  background-color: $sidebar-darken-dark-theme;
+  color: $link-hover-dark-theme;
+}
+
+.dark-theme ul.nav-menu li.menu.open > a {
+  border-color: $link-hover-dark-theme;
+}
+
+.dark-theme ul.nav-menu li.menu > a:focus:before,
+.dark-theme ul.nav-menu li.menu > a:hover:before {
+  color: $link-hover-dark-theme;
+}
+
+.dark-theme ul.nav-menu li ul {
+  background-color: $sidebar-darken-dark-theme;
+}
+
+.dark-theme ul.nav-menu li.menu > a:before {
+  color: $sidebar-text-dark-theme;
+}
+
+.dark-theme ul.nav-menu li.menu.selected > a:before,
+.dark-theme ul.nav-menu li.menu.open > a:before,
+.dark-theme ul.nav-menu li.menu > a:focus:before,
+.dark-theme ul.nav-menu li.menu li > a:hover:before {
+  color: $link-hover-dark-theme;
+}
+
+.dark-theme ul.nav-menu li.menu .sub-menu li > a:before {
+  color: $sidebar-text-dark-theme;
+}
+
+.dark-theme ul.nav-menu li.menu .sub-menu li.active > a .nav-text {
+  background-color: darken($sidebar-dark-theme, 10%);
+  color: $white;
+}
+
+.dark-theme ul.nav-menu li.menu .sub-menu li > a:hover,
+.dark-theme ul.nav-menu li.menu .sub-menu li > a:focus,
+.dark-theme ul.nav-menu li.menu.open .sub-menu li.active > a:before,
+.dark-theme ul.nav-menu li.menu .sub-menu li > a:focus:before,
+.dark-theme ul.nav-menu li.menu .sub-menu li > a:hover:before {
+  color: $white;
+}
+
+//_module.scss
+.dark-theme .chat-module-box,
+.dark-theme .chat-textarea,
+.dark-theme .module-detail-header,
+.dark-theme .module-box-content {
+  background-color: darken($secondary-dark-theme, 5%);
+}
+
+.dark-theme .chat-main-footer {
+  background-color: transparent;
+}
+
+.dark-theme .modal-box-content,
+.dark-theme .modal-box-footer {
+  background-color: lighten($gx-dark-theme-primary, 5%);
+}
+
+.dark-theme .module-logo,
+.dark-theme .module-nav li a.active {
+  color: $dark-theme-text;
+}
+
+.dark-theme .module-comment-content {
+  background-color: lighten($gx-dark-theme-primary, 5%);
+}
+
+.dark-theme .module-tab-nav {
+  & li {
+    & a.nav-link.active {
+      border-color: $dark-theme-text;
+      color: $dark-theme-text;
+    }
+  }
+}
+
+.dark-theme .nav-pills-module {
+  & > li {
+    & > a {
+      background-color: darken($gx-dark-theme-primary, 5%);
+      color: $dark-theme-text;
+      padding: 3px 12px;
+      border-color: darken($gx-dark-theme-primary, 5%)
+    }
+
+    & > a.nav-link-border {
+      background-color: transparent;
+      border-color: $gray-500;
+      color: $dark-theme-text;
+    }
+  }
+}
+
+//_calendar.scss
+.dark-theme .fc-event,
+.dark-theme .fc-event-dot {
+  background-color: darken($gx-dark-theme-primary, 5%);
+}
+.dark-theme {
+  & .fc-unthemed .fc-divider,
+  & .fc-unthemed .fc-list-heading td,
+  & .fc-unthemed .fc-popover .fc-header {
+    background-color: darken($gx-dark-theme-primary, 5%);
+  }
+}
+
+//_chat.scss
+.dark-theme {
+  .chat-main-header {
+    background-color: darken($gx-dark-theme-primary, 10%);
+  }
+
+  & .chat-textarea {
+    color: $white;
+
+    &:focus {
+      background-color: darken($gx-dark-theme-primary, 5%);
+    }
+  }
+
+  & .chat-sidenav-header {
+
+    & .tab-link .nav-link.active {
+      color: $secondary-dark-theme;
+      border-color: $secondary-dark-theme;
+    }
+  }
+
+  & .chat-item {
+    & .bubble {
+      color: $gx-dark-theme-primary;
+    }
+    &.flex-row-reverse .bubble {
+      background-color: darken($gx-dark-theme-primary, 10%);
+      color: $dark-theme-text;
+    }
+  }
+
+  & .chat-user-item {
+    &.active,
+    &:hover {
+      background-color: darken($gx-dark-theme-primary, 10%);
+    }
+  }
+}
+
+//_dashboard.scss
+.dark-theme .contact-list {
+  & i {
+    color: $gx-dark-theme-primary;
+  }
+}
+
+.dark-theme .nav-pill-sales {
+  & .nav-link {
+    &.active {
+      background-color: $gx-dark-theme-primary;
+      color: $dark-theme-text;
+      border-color: $gx-dark-theme-primary;
+    }
+  }
+}
+
+//The link which when clicked opens the collapsable ChatUserList
+.dark-theme .Collapsible__trigger {
+  background: $gx-dark-theme-primary;
+}
+
+.dark-theme .categories-list {
+  & li a:focus,
+  & li a:hover,
+  & li.active a {
+    color: darken($dark-theme-text, 25%);
+  }
+}
+
+//_login.scss
+
+.dark-theme .login-content .form-control {
+  &:focus {
+    border-color: $gx-dark-theme-primary;
+  }
+}
+
+//_portfolio.scss
+.dark-theme .filter-with-bg-color ul li {
+  & a {
+    border-color: darken($gx-dark-theme-primary, 5%);
+
+    &:hover,
+    &:focus,
+    &.active {
+      background-color: darken($gx-dark-theme-primary, 5%);
+    }
+  }
+}
+
+//_card.scss
+.dark-theme .profile-intro {
+  & .icon {
+    color: $gx-dark-theme-primary;
+  }
+}
+
+.dark-theme .social-link {
+  & li.active a,
+  & li a:hover,
+  & li a:focus {
+    color: $link-hover-dark-theme;
+  }
+}
+
+//_tables.scss
+.dark-theme .actions {
+  color: $link-hover-dark-theme;
+}
+
+.dark-theme .table-hover tbody tr:hover {
+  background-color: rgba($gx-dark-theme-primary, 0.5);
+}
+
+//Border Color
+.dark-theme .module-nav ul.module-nav-team .dashed-circle,
+.dark-theme .border-primary {
+  border-color: $link-hover-dark-theme !important;
+}
+
+.dark-theme .border-secondary {
+  border-color: $secondary-dark-theme !important;
+}
+
+//_picker.scss
+.dark-theme .bootstrap-datetimepicker-widget table {
+  & td span.active,
+  & td.active,
+  & td.active:hover {
+    background-color: $gx-dark-theme-primary;
+  }
+
+  & td span:hover,
+  & td.day:hover,
+  & td.hour:hover,
+  & td.minute:hover,
+  & table td.second:hover {
+    color: $gx-dark-theme-primary;
+  }
+}
+
+//_color-picker.scss
+.dark-theme .noUi-connect {
+  background: $gx-dark-theme-primary !important;
+}
+
+//mouldifi-form.css
+.dark-theme {
+  & .form-checkbox {
+    & > input + .check {
+      color: $dark-theme-text;
+    }
+  }
+
+  & .checkbox-primary {
+    & label::before {
+      border-color: $gx-dark-theme-primary;
+    }
+
+    & input[type="checkbox"]:checked + label::after {
+      background-color: $gx-dark-theme-primary;
+    }
+  }
+
+  & .radio-primary {
+    & input[type="radio"]:checked + label::before {
+      border-color: $gx-dark-theme-primary;
+    }
+
+    & input[type="radio"]:checked + label::after {
+      background-color: $gx-dark-theme-primary;
+    }
+  }
+}
+
+//Ecommerce.scss
+.dark-theme .gx-cart {
+  & .cart-item {
+    &:hover .icon-outline {
+      color: $dark-theme-text;
+      border-color: $dark-theme-text;
+    }
+  }
+
+  & .cart-action-btn {
+    & .icon-outline {
+      color: $dark-theme-text;
+    }
+
+    & .icon-outline:hover {
+      background-color: darken($gx-dark-theme-primary, 10%);
+      border-color: darken($gx-dark-theme-primary, 10%);
+      color: $dark-theme-text;
+    }
+  }
+}
+
+.dark-theme .is-focused {
+  &:hover,
+  &:focus {
+    background-image: linear-gradient($gx-dark-theme-primary,$gx-dark-theme-primary);
+  }
+}
+
+/*Icons Styles*/
+.dark-theme .icons-showcase > div {
+  &:hover {
+    background-color: $gx-dark-theme-primary;
+  }
+
+  & > a {
+    color: $dark-theme-text;
+  }
+}
+
+.dark-theme .form-control {
+  &:focus {
+    border-color: darken($gx-dark-theme-primary, 10%);
+  }
+}
+
+.dark-theme .input-group-addon {
+  background-color: $gx-dark-theme-primary;
+}
+
+//_input.scss
+.dark-theme .select2-container--default {
+  color: $gx-dark-theme-primary;
+  & .select2-results__option--highlighted[aria-selected] {
+    background-color: $gx-dark-theme-primary;
+  }
+}
+
+/*Accordions Styles*/
+.dark-theme .accordion-heading .accordion-toggle {
+  color: $white;
+  background-color: darken($gx-dark-theme-primary, 5%);
+}
+
+.dark-theme .accordion-heading .accordion-toggle.collapsed {
+  background-color: $white;
+  color: $body-color;
+}
+
+//Form Wizard
+.dark-theme {
+  & .wizard-navbar > ul li {
+    & a.active,
+    &.completed a {
+      color: $dark-theme-text;
+    }
+
+    &.completed a span.wz-number {
+      background-color: $gx-dark-theme-primary;
+      color: $white;
+    }
+
+    & a.active span.wz-number {
+      background-color: $secondary-dark-theme;
+      color: $white;
+    }
+
+    & a.active:before,
+    & a.active:after {
+      background-color: $secondary-dark-theme;
+    }
+
+    &.completed a:before,
+    &.completed a:after {
+      background-color: $gx-dark-theme-primary;
+    }
+  }
+
+  & .pager {
+    & > li > a,
+    & > li > span {
+      color: $gx-dark-theme-primary;
+    }
+  }
+}
+//Dropzone
+.dark-theme .dropzone {
+  border-color: darken($gx-dark-theme-primary, 10%);
+  background-color: $gx-dark-theme-primary;
+}
+
+//Tabs
+.dark-theme .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $gx-dark-theme-primary;
+  }
+}
+
+.dark-theme .bg-primary .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $white;
+  }
+}
+
+//Progress Bar
+.dark-theme .progress-bar {
+  background-color: $gx-dark-theme-primary;
+}
+
+//Sweet-alert
+.dark-theme .swal-button {
+  background-color: $gx-dark-theme-primary;
+  color: $white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($gx-dark-theme-primary, 5%);
+  }
+
+  &.swal-button--cancel {
+    color: $body-color;
+    background-color: darken($body-bg, 5%);
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: darken($body-bg, 10%);
+    }
+  }
+}
+
+//Bottom Navigation
+.dark-theme .bottom-navigation {
+  & > li.active > a {
+    color: darken($gx-dark-theme-primary, 5%);
+  }
+}
+
+//Breadcrumb
+.dark-theme {
+  & .breadcrumb {
+    background-color: $gx-dark-theme-primary;
+  }
+
+  & .page-heading .breadcrumb {
+    background-color: transparent;
+  }
+}
+
+//_typography.scss
+.dark-theme .desc-list.even-odd li:nth-child(2n) {
+  background-color: $gx-dark-theme-primary;
+}
+
+.dark-theme .list-group-item {
+  background-color: darken($secondary-dark-theme, 5%);
+
+  &:hover {
+    background-color: $gx-dark-theme-primary;
+  }
+}
+
+//_timeline.scss
+.dark-theme .timeline-panel {
+  background-color: $secondary-dark-theme;
+  &:after {
+    border-color: transparent $secondary-dark-theme;
+  }
+  &:before {
+    border-color: transparent $gx-dark-theme-primary;
+  }
+}
+
+//login.scss
+.dark-theme .login-content {
+  background-color: darken($secondary-dark-theme, 5%);
+}
+
+//Modal box
+.dark-theme .modal-content {
+  background-color: $secondary-dark-theme;
+}

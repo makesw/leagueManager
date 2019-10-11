@@ -1,0 +1,771 @@
+/*Theme Amber Styles*/
+$gx-primary-amber: #FFC107 !default;
+$secondary-amber: #FF3D00;
+
+$sidebar-amber: $white !default;
+$sidebar-text-color-amber: #868e96 !default;
+
+//-Base-scss
+.amber .right-arrow {
+  color: $gx-primary-amber;
+  &:after {
+    color: $gx-primary-amber;
+  }
+}
+
+//Button function
+@each $color_name, $color in $colors_palette {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .amber .gx-btn-#{$color_name} {
+        background-color: $color_value;
+        color: $white;
+        &:hover,
+        &:focus {
+          background-color: darken($color_value, 5%);
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+//
+// Alternate buttons
+//
+@each $color, $value in $theme-colors {
+  .amber .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .amber a.btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .amber .btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $sidebar-amber);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .amber a.btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $sidebar-amber);
+    }
+  }
+}
+
+.amber .btn-outline-primary,
+.amber a.btn-outline-primary {
+  color: $gx-primary-amber;
+  border-color: $gx-primary-amber;
+
+  &:focus,
+  &:hover {
+    color: $white;
+    border-color: $gx-primary-amber;
+    background-color: $gx-primary-amber;
+  }
+}
+
+//Bootstrap file Style
+.amber {
+  & a {
+    color: $gx-primary-amber;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-amber, 10%);
+    }
+  }
+
+  & a.text-primary {
+    color: $gx-primary-amber !important;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-amber, 10%) !important;
+    }
+  }
+
+  & .text-primary {
+    color: $gx-primary-amber !important;
+  }
+
+  & .page-link {
+    color: $gx-primary-amber;
+    &:focus,
+    &:hover {
+      color: $gx-primary-amber;
+    }
+  }
+
+  & .page-item.active .page-link {
+    color: $sidebar-amber;
+    background-color: $gx-primary-amber;
+    border-color: $gx-primary-amber;
+  }
+
+  & .badge-primary {
+    background-color: $gx-primary-amber;
+    color: $sidebar-amber;
+  }
+
+  & .bg-primary {
+    background-color: $gx-primary-amber !important;
+    color: $sidebar-amber !important;
+  }
+
+  & .btn-primary,
+  & .gx-btn-primary,
+  & a.btn-primary,
+  & a.gx-btn-primary {
+    background-color: $gx-primary-amber;
+    border-color: $gx-primary-amber;
+    color: $sidebar-amber;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($gx-primary-amber, 5%);
+      border-color: darken($gx-primary-amber, 5%);
+      color: $sidebar-amber;
+    }
+  }
+
+  & .bg-primary {
+    &.lighten-4 {
+      background-color: #ffecb3 !important;
+    }
+
+    &.lighten-3 {
+      background-color: #ffe082 !important;
+    }
+
+    &.lighten-2 {
+      background-color: #ffd54f !important;
+    }
+
+    &.lighten-1 {
+      background-color: #ffca28 !important;
+    }
+
+    &.darken-1 {
+      background-color: #ffb300 !important;
+    }
+
+    &.darken-2 {
+      background-color: #ffa000 !important;
+    }
+
+    &.darken-3 {
+      background-color: #ff8f00 !important;
+    }
+
+    &.darken-4 {
+      background-color: #ff6f00 !important;
+    }
+
+    &.accent-1 {
+      background-color: #ffe57f !important;
+    }
+
+    &.accent-2 {
+      background-color: #ffd740 !important;
+    }
+
+    &.accent-3 {
+      background-color: #ffc400 !important;
+    }
+
+    &.accent-4 {
+      background-color: #ffab00 !important;
+    }
+  }
+}
+
+//Secondary
+.amber {
+  & a.text-secondary {
+    color: $secondary-amber;
+    &:focus,
+    &:hover {
+      color: darken($secondary-amber, 10%) !important;
+    }
+  }
+
+  & .text-secondary {
+    color: $secondary-amber !important;
+  }
+
+  & .bg-secondary,
+  & .badge-secondary {
+    background-color: $secondary-amber !important;
+    color: $sidebar-amber !important;
+  }
+
+  & .btn-secondary,
+  & .gx-btn-secondary,
+  & a.btn-secondary,
+  & a.gx-btn-secondary {
+    background-color: $secondary-amber;
+    border-color: $secondary-amber;
+    color: $sidebar-amber;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($secondary-amber, 5%);
+      border-color: darken($secondary-amber, 5%);
+      color: $sidebar-amber;
+    }
+  }
+}
+
+//Button Group
+.amber .btn-group > .gx-btn,
+.amber .btn-group-vertical > .gx-btn {
+  &.active {
+    background-color: $gx-primary-amber;
+    border-color: $gx-primary-amber;
+  }
+
+  &.gx-flat-btn {
+    border-color: transparent;
+    &.active {
+      background-color: transparent;
+      color: $gx-primary-amber;
+
+      &:hover,
+      &:focus {
+        background-color: rgba($gx-primary-amber, 0.12);
+        color: $gx-primary-amber;
+      }
+    }
+  }
+}
+
+//Custom Checkbox
+.amber .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-amber;
+}
+
+.amber .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-amber;
+}
+
+.amber a.btn-link {
+  color: $gx-primary-amber;
+  background-color: transparent;
+
+  @include hover {
+    color: darken($gx-primary-amber, 5%);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    border-color: transparent;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+}
+
+.amber .dropdown-more,
+.amber .dropdown-item,
+.amber a.badge-light,
+.amber a.btn-light {
+  color: $body-color;
+
+  &:hover,
+  &:focus {
+    color: $body-color;
+  }
+}
+
+.amber a.gx-btn-default {
+  background-color: $sidebar-amber;
+  color: $body-color;
+  border: 1px solid $gray-300;
+  &:hover,
+  &:focus {
+    background-color: darken($sidebar-amber, 5%);
+    color: $body-color;
+  }
+}
+
+.amber a.gx-flat-btn {
+  background-color: transparent;
+  color: $body-color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: map_get($gray, lighten-4);
+    color: $body-color;
+  }
+}
+
+.amber a.gx-flat-btn.gx-btn-primary {
+  background-color: transparent;
+  color: $gx-primary-amber;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($gx-primary-amber, 0.12);
+    color: $gx-primary-amber;
+  }
+}
+
+.amber .bg-primary {
+  & a.gx-flat-btn.gx-btn-primary {
+    background-color: transparent;
+    color: $sidebar-amber;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($sidebar-amber, 0.12);
+      color: $sidebar-amber;
+    }
+  }
+}
+
+.amber a.gx-flat-btn.gx-btn-secondary {
+  background-color: transparent;
+  color: $secondary-amber;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($secondary-amber, 0.12);
+    color: $secondary-amber;
+  }
+}
+
+.amber .bg-secondary {
+  & a.gx-flat-btn.gx-btn-secondary {
+    background-color: transparent;
+    color: $sidebar-amber;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($sidebar-amber, 0.12);
+      color: $sidebar-amber;
+    }
+  }
+}
+
+.amber .action-btn {
+  color: rgba($black, 0.54);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: rgba($black, 0.64);
+  }
+}
+
+//_header.scss
+.amber .main-header {
+  & .search-dropdown input {
+    @media screen and (max-width: 575px) {
+      background-color: $white;
+    }
+  }
+}
+
+//Messages List
+.amber {
+  & .messages-list ul li {
+    & .user-name a {
+      color: $gx-primary-amber;
+    }
+  }
+}
+
+//_right-sidebar.scss
+.amber .color-theme-header {
+  background-color: $gx-primary-amber;
+}
+
+//_sidebar.scss
+.amber ul.nav-menu > li.selected > a,
+.amber ul.nav-menu > li.open > a,
+.amber ul.nav-menu > li > a:hover,
+.amber ul.nav-menu > li > a:focus {
+  background-color: $sidebar-amber;
+  color: $gx-primary-amber;
+}
+
+.amber ul.nav-menu li.menu > a:focus:before,
+.amber ul.nav-menu li.menu > a:hover:before {
+  color: $gx-primary-amber;
+}
+
+.amber ul.nav-menu li ul {
+  background-color: $sidebar-amber;
+}
+
+.amber ul.nav-menu li.menu.selected > a:before,
+.amber ul.nav-menu li.menu.open > a:before,
+.amber ul.nav-menu li.menu > a:focus:before,
+.amber ul.nav-menu li.menu li > a:hover:before {
+  color: $gx-primary-amber;
+}
+
+.amber ul.nav-menu li.menu .sub-menu li.active > a .nav-text {
+  background-color: $gx-primary-amber;
+  color: $sidebar-amber;
+}
+
+.amber ul.nav-menu li.menu .sub-menu li > a:hover,
+.amber ul.nav-menu li.menu .sub-menu li > a:focus,
+.amber ul.nav-menu li.menu.open .sub-menu li.active > a:before,
+.amber ul.nav-menu li.menu .sub-menu li > a:focus:before,
+.amber ul.nav-menu li.menu .sub-menu li > a:hover:before {
+  background-color: $sidebar-amber;
+  color: $gx-primary-amber;
+}
+
+//_module.scss
+.amber .module-nav {
+  & li a.active {
+    color: $gx-primary-amber;
+  }
+}
+
+.amber .module-tab-nav {
+  & li a.nav-link.active {
+    border-color: $gx-primary-amber;
+    color: $gx-primary-amber;
+  }
+}
+
+.amber .nav-pills-module {
+  & > li > a {
+    background-color: $gx-primary-amber;
+    color: $white;
+    border-color: $gx-primary-amber;
+
+    &.nav-link-border {
+      background-color: transparent;
+      border-color: $gray-500;
+      color: $gray-800;
+    }
+  }
+}
+
+//_calendar.scss
+.amber .fc-event,
+.amber .fc-event-dot {
+  background-color: $gx-primary-amber;
+}
+
+//_chat.scss
+.amber {
+  & .chat-sidenav-header {
+    & .tab-link .nav-link.active {
+      color: $gx-primary-amber;
+      border-color: $gx-primary-amber;
+    }
+  }
+
+  & .chat-item.flex-row-reverse .bubble {
+    background-color: $gx-primary-amber;
+  }
+
+  & .chat-user-item {
+    &.active,
+    &:hover {
+      background-color: $gx-primary-amber;
+    }
+  }
+}
+
+.amber .chat-main-header {
+  background-color: $gx-primary-amber;
+
+  & .action-btn {
+    color: $white;
+  }
+}
+
+//_dashboard.scss
+.amber .contact-list {
+  & i {
+    color: $gx-primary-amber;
+  }
+}
+
+.amber .nav-pill-sales {
+  & .nav-link {
+    &.active {
+      background-color: $gx-primary-amber;
+      border-color: $gx-primary-amber;
+    }
+  }
+}
+
+//The link which when clicked opens the collapsable ChatUserList
+.amber .Collapsible__trigger {
+  background: $gx-primary-amber;
+}
+
+.amber .categories-list {
+  & li a:focus,
+  & li a:hover,
+  & li.active a {
+    color: $gx-primary-amber;
+  }
+}
+
+//_login.scss
+.amber .login-content .form-control {
+  &:focus {
+    border-color: $gx-primary-amber;
+  }
+}
+
+//_portfolio.scss
+.amber .filter-with-bg-color ul li {
+  & a {
+    border-color: $gx-primary-amber;
+
+    &:hover,
+    &:focus,
+    &.active {
+      background-color: $gx-primary-amber;
+    }
+  }
+}
+
+//_card.scss
+.amber .profile-intro {
+  & .icon {
+    color: $gx-primary-amber;
+  }
+}
+
+.amber .social-link {
+  & li.active a,
+  & li a:hover,
+  & li a:focus {
+    color: $secondary-amber;
+  }
+}
+
+//_tables.scss
+.amber .actions {
+  color: $secondary-amber;
+}
+
+.amber .table-hover tbody tr:hover {
+  background-color: rgba($gx-primary-amber, 0.075);
+}
+
+//Border Color
+.amber .module-nav ul.module-nav-team .dashed-circle,
+.amber .border-primary {
+  border-color: $gx-primary-amber !important;
+}
+
+.amber .border-secondary {
+  border-color: $secondary-amber !important;
+}
+
+//_picker.scss
+.amber .bootstrap-datetimepicker-widget table {
+  & td span.active,
+  & td.active,
+  & td.active:hover {
+    background-color: $gx-primary-amber;
+  }
+}
+
+//_color-picker.scss
+.amber .noUi-connect {
+  background: $gx-primary-amber !important;
+}
+
+//mouldifi-form.css
+.amber {
+  & .form-checkbox {
+    & > input + .check {
+      color: $gx-primary-amber;
+    }
+  }
+
+  & .checkbox-primary {
+    & label::before {
+      border-color: $gx-primary-amber;
+    }
+
+    & input[type="checkbox"]:checked + label::after {
+      background-color: $gx-primary-amber;
+    }
+  }
+
+  & .radio-primary {
+    & input[type="radio"]:checked + label::before {
+      border-color: $gx-primary-amber;
+    }
+
+    & input[type="radio"]:checked + label::after {
+      background-color: $gx-primary-amber;
+    }
+  }
+}
+
+//Ecommerce.scss
+.amber .gx-cart {
+  & .cart-item {
+    &:hover .icon-outline {
+      color: $gx-primary-amber;
+      border-color: $gx-primary-amber;
+    }
+  }
+
+  & .cart-action-btn {
+    & .icon-outline {
+      color: $gx-primary-amber;
+    }
+
+    & .icon-outline:hover {
+      background-color: $gx-primary-amber;
+      color: $white;
+    }
+  }
+}
+
+.amber .is-focused {
+  &:hover,
+  &:focus {
+    background-image: linear-gradient($gx-primary-amber, $gx-primary-amber);
+  }
+}
+
+/*Icons Styles*/
+.amber .icons-showcase > div {
+  &:hover {
+    background-color: $gx-primary-amber;
+  }
+}
+
+/* Input Style */
+.amber .form-control {
+  &:focus {
+    border-color: $gx-primary-amber;
+  }
+}
+
+.amber .select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $gx-primary-amber;
+}
+
+/*Accordions Styles*/
+.amber .accordion-heading .accordion-toggle {
+  color: $white;
+  background-color: $gx-primary-amber;
+}
+
+.amber .accordion-heading .accordion-toggle.collapsed {
+  background-color: $white;
+  color: $body-color;
+}
+
+//Form Wizard
+.amber {
+  & .wizard-navbar > ul li {
+    &.completed a span.wz-number {
+      background-color: $gx-primary-amber;
+      color: $white;
+    }
+
+    & a.active span.wz-number {
+      background-color: $secondary-amber;
+      color: $white;
+    }
+
+    & a.active:before,
+    & a.active:after {
+      background-color: $secondary-amber;
+    }
+
+    &.completed a:before,
+    &.completed a:after {
+      background-color: $gx-primary-amber;
+    }
+  }
+
+  & .pager {
+    & > li > a,
+    & > li > span {
+      color: $gx-primary-amber;
+    }
+  }
+}
+
+//Dropzone
+.amber .dropzone {
+  border-color: $gx-primary-amber;
+}
+
+//Tabs
+.amber .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $gx-primary-amber;
+  }
+}
+
+.amber .bg-primary .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $white;
+  }
+}
+
+//Progress Bar
+.amber .progress-bar {
+  background-color: $gx-primary-amber;
+}
+
+//Sweet-alert
+.amber .swal-button {
+  background-color: $gx-primary-amber;
+  color: $white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($gx-primary-amber, 5%);
+  }
+
+  &.swal-button--cancel {
+    color: $body-color;
+    background-color: darken($body-bg, 5%);
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: darken($body-bg, 10%);
+    }
+  }
+}
+
+//Bottom Navigation
+.amber .bottom-navigation {
+  & > li.active > a {
+    color: $gx-primary-amber;
+    padding-top: 6px;
+  }
+}

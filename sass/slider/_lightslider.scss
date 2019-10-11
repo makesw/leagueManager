@@ -1,0 +1,43 @@
+/*Light Slider*/
+.product-gallery-slider {
+  margin-bottom: 15px;
+}
+
+.lSSlideWrapper {
+  margin-bottom: 15px;
+  @include border-radius($border-radius-lg);
+}
+
+.product-gslider {
+  & img {
+    width: 100%;
+  }
+}
+
+.lSGallery {
+  & li {
+    @include transition(all 0.4s ease-in-out);
+    @include scale(0.92);
+    &.active {
+      @include scale(1);
+    }
+    &:hover,
+    &:focus {
+      @include scale(1);
+    }
+  }
+}
+
+.lSAction {
+  & > a {
+    width: 35px;
+    height: 35px;
+    margin-top: -17px;
+    &.lSPrev {
+      @include background('#{$image_path}/prev.png', 0 0, no-repeat, 100%);
+    }
+    &.lSNext {
+      @include background('#{$image_path}/next.png', 0 0, no-repeat, 100%);
+    }
+  }
+}

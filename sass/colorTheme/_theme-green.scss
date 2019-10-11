@@ -1,0 +1,772 @@
+/*Theme Green Styles*/
+$gx-primary-green: #4CAF50 !default;
+$secondary-green: #FF6D00;
+
+$sidebar-green: $white !default;
+$sidebar-text-green: #868e96 !default;
+
+//-Base-scss
+.green .right-arrow {
+  color: $gx-primary-green;
+  &:after {
+    color: $gx-primary-green;
+  }
+}
+
+//Button function
+@each $color_name, $color in $colors_palette {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .green .gx-btn-#{$color_name} {
+        background-color: $color_value;
+        color: $white;
+        &:hover,
+        &:focus {
+          background-color: darken($color_value, 5%);
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+//
+// Alternate buttons
+//
+@each $color, $value in $theme-colors {
+  .green .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .green a.btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .green .btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $sidebar-green);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .green a.btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $sidebar-green);
+    }
+  }
+}
+
+.green .btn-outline-primary,
+.green a.btn-outline-primary {
+  color: $gx-primary-green;
+  border-color: $gx-primary-green;
+
+  &:focus,
+  &:hover {
+    color: $white;
+    border-color: $gx-primary-green;
+    background-color: $gx-primary-green;
+  }
+}
+
+//- Bootstrap file Style
+.green {
+  & a {
+    color: $gx-primary-green;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-green, 10%);
+    }
+  }
+
+  & a.text-primary {
+    color: $gx-primary-green !important;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-green, 10%) !important;
+    }
+  }
+
+  & .text-primary {
+    color: $gx-primary-green !important;
+  }
+
+  & .page-link {
+    color: $gx-primary-green;
+    &:focus,
+    &:hover {
+      color: $gx-primary-green;
+    }
+  }
+
+  & .page-item.active .page-link {
+    color: $sidebar-green;
+    background-color: $gx-primary-green;
+    border-color: $gx-primary-green;
+  }
+
+  & .badge-primary {
+    background-color: $gx-primary-green;
+    color: $sidebar-green;
+  }
+
+  & .bg-primary {
+    background-color: $gx-primary-green !important;
+    color: $sidebar-green !important;
+  }
+
+  & .btn-primary,
+  & .gx-btn-primary,
+  & a.btn-primary,
+  & a.gx-btn-primary {
+    background-color: $gx-primary-green;
+    border-color: $gx-primary-green;
+    color: $sidebar-green;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($gx-primary-green, 5%);
+      border-color: darken($gx-primary-green, 5%);
+      color: $sidebar-green;
+    }
+  }
+
+  & .bg-primary {
+    &.lighten-4 {
+      background-color: #C8E6C9 !important;
+    }
+
+    &.lighten-3 {
+      background-color: #A5D6A7 !important;
+    }
+
+    &.lighten-2 {
+      background-color: #81C784 !important;
+    }
+
+    &.lighten-1 {
+      background-color: #66BB6A !important;
+    }
+
+    &.darken-1 {
+      background-color: #43A047 !important;
+    }
+
+    &.darken-2 {
+      background-color: #388E3C !important;
+    }
+
+    &.darken-3 {
+      background-color: #2E7D32 !important;
+    }
+
+    &.darken-4 {
+      background-color: #1B5E20 !important;
+    }
+
+    &.accent-1 {
+      background-color: #B9F6CA !important;
+    }
+
+    &.accent-2 {
+      background-color: #69F0AE !important;
+    }
+
+    &.accent-3 {
+      background-color: #00E676 !important;
+    }
+
+    &.accent-4 {
+      background-color: #00C853 !important;
+    }
+  }
+}
+
+//Secondary
+.green {
+  & a.text-secondary {
+    color: $secondary-green;
+    &:focus,
+    &:hover {
+      color: darken($secondary-green, 10%) !important;
+    }
+  }
+
+  & .text-secondary {
+    color: $secondary-green !important;
+  }
+
+  & .bg-secondary,
+  & .badge-secondary {
+    background-color: $secondary-green !important;
+    color: $sidebar-green !important;
+  }
+
+  & .btn-secondary,
+  & .gx-btn-secondary,
+  & a.btn-secondary,
+  & a.gx-btn-secondary {
+    background-color: $secondary-green;
+    border-color: $secondary-green;
+    color: $sidebar-green;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($secondary-green, 5%);
+      border-color: darken($secondary-green, 5%);
+      color: $sidebar-green;
+    }
+  }
+}
+
+//Button Group
+.green .btn-group > .gx-btn,
+.green .btn-group-vertical > .gx-btn {
+  &.active {
+    background-color: $gx-primary-green;
+    border-color: $gx-primary-green;
+  }
+
+  &.gx-flat-btn {
+    border-color: transparent;
+    &.active {
+      background-color: transparent;
+      color: $gx-primary-green;
+
+      &:hover,
+      &:focus {
+        background-color: rgba($gx-primary-green, 0.12);
+        color: $gx-primary-green;
+      }
+    }
+  }
+}
+
+//Custom Checkbox
+.green .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-green;
+}
+
+.green .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-green;
+}
+
+.green a.btn-link {
+  color: $gx-primary-green;
+  background-color: transparent;
+
+  @include hover {
+    color: darken($gx-primary-green, 5%);;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    border-color: transparent;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+}
+
+.green .dropdown-more,
+.green .dropdown-item,
+.green a.badge-light,
+.green a.btn-light {
+  color: $body-color;
+
+  &:hover,
+  &:focus {
+    color: $body-color;
+  }
+}
+
+.green a.gx-btn-default {
+  background-color: $sidebar-green;
+  color: $body-color;
+  border: 1px solid $gray-300;
+  &:hover,
+  &:focus {
+    background-color: darken($sidebar-green, 5%);
+    color: $body-color;
+  }
+}
+
+.green a.gx-flat-btn {
+  background-color: transparent;
+  color: $body-color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: map_get($gray, lighten-4);
+    color: $body-color;
+  }
+}
+
+.green a.gx-flat-btn.gx-btn-primary {
+  background-color: transparent;
+  color: $gx-primary-green;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($gx-primary-green, 0.12);
+    color: $gx-primary-green;
+  }
+}
+
+.green .bg-primary {
+  & a.gx-flat-btn.gx-btn-primary {
+    background-color: transparent;
+    color: $sidebar-green;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($sidebar-green, 0.12);
+      color: $sidebar-green;
+    }
+  }
+}
+
+.green a.gx-flat-btn.gx-btn-secondary {
+  background-color: transparent;
+  color: $secondary-green;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($secondary-green, 0.12);
+    color: $secondary-green;
+  }
+}
+
+.green .bg-secondary {
+  & a.gx-flat-btn.gx-btn-secondary {
+    background-color: transparent;
+    color: $sidebar-green;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($sidebar-green, 0.12);
+      color: $sidebar-green;
+    }
+  }
+}
+
+.green .action-btn {
+  color: rgba($black, 0.54);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: rgba($black, 0.64);
+  }
+}
+
+//_header.scss
+.green .main-header {
+  & .search-dropdown input {
+    @media screen and (max-width: 575px) {
+      background-color: $white;
+    }
+  }
+}
+
+//Messages List
+.green {
+  & .messages-list ul li {
+    & .user-name a {
+      color: $gx-primary-green;
+    }
+  }
+}
+
+//_right-sidebar.scss
+.green .color-theme-header {
+  background-color: $gx-primary-green;
+}
+
+//_sidebar.scss
+.green ul.nav-menu > li.selected > a,
+.green ul.nav-menu > li.open > a,
+.green ul.nav-menu > li > a:hover,
+.green ul.nav-menu > li > a:focus {
+  background-color: $sidebar-green;
+  color: $gx-primary-green;
+}
+
+.green ul.nav-menu li.menu > a:focus:before,
+.green ul.nav-menu li.menu > a:hover:before {
+  color: $gx-primary-green;
+}
+
+.green ul.nav-menu li ul {
+  background-color: $sidebar-green;
+}
+
+.green ul.nav-menu li.menu.selected > a:before,
+.green ul.nav-menu li.menu.open > a:before,
+.green ul.nav-menu li.menu > a:focus:before,
+.green ul.nav-menu li.menu li > a:hover:before {
+  color: $gx-primary-green;
+}
+
+.green ul.nav-menu li.menu .sub-menu li.active > a .nav-text {
+  background-color: $gx-primary-green;
+  color: $sidebar-green;
+}
+
+.green ul.nav-menu li.menu .sub-menu li > a:hover,
+.green ul.nav-menu li.menu .sub-menu li > a:focus,
+.green ul.nav-menu li.menu.open .sub-menu li.active > a:before,
+.green ul.nav-menu li.menu .sub-menu li > a:focus:before,
+.green ul.nav-menu li.menu .sub-menu li > a:hover:before {
+  background-color: $sidebar-green;
+  color: $gx-primary-green;
+}
+
+//_module.scss
+.green .module-nav {
+  & li a.active {
+    color: $gx-primary-green;
+  }
+}
+
+.green .module-tab-nav {
+  & li a.nav-link.active {
+    border-color: $gx-primary-green;
+    color: $gx-primary-green;
+  }
+}
+
+.green .nav-pills-module {
+  & > li > a {
+    background-color: $gx-primary-green;
+    color: $white;
+    border-color: $gx-primary-green;
+
+    &.nav-link-border {
+      background-color: transparent;
+      border-color: $gray-500;
+      color: $gray-800;
+    }
+  }
+}
+
+//_calendar.scss
+.green .fc-event,
+.green .fc-event-dot {
+  background-color: $gx-primary-green;
+}
+
+//_chat.scss
+.green {
+  & .chat-sidenav-header {
+    & .tab-link .nav-link.active {
+      color: $gx-primary-green;
+      border-color: $gx-primary-green;
+    }
+  }
+
+  & .chat-item.flex-row-reverse .bubble {
+    background-color: $gx-primary-green;
+  }
+
+  & .chat-user-item {
+    &.active,
+    &:hover {
+      background-color: $gx-primary-green;
+    }
+  }
+}
+
+.green .chat-main-header {
+  background-color: $gx-primary-green;
+
+  & .action-btn {
+    color: $white;
+  }
+}
+
+//_dashboard.scss
+.green .contact-list {
+  & i {
+    color: $gx-primary-green;
+  }
+}
+
+.green .nav-pill-sales {
+  & .nav-link {
+    &.active {
+      background-color: $gx-primary-green;
+      border-color: $gx-primary-green;
+    }
+  }
+}
+
+//The link which when clicked opens the collapsable ChatUserList
+.green .Collapsible__trigger {
+  background: $gx-primary-green;
+}
+
+.green .categories-list {
+  & li a:focus,
+  & li a:hover,
+  & li.active a {
+    color: $gx-primary-green;
+  }
+}
+
+//_login.scss
+.green .login-content .form-control {
+  &:focus {
+    border-color: $gx-primary-green;
+  }
+}
+
+//_portfolio.scss
+.green .filter-with-bg-color ul li {
+  & a {
+    border-color: $gx-primary-green;
+
+    &:hover,
+    &:focus,
+    &.active {
+      background-color: $gx-primary-green;
+    }
+  }
+}
+
+//_card.scss
+.green .profile-intro {
+  & .icon {
+    color: $gx-primary-green;
+  }
+}
+
+.green .social-link {
+  & li.active a,
+  & li a:hover,
+  & li a:focus {
+    color: $secondary-green;
+  }
+}
+
+//_tables.scss
+.green .actions {
+  color: $secondary-green;
+}
+
+.green .table-hover tbody tr:hover {
+  background-color: rgba($gx-primary-green, 0.075);
+}
+
+//Border Color
+.green .module-nav ul.module-nav-team .dashed-circle,
+.green .border-primary {
+  border-color: $gx-primary-green !important;
+}
+
+.green .border-secondary {
+  border-color: $secondary-green !important;
+}
+
+//_picker.scss
+.green .bootstrap-datetimepicker-widget table {
+  & td span.active,
+  & td.active,
+  & td.active:hover {
+    background-color: $gx-primary-green;
+  }
+}
+
+//_color-picker.scss
+.green .noUi-connect {
+  background: $gx-primary-green !important;
+}
+
+//mouldifi-form.css
+.green {
+  & .form-checkbox {
+    & > input + .check {
+      color: $gx-primary-green;
+    }
+  }
+
+  & .checkbox-primary {
+    & label::before {
+      border-color: $gx-primary-green;
+    }
+
+    & input[type="checkbox"]:checked + label::after {
+      background-color: $gx-primary-green;
+    }
+  }
+
+  & .radio-primary {
+    & input[type="radio"]:checked + label::before {
+      border-color: $gx-primary-green;
+    }
+
+    & input[type="radio"]:checked + label::after {
+      background-color: $gx-primary-green;
+    }
+  }
+}
+
+//Ecommerce.scss
+.green .gx-cart {
+  & .cart-item {
+    &:hover .icon-outline {
+      color: $gx-primary-green;
+      border-color: $gx-primary-green;
+    }
+  }
+
+  & .cart-action-btn {
+    & .icon-outline {
+      color: $gx-primary-green;
+    }
+
+    & .icon-outline:hover {
+      background-color: $gx-primary-green;
+      color: $white;
+    }
+  }
+}
+
+.green .is-focused {
+  &:hover,
+  &:focus {
+    background-image: linear-gradient($gx-primary-green, $gx-primary-green);
+  }
+}
+
+/*Icons Styles*/
+.green .icons-showcase > div {
+  &:hover {
+    background-color: $gx-primary-green;
+  }
+}
+
+/* Input Style */
+.green .form-control {
+  &:focus {
+    border-color: $gx-primary-green;
+  }
+}
+
+//_input.scss
+.green .select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $gx-primary-green;
+}
+
+/*Accordions Styles*/
+.green .accordion-heading .accordion-toggle {
+  color: $white;
+  background-color: $gx-primary-green;
+}
+
+.green .accordion-heading .accordion-toggle.collapsed {
+  background-color: $white;
+  color: $body-color;
+}
+
+//Form Wizard
+.green {
+  & .wizard-navbar > ul li {
+    &.completed a span.wz-number {
+      background-color: $gx-primary-green;
+      color: $white;
+    }
+
+    & a.active span.wz-number {
+      background-color: $secondary-green;
+      color: $white;
+    }
+
+    & a.active:before,
+    & a.active:after {
+      background-color: $secondary-green;
+    }
+
+    &.completed a:before,
+    &.completed a:after {
+      background-color: $gx-primary-green;
+    }
+  }
+
+  & .pager {
+    & > li > a,
+    & > li > span {
+      color: $gx-primary-green;
+    }
+  }
+}
+
+//Dropzone
+.green .dropzone {
+  border-color: $gx-primary-green;
+}
+
+//Tabs
+.green .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $gx-primary-green;
+  }
+}
+
+.green .bg-primary .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $white;
+  }
+}
+
+//Progress Bar
+.green .progress-bar {
+  background-color: $gx-primary-green;
+}
+
+//Sweet-alert
+.green .swal-button {
+  background-color: $gx-primary-green;
+  color: $white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($gx-primary-green, 5%);
+  }
+
+  &.swal-button--cancel {
+    color: $body-color;
+    background-color: darken($body-bg, 5%);
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: darken($body-bg, 10%);
+    }
+  }
+}
+
+//Bottom Navigation
+.green .bottom-navigation {
+  & > li.active > a {
+    color: $gx-primary-green;
+    padding-top: 6px;
+  }
+}

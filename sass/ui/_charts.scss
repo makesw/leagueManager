@@ -1,0 +1,95 @@
+/*Charts Styles*/
+
+.chart-header {
+  padding: 15px 18px;
+  & .card-title {
+    h4 {
+      color: $white;
+      margin-bottom: 4px;
+    }
+  }
+
+  & .title h4 {margin-bottom: 4px;}
+  & p {margin-bottom: 4px;}
+}
+
+.flot-chart-content {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.2em;
+}
+
+.chart-height {
+  height: 280px;
+}
+
+.chart-responsive {
+  & .embed-responsive-item {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.c3-tooltip th,
+.c3-tooltip td {
+  border: 0 none !important;
+}
+
+.c3-tooltip tr th {
+  background-color: $white;
+  color: $gray-default;
+}
+
+.chart-white .ct-series-a .ct-bar {
+  stroke: $white;
+}
+
+.ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point, .ct-series-a .ct-slice-donut {
+  stroke: $gx-primary;
+}
+
+.ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point, .ct-series-b .ct-slice-donut {
+  stroke: $secondary;
+}
+
+.ct-series-c .ct-bar, .ct-series-c .ct-line, .ct-series-c .ct-point, .ct-series-c .ct-slice-donut {
+  stroke: $gray-400;
+}
+
+.ct-series-d .ct-bar, .ct-series-d .ct-line, .ct-series-d .ct-point, .ct-series-d .ct-slice-donut {
+  stroke: red;
+}
+
+.ct-series-a .ct-area, .ct-series-a .ct-slice-donut-solid, .ct-series-a .ct-slice-pie {
+  fill: $gx-primary;
+}
+
+.ct-label {
+  fill: $black;
+  color: $black;
+}
+
+.ct-series-b .ct-area, .ct-series-b .ct-slice-donut-solid, .ct-series-b .ct-slice-pie {
+  fill: $secondary;
+}
+
+.c3-chart {
+ & .c3-area {
+    opacity: 0.9 !important;
+  }
+
+  & .c3-legend-background {
+    stroke: transparent;
+  }
+}
+
+.c3-line {
+  stroke-width: 1px;
+}
+
+//news bar chart
+#news-ch-chart .ct-bar {
+  stroke: map_get($teal, accent-4);
+  stroke-width: 6px !important;
+}

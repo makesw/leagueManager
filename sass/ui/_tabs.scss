@@ -1,0 +1,62 @@
+/* Tabs
+   ========================================================================== */
+.tab-wrapper {
+  margin-bottom: 10px;
+}
+
+.tabs-container {
+  .card-body {
+    border: solid 1px map_get($gray, lighten-2);
+    border-top: 0 none;
+  }
+  &.tabs-vertical .card-body {
+    border-top: solid 1px map_get($gray, lighten-2);
+  }
+}
+
+.tabs-vertical {
+  & .nav-tabs {
+    float: left;
+    > li {
+      float: none;
+    }
+  }
+  & .tab-content {
+    overflow: hidden;
+  }
+}
+
+.tabs-vertical .nav-tabs > li {
+  & > a {
+    border-color: map_get($gray, lighten-2);
+    border-radius: 0;
+    margin-right: -1px;
+    z-index: 5;
+
+    &.active {
+      border-color: map_get($gray, lighten-2);
+      border-right-color: $white;
+    }
+  }
+  &:first-child a {
+    @include border-radius(4px 0 0 0);
+  }
+}
+
+.tabs-right .nav-tabs {
+  float: right;
+  & > li {
+    & > a {
+      margin-right: 0;
+      margin-left: -1px;
+
+      &.active {
+        border-color: map_get($gray, lighten-2);
+        border-left-color: $white;
+      }
+    }
+    &:first-child a {
+      @include border-radius(0 4px 0 0);
+    }
+  }
+}

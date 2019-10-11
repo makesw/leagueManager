@@ -1,0 +1,503 @@
+/*Button Styles*/
+button {
+  outline: 0 none !important;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.gx-btn {
+  position: relative;
+  display: inline-block;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  text-transform: capitalize;
+  line-height: $btn-line-height;
+  @include border-radius($border-radius);
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: 0 none;
+    text-decoration: none;
+    @include box-shadow(none);
+  }
+
+  .login-content & {
+    padding: 10px 35px;
+  }
+}
+
+.btn {
+  &:hover,
+  &:focus,
+  &:active {
+    outline: 0 none;
+    text-decoration: none;
+    @include box-shadow(none);
+  }
+
+  .login-content & {
+    padding: 10px 35px;
+  }
+}
+
+.btn,
+.btn-info,
+.btn-success,
+.btn-warning,
+.btn-danger,
+.btn-light,
+.btn-dark,
+.btn-primary,
+.btn-secondary {
+  @extend %btn-no-shadow;
+}
+
+.show > {
+  .btn,
+  .btn-info,
+  .btn-success,
+  .btn-warning,
+  .btn-danger,
+  .btn-light,
+  .btn-dark,
+  .btn-primary,
+  .btn-secondary {
+    &.dropdown-toggle:focus {
+      @include box-shadow(none);
+    }
+  }
+}
+
+.gx-btn,
+.gx-fab-btn,
+.gx-flat-btn,
+.btn {
+  margin-bottom: 6px;
+  text-transform: capitalize;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  .form-inline & {
+    margin-bottom: 0;
+    min-height: 35px;
+  }
+
+  .navbar & {
+    margin-bottom: 0;
+  }
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: none !important;
+}
+
+.input-group > .input-group-prepend > .btn,
+.input-group > .input-group-append > .btn {
+  margin-right: 0;
+  margin-bottom: 0;
+  line-height: inherit;
+}
+
+.gx-fab-btn {
+  position: relative;
+  display: inline-flex;
+  @extend %size-50;
+  @include border-radius($border-radius-circle);
+  @include justify-content(center);
+  @include align-items(center);
+  background-color: map_get($gray, lighten-3);
+  overflow: hidden;
+
+  &:hover,
+  &:focus {
+    outline: 0 none;
+    text-decoration: none;
+  }
+}
+
+.gx-btn,
+.gx-flat-btn {
+  padding: $btn-padding;
+
+  & i + span,
+  & span + i {
+    margin-left: 6px;
+  }
+}
+
+.gx-flat-btn {
+  background-color: transparent;
+  color: $body-color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: map_get($gray, lighten-4);
+    color: $body-color;
+  }
+}
+
+.gx-btn-group {
+  margin: 0 -8px;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  & .gx-btn,
+  & .gx-fab-btn {
+    margin: 0 8px 18px;
+  }
+}
+
+.gx-btn-rounded {
+  @include border-radius(50px !important);
+}
+
+.gx-btn-lg {
+  padding: $btn-padding-lg;
+}
+
+.gx-btn-sm {
+  padding: $btn-padding-sm;
+}
+
+.gx-btn-xs {
+  padding: $btn-padding-xs;
+}
+
+// Fab Button
+.gx-btn-fab-lg {
+  @extend %size-60;
+}
+
+.gx-btn-fab-sm {
+  @extend %size-40;
+}
+
+.gx-btn-fab-xs {
+  @extend %size-30;
+}
+
+.gx-btn-fab-lg,
+.gx-btn-lg {
+  font-size: $btn-font-size-lg;
+  & i {
+    font-size: ($btn-font-size-lg + 2px);
+  }
+}
+
+.gx-btn-fab-sm,
+.gx-btn-sm {
+  font-size: ($btn-font-size-sm - 2px);
+  & i {
+    font-size: ($btn-font-size-sm - 2px);
+  }
+}
+
+.gx-btn-fab-xs,
+.gx-btn-xs {
+  font-size: $btn-font-size-xs;
+  & i {
+    font-size: $btn-font-size-xs;
+  }
+}
+
+.complex-btn-wrapper {
+  @include display-flex(flex, row, wrap);
+  min-width: 200px;
+  width: 100%;
+}
+
+.complex-btn {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  width: 33.333%;
+  border: 0 none;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    height: 100px;
+  }
+  &:hover {
+    z-index: 1;
+    & .img-btn-overlay {
+      opacity: 0.15;
+    }
+
+    & .img-marked {
+      opacity: 0;
+    }
+
+    & .img-title {
+      border: 4px solid currentColor;
+    }
+  }
+
+  .img-btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    @include align-items(center);
+    @include justify-content(center);
+    color: $white;
+  }
+  .img-src {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center 40%;
+  }
+
+  .img-btn-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: $black;
+    opacity: 0.4;
+    @include transition(all 0.5s $transition-ease);
+  }
+
+  .img-title {
+    position: relative;
+    padding: 16px 32px 14px;
+  }
+  .img-marked {
+    height: 3px;
+    width: 18px;
+    background: $white;
+    position: absolute;
+    bottom: -2px;
+    left: calc(50% - 9px);
+    @include transition(all 0.5s $transition-ease);
+  }
+}
+
+.btn-group-mins {
+  margin: 0 -5px;
+
+  & .btn,
+  & .gx-btn {
+    margin: 0 5px 5px;
+  }
+}
+
+//buttons in label
+
+.gx-btn.gx-btn-label i {
+  background-color: rgba($white, 0.2);
+  width: $size-40;
+  height: 100%;
+  line-height: 42px;
+  text-align: center;
+}
+
+.gx-btn.gx-btn-label.left i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.gx-btn.gx-btn-label.right i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.gx-btn.gx-btn-label.left i + span {
+  margin-left: $size-30;
+}
+
+.gx-btn.gx-btn-label.right i + span {
+  margin-right: $size-30;
+  margin-left: 0;
+}
+
+.gx-btn.gx-btn-label.gx-btn-lg i {
+  line-height: 54px;
+}
+
+.gx-btn.gx-btn-label.gx-btn-sm i {
+  line-height: 32px;
+}
+
+.gx-btn.gx-btn-label.gx-btn-xs i {
+  line-height: 24px;
+  width: $size-30;
+}
+
+//Button function
+@each $color_name, $color in $colors_palette {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .gx-btn-#{$color_name} {
+        background-color: $color_value;
+        color: $white;
+        &:hover,
+        &:focus {
+          background-color: darken($color_value, 5%);
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.gx-btn-shadow {
+  @include box-shadow(0 1px 5px 0 rgba($black, 0.2), 0 2px 2px 0 rgba($black, 0.14), 0 3px 1px -2px rgba($black, 0.12) !important);
+  &:hover,
+  &:focus {
+    @include box-shadow(0 1px 5px 0 rgba($black, 0.2), 0 2px 2px 0 rgba($black, 0.14), 0 3px 1px -2px rgba($black, 0.12) !important);
+  }
+
+  &:active {
+    @include box-shadow(none !important);
+  }
+}
+
+.gx-btn.disabled,
+.gx-btn.disabled {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.gx-btn-default {
+  background-color: $white;
+  color: $body-color;
+  border: 1px solid $gray-300;
+  &:hover,
+  &:focus {
+    background-color: darken($white, 5%);
+    color: $body-color;
+  }
+}
+
+.gx-btn-secondary {
+  background-color: $secondary;
+  color: $white;
+  &:hover,
+  &:focus {
+    background-color: darken($secondary, 5%);
+    color: $white;
+  }
+}
+
+.gx-flat-btn.gx-btn-primary {
+  background-color: transparent;
+  color: $gx-primary;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($gx-primary, 0.12);
+    color: $gx-primary;
+  }
+}
+
+.bg-primary {
+  & .gx-flat-btn.gx-btn-primary {
+    background-color: transparent;
+    color: $white;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($white, 0.12);
+      color: $white;
+    }
+  }
+}
+
+.gx-flat-btn.gx-btn-secondary {
+  background-color: transparent;
+  color: $secondary;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($secondary, 0.12);
+    color: $secondary;
+  }
+}
+
+.bg-secondary {
+  & .gx-flat-btn.gx-btn-secondary {
+    background-color: transparent;
+    color: $white;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($white, 0.12);
+      color: $white;
+    }
+  }
+}
+
+.gx-btn-hover:hover:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: inline-block;
+  background-color: rgba($black, 0.06);
+}
+
+.dropdown-toggle-split {
+  padding-right: 0.5625rem;
+  padding-left: 0.5625rem;
+}
+
+.action-btn {
+  height: $size-40;
+  width: $size-40;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  @include align-items(center);
+  @include justify-content(center);
+  font-size: 24px;
+  cursor: pointer;
+  vertical-align: middle;
+  color: rgba($black, 0.54);
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: rgba($black, 0.64);
+  }
+
+  .circle-check & {
+    height: 24px;
+    width: 24px;
+    font-size: 16px;
+  }
+
+  .chat-main-header & {
+    color: $white;
+  }
+}
+
+.action-replay .gx-btn-default {
+  font-size: 14px;
+  padding: 5px 10px;
+  border-color: $gray-600 !important;
+}

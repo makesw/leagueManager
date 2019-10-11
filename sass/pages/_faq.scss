@@ -1,0 +1,147 @@
+/* FAQs
+   ========================================================================== */
+
+//SideNav
+.categories-list {
+  margin-bottom: 0;
+  & li {
+    margin-bottom: 10px;
+    &:last-child {margin-bottom: 0;}
+  }
+  & li {
+    & a {
+      color: $body-color;
+    }
+    &.active a,
+    & a:hover,
+    & a:focus {
+      color: $gx-primary;
+      text-decoration: none;
+    }
+  }
+  & .badge { font-size: 9px;}
+}
+
+
+.articles-section {
+  margin-bottom: 0;
+  & .articles {
+    margin-bottom: 26px;
+    &:last-child {margin-bottom: 0;}
+  }
+}
+
+.article-image {
+  display: block;
+  margin-bottom: 12px;
+  & > img {
+    @include border-radius(6px);
+    width: 100%;
+  }
+}
+
+.article-description {
+  & p {
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+}
+
+.meta-wrapper {
+  margin-bottom: 10px;
+
+  & li span {
+    display: block;
+  }
+
+  .gx-cart & {
+    color: $gray-600;
+  }
+}
+
+.meta-date,
+.meta-comment {
+  font-size: 12px;
+  color: $gray-500;
+  display: inline-block;
+  & i { display: inline-block; margin-right: 6px; }
+}
+
+.meta-date {
+  & + .meta-comment { margin-left: 10px; }
+}
+
+// Search Bar Style
+
+.search-bar {
+  background-color: $white;
+
+  & .form-group {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+    position: relative;
+  }
+  & input[type="search"] { padding-right: 50px; }
+
+  & .search-icon {
+    background-color: transparent;
+    border: 0 none;
+    color: $body-color;
+    height: $size-30;
+    width: $size-30;
+  }
+
+  & .form-control {
+    box-shadow: none;
+    &.form-control-lg + .search-icon {
+      position: absolute;
+      right: 14px;
+      top: 6px;
+    }
+  }
+
+  & .search-icon {
+    position: absolute;
+    right: 14px;
+    top: 2px;
+  }
+
+  &.right-side-icon {
+    & input[type="search"] {
+      padding-right: 16px;
+      padding-left: 50px;
+    }
+
+    & .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 2px;
+    }
+
+    & .form-control {
+      box-shadow: none;
+      &.form-control-lg + .search-icon {
+        position: absolute;
+        left: 14px;
+        top: 6px;
+      }
+    }
+  }
+}
+
+.nav-searchbox .search-bar input {
+  & + .search-icon {
+    & i {
+      color: rgba($body-color, 0.8);
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .gx-card .main-header {
+    & .search-bar {
+      width: 150px;
+    }
+  }
+}

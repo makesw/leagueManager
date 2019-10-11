@@ -1,0 +1,194 @@
+/*Navbar Styles*/
+.navbar {
+  min-height: $size-60;
+}
+
+.main-menu {
+  width: 100%;
+  height: calc(100vh - 70px);
+  position: relative;
+}
+
+ul.nav-menu {
+  position: relative;
+  font-size: $font-size-base;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+ul.nav-menu li {
+  position: relative;
+  margin-bottom: 1px;
+}
+
+ul.nav-menu li.menu {
+  & + .nav-header {
+    margin-top: 40px;
+  }
+  & .sub-menu {
+    display: none;
+  }
+  &.open > .sub-menu {
+    display: block;
+  }
+
+  &.open {
+    & .menu.active > .sub-menu {
+      display: block;
+    }
+  }
+}
+
+ul.nav-menu li a {
+  color: $sidebar-text-color;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-decoration: none;
+  @include border-radius(0);
+
+  & .badge {
+    margin-bottom: 0;
+    padding: 3px 8px 2px;
+  }
+}
+
+ul.nav-menu {
+  & .nav-header {
+    color: $sidebar-text-color;
+    padding: 4px 22px;
+    font-size: 11px;
+    text-transform: uppercase;
+
+    &:first-child {
+      margin-top: 30px;
+    }
+  }
+}
+
+ul.nav-menu > li.selected > a,
+ul.nav-menu > li.open > a,
+ul.nav-menu > li > a:hover,
+ul.nav-menu > li > a:focus {
+  color: $sidebar-hover-color;
+}
+
+ul.nav-menu li.menu > a {
+  padding: 16px 20px;
+  border-left: 2px solid transparent;
+}
+
+ul.nav-menu li.menu.open > a {
+  border-color: transparent;
+}
+
+ul.nav-menu li.menu > a:focus:before,
+ul.nav-menu li.menu > a:hover:before {
+  color: $sidebar-hover-color;
+}
+
+ul.nav-menu li i {
+  margin-right: 12px;
+  font-size: 15px;
+}
+
+ul.nav-menu li ul {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+ul.nav-menu li.menu .sub-menu li > a {
+  padding: 7px 20px 7px 56px;
+}
+
+ul.nav-menu li.menu ul.sub-menu > li.menu > ul.sub-menu > li.menu > a {
+  padding-left: 76px;
+}
+
+ul.nav-menu li.menu ul.sub-menu > li.menu > ul.sub-menu > li.menu > ul.sub-menu > li.menu > a {
+  padding-left: 96px;
+}
+
+ul.nav-menu li.menu ul.sub-menu > li.menu > ul.sub-menu > li.menu > ul.sub-menu > li.menu > ul.sub-menu > li > a {
+  padding-left: 116px;
+}
+
+ul.nav-menu li.menu > a:before {
+  color: $sidebar-text-color;
+  content: "\f2fb";
+  display: inline-block;
+  float: right;
+  font: {
+    family: 'Material-Design-Iconic-Font';
+    size: 15px;
+  }
+  margin-left: 10px;
+  position: relative;
+  @include transition(all 300ms ease-in-out);
+  font-weight: normal;
+}
+ul.nav-menu li.menu.no-arrow > a:before {
+  display: none;
+}
+
+ul.nav-menu li.menu.selected > a:before,
+ul.nav-menu li.menu.open > a:before,
+ul.nav-menu li.menu > a:focus:before,
+ul.nav-menu li.menu li > a:hover:before {
+  background-color: transparent;
+  color: $sidebar-hover-color;
+}
+
+ul.nav-menu li.menu.open > a:before,
+ul.nav-menu li.menu.active > a:before{
+  @include rotate(90deg);
+}
+
+ul.nav-menu li.menu .sub-menu li.active > a .nav-text {
+  padding: 3px 7px;
+  margin-left: -7px;
+  background-color: $sidebar-hover-color;
+  color: $white;
+  @include border-radius($border-radius);
+}
+
+ul.nav-menu li.menu .sub-menu li > a:hover,
+ul.nav-menu li.menu .sub-menu li > a:focus,
+ul.nav-menu li.menu.open .sub-menu li.active > a:before,
+ul.nav-menu li.menu .sub-menu li > a:focus:before,
+ul.nav-menu li.menu .sub-menu li > a:hover:before {
+  color: $sidebar-hover-color;
+}
+
+.customizer {
+  padding: 20px 35px;
+  & img {
+    padding: 5px;
+    cursor: pointer;
+  }
+}
+
+.user-info {
+  & ul {
+    & li {
+      font-size: 15px;
+    }
+  }
+}
+
+@media screen and (min-width: 250px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+}
+
+
+

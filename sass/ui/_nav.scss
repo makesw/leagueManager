@@ -1,0 +1,108 @@
+// Nav Style
+.nav-link {
+  cursor: pointer;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: $gx-primary;
+}
+
+.card-header.bg-primary {
+  & .nav-link {
+    color: $white;
+
+    &.active,
+    &:hover,
+    &:focus {
+      color: $black;
+      background-color: $white;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      color: $gray-100;
+    }
+  }
+}
+
+.card-header.bg-primary .tab-link {
+  & .nav-link {
+    &.active,
+    &:hover,
+    &:focus {
+      color: darken($white, 10%);
+      background-color: transparent;
+    }
+  }
+}
+
+.tab-link {
+  .card-header & {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  & .nav-link {
+    padding-bottom: 15px;
+    margin-bottom: -9px;
+
+    &.active {
+      border-bottom: 2px solid $secondary;
+    }
+  }
+}
+
+.module-tab-nav {
+  border-bottom: solid 1px $gray-200;
+  margin: 0 -10px;
+
+  & li {
+    padding: 0 10px;
+
+    & a.nav-link {
+      border-bottom: solid 2px transparent;
+      color: lighten($body-color, 14.5%);
+      margin-bottom: -1px;
+      padding: 10px 6px 15px 6px;
+    }
+
+    & a.nav-link.active {
+      border-color: $gx-primary;
+      color: $gx-primary;
+    }
+  }
+}
+
+.nav-pills-module {
+  margin: 0 -10px;
+
+  & > li {
+    padding: 0 10px;
+
+    & > a {
+      background-color: $gx-primary;
+      color: $white;
+      padding: 3px 12px;
+      text-decoration: none;
+      @include border-radius(4px);
+      display: block;
+      border: solid 1px $gx-primary;
+    }
+
+    & > a.nav-link-border {
+      background-color: transparent;
+      border-color: $gray-500;
+      color: $gray-800;
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .module-tab-nav {
+    margin: 0 -5px;
+
+    & li {
+      padding: 0 5px;
+    }
+  }
+}

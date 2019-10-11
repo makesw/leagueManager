@@ -1,0 +1,81 @@
+/*Icons Styles*/
+
+.icon {
+  display: inline-block;
+  @extend %size-30;
+  text-align: center;
+}
+
+.icons-wrapper {
+  display: inline-block;
+  & + .icons-wrapper {
+    margin-left: 25px;
+  }
+}
+
+.icon-addon {
+  @extend %icon-addon;
+}
+
+.icons-showcase > div {
+  cursor: pointer;
+  padding: 7px 15px;
+  @include border-radius($border-radius);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $gx-primary;
+    color: $white;
+  }
+}
+
+.icons-showcase > div {
+  & > a {
+    display: inline-block;
+    color: $body-color;
+  }
+
+  &:hover {
+    background-color: $gx-primary;
+    & > a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+.icon-fill,
+.icon-outline {
+  border: 1px solid $gray-600;
+  border-radius: 50%;
+  color: $gray-600;
+  display: table;
+  font-size: $h2-font-size;
+  height: 60px;
+  padding: 5px;
+  width: 60px;
+  text-align: center;
+  margin: 0 auto;
+  & i {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+a.icon-fill,
+a.icon-outline {
+  text-decoration: none;
+}
+
+.icon-fill {
+  border: 0 none;
+  color: $white;
+}
+
+.small-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+}

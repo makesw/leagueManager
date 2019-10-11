@@ -1,0 +1,15 @@
+/*App Modules Styles*/
+.text-row-between {
+  @include display-flex(flex, row, wrap);
+  @include align-items(center);
+  @include justify-content(space-between);
+
+  & p {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 575px) {
+    @include display-flex(flex, column, nowrap);
+    @include align-items(flex-start);
+  }
+}

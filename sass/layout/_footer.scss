@@ -1,0 +1,29 @@
+/*Footer Styles*/
+
+.gx-footer {
+  padding: 14px 40px;
+  border-top: $gx-border;
+  margin: 0 -40px;
+
+  & a {
+    color: $body-color;
+    &:hover,
+    &:focus {
+      color: $gx-primary;
+      text-decoration:  none;
+    }
+  }
+
+  & p {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 14px 20px;
+    margin: 0 -20px;
+  }
+
+  @media screen and (max-width: 575px) {
+    font-size: 12px;
+  }
+}

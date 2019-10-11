@@ -1,0 +1,317 @@
+/*Header Styles*/
+.gx-menu-icon {
+  outline: none;
+  @include justify-content(center);
+  @extend %size-30;
+  padding: 0 5px;
+  @extend %gx-menu-icon;
+  @include display-flex(flex, column, nowrap);
+
+  .bg-white & .menu-icon {
+    background-color: $body-color;
+  }
+}
+
+.gx-menu-icon .menu-icon.icon-grey {
+  background-color: $gray-default;
+}
+
+.sidebar-mobile-menu {
+  margin-right: 15px;
+
+  @media screen and (max-width: 575px) {
+    margin-right: 10px;
+  }
+}
+
+.main-header {
+  min-height: $gx-bar-height;
+
+  & .search-bar input {
+    @include transition($transition-base);
+    background-color: transparent;
+    color: $gray-default;
+    & + .search-icon {
+      & i {
+        color: rgba($gray-default, 0.8);
+      }
+    }
+
+    &:focus {
+      background-color: $body-bg;
+      color: $gray-default;
+      + .search-icon {
+        & i {
+          color: rgba($gray-default, 0.8);
+        }
+      }
+    }
+  }
+}
+
+.site-logo img {
+  height: 24px;
+
+  @media screen and (max-width: 575px) {
+    height: 20px;
+  }
+}
+
+.gx-toolbar {
+  position: fixed;
+  left: $side-nav-width;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  @include display-flex();
+  @include align-items(center);
+  min-height: $gx-bar-height;
+  padding: 10px 40px 10px 35px;
+  background-color: $white;
+  color: $gray-default;
+  border-bottom: 1px solid $border-color;
+
+  & .search-bar {
+    margin-left: 15px;
+    margin-right: auto;
+    max-width: 400px;
+    width: 380px;
+
+    @media screen and (max-width: 991px) {
+      width: 280px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 200px;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    left: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 10px 20px 10px 15px;
+  }
+}
+
+.gx-toolbar {
+  & .nav-searchbox {
+    & .search-bar {
+      margin-left: 0;
+      width: 280px;
+
+      @media screen and (max-width: 399px) {
+        width: 200px;
+      }
+    }
+
+    & .search-bar input {
+      @include transition($transition-base);
+      background-color: $white;
+      color: $body-color;
+      & + .search-icon {
+        & i {
+          color: rgba($body-color, 0.8);
+        }
+      }
+
+      &:focus {
+        background-color: transparent;
+        color: $body-color;
+        + .search-icon {
+          & i {
+            color: rgba($body-color, 0.8);
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-notifications {
+  margin: 0 -8px;
+  padding-left: 0;
+  list-style: none;
+
+  & > li {
+    vertical-align: middle;
+    display: inline-block;
+    padding: 0 8px;
+  }
+
+  & > li > a {
+    color: $gray-default;
+    font-size: 22px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: darken($gray-default, 5%);
+    }
+  }
+}
+
+.quick-menu {
+  & .dropdown-menu {
+    padding: 5px 10px;
+    width: 350px;
+    @include border-radius($border-radius-lg);
+
+    & .gx-card-header {
+      margin: -5px -10px 5px;
+      padding: 10px 10px 10px 20px;
+      @include box-shadow($shadow-sm);
+      z-index: 10;
+    }
+
+    @media screen and (max-width: 500px) {
+      width: 280px;
+    }
+
+    @media screen and (max-width: 430px) {
+      width: 240px;
+    }
+  }
+
+  & .messages-list .user-avatar {
+    position: relative;
+  }
+
+  & .messages-list .badge {
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    height: 16px;
+    width: 16px;
+    line-height: 16px;
+    text-align: center;
+    padding: 0;
+  }
+
+}
+
+.quick-menu .user-nav {
+  & .dropdown-menu {
+    width: 200px;
+    padding: 0;
+    padding-bottom: 15px;
+  }
+
+  & .user-profile {
+    position: relative;
+    padding: 20px 25px;
+    background-color: $body-bg;
+    margin-bottom: 15px;
+    @include border-radius($border-radius-lg $border-radius-lg 0 0);
+  }
+}
+
+.quick-menu .language-menu {
+  & > .flag-icon {
+    line-height: 1;
+    margin-right: 6px;
+  }
+
+  & .dropdown-menu {
+    width: 150px;
+
+    & .messages-list ul li {
+      padding: 7px 6px 6px;
+    }
+
+    & .media-body {
+      color: $body-color;
+      margin-left: 10px;
+    }
+
+    & .media-body:hover {
+      text-decoration: none;
+      color: $gx-primary;
+    }
+  }
+}
+
+.messages-list ul li {
+  position: relative;
+  padding: 20px 10px 14px;
+  border-bottom: 1px solid $gray-300;
+
+  & .user-name a {
+    color: $gx-primary;
+  }
+
+  & .sub-heading {
+    font-size: 11px;
+    margin-bottom: 6px;
+
+    &.mb-0 {
+      margin-bottom: 0;
+    }
+  }
+
+  &:last-child {
+    border-bottom: 0 none;
+  }
+
+  & .gx-btn {
+    margin-right: 0;
+  }
+
+  & .gx-btn-xs {
+    font-size: 11px;
+    padding: 5px;
+  }
+}
+
+.quick-menu {
+
+  & .icons-alert {
+    position: relative;
+
+    &:after {
+      display: block;
+      position: absolute;
+      content: "";
+      right: 0;
+      top: 0;
+      z-index: 10;
+      width: 8px;
+      height: 8px;
+      background-color: $danger;
+      @include border-radius(50%);
+      @extend %pulse-effect;
+    }
+  }
+
+  & i.animated.infinite {
+    -moz-animation-iteration-count: 25;
+    -webkit-animation-iteration-count: 25;
+    -o-animation-iteration-count: 25;
+    animation-iteration-count: 25;
+  }
+}
+
+.dropdown-menu-perfectscrollbar,
+.dropdown-menu-perfectscrollbar1 {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.gx-main-content .nav-searchbox {
+  & .icon-btn {
+    font-size: 20px;
+  }
+
+  & .dropdown-menu {
+    width: 200px;
+    left: auto;
+    right: 0;
+
+    @media screen and (max-width: 350px) {
+      width: 150px;
+    }
+  }
+}
+

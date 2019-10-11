@@ -1,0 +1,11 @@
+/*Sidebar Styles*/
+
+.gx-sidebar {
+  & .sidebar-header {
+    min-height: $gx-bar-height;
+    padding: 10px 22px;
+    @include display-flex();
+    @include align-items(center);
+    border-bottom: $gx-border;
+  }
+}

@@ -1,0 +1,168 @@
+/*Right Sidebar Styles*/
+.app-sidebar-content.right-sidebar {
+  z-index: 1100;
+  @include box-shadow($shadow-xl);
+}
+
+.color-theme {
+  @include display-flex(flex, column, nowrap);
+  max-width: 300px;
+  height: 100%;
+  background-color: $white;
+}
+
+.color-theme-header {
+  background-color: $gx-primary;
+  color: $white;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  @include display-flex();
+  @include align-items(center);
+  @include justify-content(space-between);
+  max-height: $gx-bar-height;
+
+  & .color-theme-title {
+    margin-bottom: 0;
+  }
+}
+
+.color-theme-body {
+  position: relative;
+  padding: 28px 25px;
+  height: calc(100vh - #{$gx-bar-height});
+
+  & h3 {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 499px) {
+    padding: 25px 15px;
+  }
+}
+
+.color-option {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 -5px 10px;
+  overflow: hidden;
+
+  & li {
+    position: relative;
+    float: left;
+    padding: 0 5px;
+    margin-bottom: 5px;
+  }
+
+  & li a {
+    @extend %size-50;
+    display: inline-block;
+    color: transparent;
+    position: relative;
+
+    &:before {
+      content: "\f26b";
+      font-family: "Material-Design-Iconic-Font";
+      font-size: 20px;
+      @extend %size-50;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $white;
+      text-align: center;
+      display: none;
+      z-index: 2;
+    }
+  }
+
+  & li a.active {
+    &:before {
+      display: block;
+    }
+  }
+}
+
+.cr-op-dark-sidebar {
+  & li a {
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      background-color: $black;
+      width: 8px;
+    }
+  }
+}
+
+//Coustomizer css
+.theme-option {
+  position: fixed;
+  top: 30%;
+  right: 0;
+  z-index: 1000;
+  background-color: map-get($purple, base);
+  @include border-left-radius($border-radius);
+  @include box-shadow(1px 1px 4px rgba($black, 0.5));
+  color: $white;
+}
+
+//Switch button
+.material-switch {
+  margin-bottom: 24px;
+
+  & > input[type="checkbox"] {
+    display: none;
+  }
+
+  & > label {
+    cursor: pointer;
+    height: 0;
+    position: relative;
+    width: 40px;
+
+    &:before {
+      background: rgb(0, 0, 0);
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      content: '';
+      height: 16px;
+      margin-top: -8px;
+      position: absolute;
+      opacity: 0.3;
+      transition: all 0.4s ease-in-out;
+      width: 40px;
+    }
+
+    &:after {
+      background: rgb(255, 255, 255);
+      border-radius: 16px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      content: '';
+      height: 24px;
+      left: -4px;
+      margin-top: -8px;
+      position: absolute;
+      top: -4px;
+      transition: all 0.3s ease-in-out;
+      width: 24px;
+    }
+  }
+
+  & > input[type="checkbox"]:checked + label::before {
+    background: $black;
+    opacity: 0.5;
+  }
+
+  & > input[type="checkbox"]:checked + label::after {
+    background: $gray-700;
+    left: 20px;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .color-theme .gx-btn {
+    padding: 10px 15px;
+  }
+}

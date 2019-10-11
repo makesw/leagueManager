@@ -1,0 +1,30 @@
+.dropzone {
+  border: 2px dashed $gx-primary;
+  @include border-radius($border-radius-lg);
+  background-color: map_get($gray, lighten-5);
+  min-height: 350px;
+  @include display-flex(flex,row,wrap);
+  @include justify-content(center);
+  @include align-items(center);
+
+  & .dz-message {
+    font-size: $h1-font-size;
+    margin: 1em 0;
+
+    @media screen and (max-width: 1199px) {
+      font-size: $h4-font-size;
+    }
+  }
+
+  @media screen and (max-width: 1199px) {
+    min-height: 300px;
+  }
+
+  @media screen and (max-width: 767px) {
+    min-height: 200px;
+  }
+
+  @media screen and (max-width: 575px) {
+    min-height: 140px;
+  }
+}

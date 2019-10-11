@@ -1,0 +1,40 @@
+/*Badges Styles*/
+.badge {
+  font-weight: 400;
+  padding: 5px 8px;
+  margin-bottom: 6px;
+  @include border-radius($border-radius);
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  table & {
+    margin-bottom: 0;
+  }
+}
+
+.badge-outline {
+  background-color: transparent;
+  border: $gx-border;
+}
+
+.badge-pill {
+  @include border-radius(20px);
+}
+
+.badge-border {
+  border: 2px solid;
+}
+
+.badge-circle {
+  height: 22px;
+  width: 22px;
+  padding: 0;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  @include align-items(center);
+  @include justify-content(center);
+  @include border-radius($border-radius-circle);
+}

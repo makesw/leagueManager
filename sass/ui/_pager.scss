@@ -1,0 +1,72 @@
+/* Pager pagination
+   ========================================================================== */
+
+.pager {
+	padding-left: 0;
+	margin: 20px 0;
+	text-align: center;
+	list-style: none;
+	overflow: hidden;
+
+	@media screen and (max-width: 479px) {
+		text-align: left;
+		margin: 10px 0;
+	}
+}
+
+.pager li > a, .pager li > span {
+	@include border-radius(4px);
+	display: inline-block;
+	padding: 5px 14px;
+	background-color: $white;
+	border: 1px solid $gray-400;
+}
+
+.pager {
+	> li {
+		> a,
+		> span {
+			color: $gx-primary;
+			text-decoration: none;
+		}
+	}
+}
+
+.pager .previous > a, .pager .previous > span {
+	float: left;
+
+	@media screen and (max-width: 479px) {
+		float: none;
+		margin: 0 5px 5px 0;
+	}
+}
+
+.pager .next > a, .pager .next > span {
+	float: right;
+
+	@media screen and (max-width: 479px) {
+		float: none;
+		margin: 0 5px 5px 0 !important;
+	}
+}
+
+.pager li > a:hover,
+.pager li > a:focus {
+	color: $gray-600;
+	background-color: $gray-300;
+}
+
+.pager .disabled > a,
+.pager .disabled > a:focus,
+.pager .disabled > a:hover,
+.pager .disabled > span {
+	color: $gray-600;
+	cursor: not-allowed;
+	background-color: $white;
+}
+
+@media screen and (max-width: 629px) {
+	.pager > li > a {
+		margin-bottom: 6px;
+	}
+}

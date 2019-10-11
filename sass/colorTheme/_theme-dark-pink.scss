@@ -1,0 +1,858 @@
+/*Theme Dark Pink Styles*/
+$gx-primary-dark-pink: #e91e63 !default;
+$secondary-dark-pink: #00BFA5;
+
+$sidebar-dark-pink: #252525 !default;
+$sidebar-text-dark-pink: #a1a1a1 !default;
+$sidebar-darken-pink: darken($sidebar-dark-pink, 3%);
+
+// Links
+$link-hover-dark-pink: $white;
+
+//-Base-scss
+.dark-pink .right-arrow {
+  color: $gx-primary-dark-pink;
+  &:after {
+    color: $gx-primary-dark-pink;
+  }
+}
+
+//Button function
+@each $color_name, $color in $colors_palette {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .dark-pink .gx-btn-#{$color_name} {
+        background-color: $color_value;
+        color: $white;
+        &:hover,
+        &:focus {
+          background-color: darken($color_value, 5%);
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+//
+// Alternate buttons
+//
+@each $color, $value in $theme-colors {
+  .dark-pink .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .dark-pink a.btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .dark-pink .btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $link-hover-dark-pink);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .dark-pink a.btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $link-hover-dark-pink);
+    }
+  }
+}
+
+.dark-pink .btn-outline-primary,
+.dark-pink a.btn-outline-primary {
+  color: $gx-primary-dark-pink;
+  border-color: $gx-primary-dark-pink;
+
+  &:focus,
+  &:hover {
+    color: $white;
+    border-color: $gx-primary-dark-pink;
+    background-color: $gx-primary-dark-pink;
+  }
+}
+
+//- Bootstrap file Style
+.dark-pink {
+  & a {
+    color: $gx-primary-dark-pink;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-dark-pink, 10%);
+    }
+  }
+
+  & a.text-primary {
+    color: $gx-primary-dark-pink !important;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-dark-pink, 10%) !important;
+    }
+  }
+
+  & .text-primary {
+    color: $gx-primary-dark-pink !important;
+  }
+
+  & .page-link {
+    color: $gx-primary-dark-pink;
+    &:focus,
+    &:hover {
+      color: $gx-primary-dark-pink;
+    }
+  }
+
+  & .page-item.active .page-link {
+    color: $link-hover-dark-pink;
+    background-color: $gx-primary-dark-pink;
+    border-color: $gx-primary-dark-pink;
+  }
+
+  & .badge-primary {
+    background-color: $gx-primary-dark-pink;
+    color: $link-hover-dark-pink;
+  }
+
+  & .bg-primary {
+    background-color: $gx-primary-dark-pink !important;
+    color: $link-hover-dark-pink !important;
+  }
+
+  & .btn-primary,
+  & .gx-btn-primary,
+  & a.btn-primary,
+  & a.gx-btn-primary {
+    background-color: $gx-primary-dark-pink;
+    border-color: $gx-primary-dark-pink;
+    color: $link-hover-dark-pink;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($gx-primary-dark-pink, 5%);
+      border-color: darken($gx-primary-dark-pink, 5%);
+      color: $link-hover-dark-pink;
+    }
+  }
+
+  & .bg-primary {
+    &.lighten-4 {
+      background-color: #f8bbd0 !important;
+    }
+
+    &.lighten-3 {
+      background-color: #f48fb1 !important;
+    }
+
+    &.lighten-2 {
+      background-color: #f06292 !important;
+    }
+
+    &.lighten-1 {
+      background-color: #ec407a !important;
+    }
+
+    &.darken-1 {
+      background-color: #d81b60 !important;
+    }
+
+    &.darken-2 {
+      background-color: #c2185b !important;
+    }
+
+    &.darken-3 {
+      background-color: #ad1457 !important;
+    }
+
+    &.darken-4 {
+      background-color: #880e4f !important;
+    }
+
+    &.accent-1 {
+      background-color: #ff80ab !important;
+    }
+
+    &.accent-2 {
+      background-color: #ff4081 !important;
+    }
+
+    &.accent-3 {
+      background-color: #f50057 !important;
+    }
+
+    &.accent-4 {
+      background-color: #c51162 !important;
+    }
+  }
+}
+
+//Secondary
+.dark-pink {
+  & a.text-secondary {
+    color: $secondary-dark-pink;
+    &:focus,
+    &:hover {
+      color: darken($secondary-dark-pink, 10%) !important;
+    }
+  }
+
+  & .text-secondary {
+    color: $secondary-dark-pink !important;
+  }
+
+  & .bg-secondary,
+  & .badge-secondary {
+    background-color: $secondary-dark-pink !important;
+    color: $link-hover-dark-pink !important;
+  }
+
+  & .btn-secondary,
+  & .gx-btn-secondary,
+  & a.btn-secondary,
+  & a.gx-btn-secondary {
+    background-color: $secondary-dark-pink;
+    border-color: $secondary-dark-pink;
+    color: $link-hover-dark-pink;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($secondary-dark-pink, 5%);
+      border-color: darken($secondary-dark-pink, 5%);
+      color: $link-hover-dark-pink;
+    }
+  }
+}
+
+//Button Group
+.dark-pink .btn-group > .gx-btn,
+.dark-pink .btn-group-vertical > .gx-btn {
+  &.active {
+    background-color: $gx-primary-dark-pink;
+    border-color: $gx-primary-dark-pink;
+  }
+
+  &.gx-flat-btn {
+    border-color: transparent;
+    &.active {
+      background-color: transparent;
+      color: $gx-primary-dark-pink;
+
+      &:hover,
+      &:focus {
+        background-color: rgba($gx-primary-dark-pink, 0.12);
+        color: $gx-primary-dark-pink;
+      }
+    }
+  }
+}
+
+//Custom Checkbox
+.dark-pink .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-dark-pink;
+}
+
+.dark-pink .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-dark-pink;
+}
+
+.dark-pink a.btn-link {
+  color: $gx-primary-dark-pink;
+  background-color: transparent;
+
+  @include hover {
+    color: darken($gx-primary-dark-pink, 5%);;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    border-color: transparent;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+}
+
+.dark-pink .dropdown-more,
+.dark-pink .dropdown-item,
+.dark-pink a.badge-light,
+.dark-pink a.btn-light {
+  color: $body-color;
+
+  &:hover,
+  &:focus {
+    color: $body-color;
+  }
+}
+
+.dark-pink a.gx-btn-default {
+  background-color: $link-hover-dark-pink;
+  color: $body-color;
+  border: 1px solid $gray-300;
+  &:hover,
+  &:focus {
+    background-color: darken($link-hover-dark-pink, 5%);
+    color: $body-color;
+  }
+}
+
+.dark-pink a.gx-flat-btn {
+  background-color: transparent;
+  color: $body-color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: map_get($gray, lighten-4);
+    color: $body-color;
+  }
+}
+
+.dark-pink a.gx-flat-btn.gx-btn-primary {
+  background-color: transparent;
+  color: $gx-primary-dark-pink;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($gx-primary-dark-pink, 0.12);
+    color: $gx-primary-dark-pink;
+  }
+}
+
+.dark-pink .bg-primary {
+  & a.gx-flat-btn.gx-btn-primary {
+    background-color: transparent;
+    color: $link-hover-dark-pink;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($link-hover-dark-pink, 0.12);
+      color: $link-hover-dark-pink;
+    }
+  }
+}
+
+.dark-pink a.gx-flat-btn.gx-btn-secondary {
+  background-color: transparent;
+  color: $secondary-dark-pink;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($secondary-dark-pink, 0.12);
+    color: $secondary-dark-pink;
+  }
+}
+
+.dark-pink .bg-secondary {
+  & a.gx-flat-btn.gx-btn-secondary {
+    background-color: transparent;
+    color: $link-hover-dark-pink;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($link-hover-dark-pink, 0.12);
+      color: $link-hover-dark-pink;
+    }
+  }
+}
+
+.dark-pink .action-btn {
+  color: rgba($black, 0.54);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: rgba($black, 0.64);
+  }
+}
+
+//_header.scss
+.dark-pink .gx-toolbar {
+  background-color: $gx-primary-dark-pink;
+  border-color: transparent;
+
+  & .menu-icon.icon-grey {
+    background-color: $white;
+  }
+}
+
+.dark-pink .main-header {
+  background-color: $gx-primary-dark-pink;
+
+  & .search-bar input {
+    background-color: lighten($gx-primary-dark-pink, 5%);
+    color: $white;
+
+    &.form-control::placeholder {
+      color: $white;
+    }
+
+    &:focus.form-control::placeholder {
+      color: inherit;
+    }
+
+    & + .search-icon i {
+      color: rgba($white, 0.8);
+    }
+
+    &:focus {
+      background-color: $white;
+      color: $gray-default;
+
+      + .search-icon i {
+        color: rgba($gray-default, 0.8);
+      }
+    }
+  }
+
+  & .search-dropdown input {
+    @media screen and (max-width: 575px) {
+      background-color: $white;
+    }
+  }
+}
+
+.dark-pink .header-notifications {
+  & > li > a {
+    color: $white;
+
+    &:hover,
+    &:focus {
+      color: darken($white, 5%);
+    }
+  }
+}
+
+//Messages List
+.dark-pink {
+  & .messages-list ul li {
+    & .user-name a {
+      color: $gx-primary-dark-pink;
+    }
+  }
+}
+
+//_right-sidebar.scss
+.dark-pink .color-theme-header {
+  background-color: $gx-primary-dark-pink;
+
+}
+
+//_sidebar.scss
+.dark-pink .gx-sidebar {
+  background-color: $sidebar-dark-pink;
+  color: $sidebar-text-dark-pink;
+  border-color: transparent;
+
+  & .sidebar-header {
+    border-color: transparent;
+    background-color: $sidebar-darken-pink;
+  }
+}
+
+.dark-pink ul.nav-menu li a {
+  color: $sidebar-text-dark-pink;
+}
+
+.dark-pink ul.nav-menu {
+  & .nav-header {
+    color: $sidebar-text-dark-pink;
+  }
+}
+
+.dark-pink ul.nav-menu > li.selected > a,
+.dark-pink ul.nav-menu > li.open > a,
+.dark-pink ul.nav-menu > li > a:hover,
+.dark-pink ul.nav-menu > li > a:focus {
+  background-color: $sidebar-darken-pink;
+  color: $link-hover-dark-pink;
+}
+
+.dark-pink ul.nav-menu li.menu.open > a {
+  border-color: $gx-primary-dark-pink;
+}
+
+.dark-pink ul.nav-menu li.menu > a:focus:before,
+.dark-pink ul.nav-menu li.menu > a:hover:before {
+  color: $link-hover-dark-pink;
+}
+
+.dark-pink ul.nav-menu li ul {
+  background-color: $sidebar-darken-pink;
+}
+
+.dark-pink ul.nav-menu li.menu > a:before {
+  color: $sidebar-text-dark-pink;
+}
+
+.dark-pink ul.nav-menu li.menu.selected > a:before,
+.dark-pink ul.nav-menu li.menu.open > a:before,
+.dark-pink ul.nav-menu li.menu > a:focus:before,
+.dark-pink ul.nav-menu li.menu li > a:hover:before {
+  color: $link-hover-dark-pink;
+}
+
+.dark-pink ul.nav-menu li.menu .sub-menu li > a:before {
+  color: $sidebar-text-dark-pink;
+}
+
+.dark-pink ul.nav-menu li.menu .sub-menu li.active > a .nav-text {
+  background-color: $gx-primary-dark-pink;
+  color: $link-hover-dark-pink;
+}
+
+.dark-pink ul.nav-menu li.menu .sub-menu li > a:hover,
+.dark-pink ul.nav-menu li.menu .sub-menu li > a:focus,
+.dark-pink ul.nav-menu li.menu.open .sub-menu li.active > a:before,
+.dark-pink ul.nav-menu li.menu .sub-menu li > a:focus:before,
+.dark-pink ul.nav-menu li.menu .sub-menu li > a:hover:before {
+  background-color: $sidebar-darken-pink;
+  color: $link-hover-dark-pink;
+}
+
+//_module.scss
+.dark-pink .module-nav {
+  & li a.active {
+    color: $gx-primary-dark-pink;
+  }
+}
+
+.dark-pink .module-tab-nav {
+  & li a.nav-link.active {
+    border-color: $gx-primary-dark-pink;
+    color: $gx-primary-dark-pink;
+  }
+}
+
+.dark-pink .nav-pills-module {
+  & > li > a {
+    background-color: $gx-primary-dark-pink;
+    color: $white;
+    border-color: $gx-primary-dark-pink;
+
+    &.nav-link-border {
+      background-color: transparent;
+      border-color: $gray-500;
+      color: $gray-800;
+    }
+  }
+}
+
+//_calendar.scss
+.dark-pink .fc-event,
+.dark-pink .fc-event-dot {
+  background-color: $gx-primary-dark-pink;
+}
+
+//_chat.scss
+.dark-pink {
+  & .chat-sidenav-header {
+    & .tab-link .nav-link.active {
+      color: $gx-primary-dark-pink;
+      border-color: $gx-primary-dark-pink;
+    }
+  }
+
+  & .chat-item.flex-row-reverse .bubble {
+    background-color: $gx-primary-dark-pink;
+  }
+
+  & .chat-user-item {
+    &.active,
+    &:hover {
+      background-color: $gx-primary-dark-pink;
+    }
+  }
+}
+
+.dark-pink .chat-main-header {
+  background-color: $gx-primary-dark-pink;
+
+  & .action-btn {
+    color: $white;
+  }
+}
+
+//_dashboard.scss
+.dark-pink .contact-list {
+  & i {
+    color: $gx-primary-dark-pink;
+  }
+}
+
+.dark-pink .nav-pill-sales {
+  & .nav-link {
+    &.active {
+      background-color: $gx-primary-dark-pink;
+      border-color: $gx-primary-dark-pink;
+    }
+  }
+}
+
+//The link which when clicked opens the collapsable ChatUserList
+.dark-pink .Collapsible__trigger {
+  background: $gx-primary-dark-pink;
+}
+
+.dark-pink .categories-list {
+  & li a:focus,
+  & li a:hover,
+  & li.active a {
+    color: $gx-primary-dark-pink;
+  }
+}
+
+//_login.scss
+.dark-pink .login-content .form-control {
+  &:focus {
+    border-color: $gx-primary-dark-pink;
+  }
+}
+
+//_portfolio.scss
+.dark-pink .filter-with-bg-color ul li {
+  & a {
+    border-color: $gx-primary-dark-pink;
+
+    &:hover,
+    &:focus,
+    &.active {
+      background-color: $gx-primary-dark-pink;
+    }
+  }
+}
+
+//_card.scss
+.dark-pink .profile-intro {
+  & .icon {
+    color: $gx-primary-dark-pink;
+  }
+}
+
+.dark-pink .social-link {
+  & li.active a,
+  & li a:hover,
+  & li a:focus {
+    color: $secondary-dark-pink;
+  }
+}
+
+//_tables.scss
+.dark-pink .actions {
+  color: $secondary-dark-pink;
+}
+
+.dark-pink .table-hover tbody tr:hover {
+  background-color: rgba($gx-primary-dark-pink, 0.075);
+}
+
+//Border Color
+.dark-pink .module-nav ul.module-nav-team .dashed-circle,
+.dark-pink .border-primary {
+  border-color: $gx-primary-dark-pink !important;
+}
+
+.dark-pink .border-secondary {
+  border-color: $secondary-dark-pink !important;
+}
+
+//_picker.scss
+.dark-pink .bootstrap-datetimepicker-widget table {
+  & td span.active,
+  & td.active,
+  & td.active:hover {
+    background-color: $gx-primary-dark-pink;
+  }
+}
+
+//_color-picker.scss
+.dark-pink .noUi-connect {
+  background: $gx-primary-dark-pink !important;
+}
+
+//mouldifi-form.css
+.dark-pink {
+  & .form-checkbox {
+    & > input + .check {
+      color: $gx-primary-dark-pink;
+    }
+  }
+
+  & .checkbox-primary {
+    & label::before {
+      border-color: $gx-primary-dark-pink;
+    }
+
+    & input[type="checkbox"]:checked + label::after {
+      background-color: $gx-primary-dark-pink;
+    }
+  }
+
+  & .radio-primary {
+    & input[type="radio"]:checked + label::before {
+      border-color: $gx-primary-dark-pink;
+    }
+
+    & input[type="radio"]:checked + label::after {
+      background-color: $gx-primary-dark-pink;
+    }
+  }
+}
+
+//Ecommerce.scss
+.dark-pink .gx-cart {
+  & .cart-item {
+    &:hover .icon-outline {
+      color: $gx-primary-dark-pink;
+      border-color: $gx-primary-dark-pink;
+    }
+  }
+
+  & .cart-action-btn {
+    & .icon-outline {
+      color: $gx-primary-dark-pink;
+    }
+
+    & .icon-outline:hover {
+      background-color: $gx-primary-dark-pink;
+      color: $white;
+    }
+  }
+}
+
+.dark-pink .is-focused {
+  &:hover,
+  &:focus {
+    background-image: linear-gradient($gx-primary-dark-pink, $gx-primary-dark-pink);
+  }
+}
+
+/*Icons Styles*/
+.dark-pink .icons-showcase > div {
+  &:hover {
+    background-color: $gx-primary-dark-pink;
+  }
+}
+
+/* Input Style */
+.dark-pink .form-control {
+  &:focus {
+    border-color: $gx-primary-dark-pink;
+  }
+}
+
+//_input.scss
+.dark-pink .select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $gx-primary-dark-pink;
+}
+
+/*Accordions Styles*/
+.dark-pink .accordion-heading .accordion-toggle {
+  color: $white;
+  background-color: $gx-primary-dark-pink;
+}
+
+.dark-pink .accordion-heading .accordion-toggle.collapsed {
+  background-color: $white;
+  color: $body-color;
+}
+
+//Form Wizard
+.dark-pink {
+  & .wizard-navbar > ul li {
+    &.completed a span.wz-number {
+      background-color: $gx-primary-dark-pink;
+      color: $white;
+    }
+
+    & a.active span.wz-number {
+      background-color: $secondary-dark-pink;
+      color: $white;
+    }
+
+    & a.active:before,
+    & a.active:after {
+      background-color: $secondary-dark-pink;
+    }
+
+    &.completed a:before,
+    &.completed a:after {
+      background-color: $gx-primary-dark-pink;
+    }
+  }
+
+  & .pager {
+    & > li > a,
+    & > li > span {
+      color: $gx-primary-dark-pink;
+    }
+  }
+}
+
+//Dropzone
+.dark-pink .dropzone {
+  border-color: $gx-primary-dark-pink;
+}
+
+//Tabs
+.dark-pink .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $gx-primary-dark-pink;
+  }
+}
+
+.dark-pink .bg-primary .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $white;
+  }
+}
+
+//Progress Bar
+.dark-pink .progress-bar {
+  background-color: $gx-primary-dark-pink;
+}
+
+//Sweet-alert
+.dark-pink .swal-button {
+  background-color: $gx-primary-dark-pink;
+  color: $white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($gx-primary-dark-pink, 5%);
+  }
+
+  &.swal-button--cancel {
+    color: $body-color;
+    background-color: darken($body-bg, 5%);
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: darken($body-bg, 10%);
+    }
+  }
+}
+
+//Bottom Navigation
+.dark-pink .bottom-navigation {
+  & > li.active > a {
+    color: $gx-primary-dark-pink;
+    padding-top: 6px;
+  }
+}

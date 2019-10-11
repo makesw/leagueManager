@@ -1,0 +1,199 @@
+/*Testimonials Chat Style*/
+
+.chat-testimonial-carousel {
+  @media screen and (max-width: 1199px) {
+    .customer > img.size-120 {
+      width: 70px !important;
+      height: 70px !important;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .customer > img.size-120 {
+      width: 120px !important;
+      height: 120px !important;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .customer > img.size-120 {
+      width: 80px !important;
+      height: 80px !important;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .customer > img.size-120 {
+      width: 60px !important;
+      height: 60px !important;
+    }
+  }
+}
+
+.chat-box {
+  & .card-content {
+    padding: 0;
+  }
+}
+
+.chat-left {
+  position: relative;
+  overflow: hidden;
+  & .customer {
+    position: absolute;
+    bottom: 0;
+  }
+
+  & .chat-box {
+    position: relative;
+    padding: 24px;
+    background-color: map_get($green, darken-1);
+    color: $white;
+    float: right;
+    width: 68%;
+
+    & h5,
+    & .post-designation {
+      color: $white;
+    }
+
+    &:after {
+      border-color: map_get($green, darken-1) transparent;
+      border-style: solid;
+      border-width: 0 0 16px 28px;
+      bottom: 0;
+      content: "";
+      display: block;
+      left: -26px;
+      position: absolute;
+    }
+  }
+}
+
+.chat-right {
+  position: relative;
+  overflow: hidden;
+  & .customer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  & .chat-box {
+    position: relative;
+    padding: 24px;
+    background-color: $gray-900;
+    color: $white;
+    float: left;
+    width: 68%;
+    & h5,
+    & .post-designation {
+      color: $white;
+    }
+    &:after {
+      border-color: $gray-900 transparent;
+      border-style: solid;
+      border-width: 0 40px 22px 0;
+      bottom: 0;
+      content: "";
+      display: block;
+      right: -26px;
+      position: absolute;
+    }
+  }
+}
+
+// Testimonial with Background
+
+.testimonial-in-bg {
+  background-color: rgba($black, 0.8);
+  @include box-shadow(5px 5px 6px rgba($black, 0.06));
+  padding: 30px 30px 30px 150px;
+  overflow: hidden;
+  position: relative;
+
+  & .pic {
+    display: inline-block;
+    width: $size-80;
+    height: $size-80;
+    @include border-radius($border-radius-circle);
+    overflow: hidden;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    border: 4px solid $warning;
+  }
+  & .pic img {
+    width: 100%;
+    height: auto;
+  }
+  & .description {
+    color: $gray-200;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 25px;
+    margin-bottom: 15px;
+    position: relative;
+
+    &:before {
+      content: "\f1b2";
+      font: {
+        family: 'Material-Design-Iconic-Font';
+        size: 24px;
+      }
+      -moz-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      transform: scaleX(-1);
+      position: absolute;
+      left: -24px;
+    }
+  }
+  & .title {
+    color: $warning;
+    margin-bottom: 6px;
+  }
+  & .post {
+    display: inline-block;
+    font-size: 17px;
+    color: $warning;
+  }
+}
+
+// Testimonials Simple
+
+.basic-testimonial,
+.classic-testimonial {
+  text-align: center;
+
+  & .pic {
+    margin: 0 auto 20px;
+  }
+  & .pic img {
+    width: $size-120 !important;
+    height: $size-120 !important;
+
+    @media screen and (max-width: 500px) {
+      width: $size-80 !important;
+      height: $size-80 !important;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .testimonial-in-bg {
+    padding: 20px;
+    text-align: center;
+  }
+  .testimonial-in-bg .pic {
+    display: block;
+    position: static;
+    margin: 0 auto 15px;
+  }
+
+  .testimonial-in-bg .description:before {
+    font-size: 14px;
+    left: -4px;
+  }
+}

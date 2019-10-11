@@ -1,0 +1,773 @@
+/*Theme Indigo Styles*/
+$gx-primary-indigo: #3f51b5 !default;
+$secondary-indigo: #FF4081;
+
+$sidebar-indigo: $white !default;
+$sidebar-text-indigo: #868e96 !default;
+
+//-Base-scss
+.indigo .right-arrow {
+  color: $gx-primary-indigo;
+  &:after {
+    color: $gx-primary-indigo;
+  }
+}
+
+//Button function
+@each $color_name, $color in $colors_palette {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .indigo .gx-btn-#{$color_name} {
+        background-color: $color_value;
+        color: $white;
+        &:hover,
+        &:focus {
+          background-color: darken($color_value, 5%);
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+//
+// Alternate buttons
+//
+@each $color, $value in $theme-colors {
+  .indigo .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .indigo a.btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .indigo .btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $sidebar-indigo);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .indigo a.btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $sidebar-indigo);
+    }
+  }
+}
+
+.indigo .btn-outline-primary,
+.indigo a.btn-outline-primary {
+  color: $gx-primary-indigo;
+  border-color: $gx-primary-indigo;
+
+  &:focus,
+  &:hover {
+    color: $white;
+    border-color: $gx-primary-indigo;
+    background-color: $gx-primary-indigo;
+  }
+}
+
+//Bootstrap file Style
+.indigo {
+  & a {
+    color: $gx-primary-indigo;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-indigo, 10%);
+    }
+  }
+
+  & a.text-primary {
+    color: $gx-primary-indigo !important;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-indigo, 10%) !important;
+    }
+  }
+
+  & .text-primary {
+    color: $gx-primary-indigo !important;
+  }
+
+  & .page-link {
+    color: $gx-primary-indigo;
+    &:focus,
+    &:hover {
+      color: $gx-primary-indigo;
+    }
+  }
+
+  & .page-item.active .page-link {
+    color: $sidebar-indigo;
+    background-color: $gx-primary-indigo;
+    border-color: $gx-primary-indigo;
+  }
+
+  & .badge-primary {
+    background-color: $gx-primary-indigo;
+    color: $sidebar-indigo;
+  }
+
+  & .bg-primary {
+    background-color: $gx-primary-indigo !important;
+    color: $sidebar-indigo !important;
+  }
+
+  & .btn-primary,
+  & .gx-btn-primary,
+  & a.btn-primary,
+  & a.gx-btn-primary {
+    background-color: $gx-primary-indigo;
+    border-color: $gx-primary-indigo;
+    color: $sidebar-indigo;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($gx-primary-indigo, 5%);
+      border-color: darken($gx-primary-indigo, 5%);
+      color: $sidebar-indigo;
+    }
+  }
+
+  & .bg-primary {
+    &.lighten-4 {
+      background-color: #c5cae9 !important;
+    }
+
+    &.lighten-3 {
+      background-color: #9fa8da !important;
+    }
+
+    &.lighten-2 {
+      background-color: #7986cb !important;
+    }
+
+    &.lighten-1 {
+      background-color: #5c6bc0 !important;
+    }
+
+    &.darken-1 {
+      background-color: #3949ab !important;
+    }
+
+    &.darken-2 {
+      background-color: #303f9f !important;
+    }
+
+    &.darken-3 {
+      background-color: #283593 !important;
+    }
+
+    &.darken-4 {
+      background-color: #1a237e !important;
+    }
+
+    &.accent-1 {
+      background-color: #8c9eff !important;
+    }
+
+    &.accent-2 {
+      background-color: #536dfe !important;
+    }
+
+    &.accent-3 {
+      background-color: #3d5afe !important;
+    }
+
+    &.accent-4 {
+      background-color: #304ffe !important;
+    }
+  }
+}
+
+//Secondary
+.indigo {
+  & a.text-secondary {
+    color: $secondary-indigo;
+    &:focus,
+    &:hover {
+      color: darken($secondary-indigo, 10%) !important;
+    }
+  }
+
+  & .text-secondary {
+    color: $secondary-indigo !important;
+  }
+
+  & .bg-secondary,
+  & .badge-secondary {
+    background-color: $secondary-indigo !important;
+    color: $sidebar-indigo !important;
+  }
+
+  & .btn-secondary,
+  & .gx-btn-secondary,
+  & a.btn-secondary,
+  & a.gx-btn-secondary {
+    background-color: $secondary-indigo;
+    border-color: $secondary-indigo;
+    color: $sidebar-indigo;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($secondary-indigo, 5%);
+      border-color: darken($secondary-indigo, 5%);
+      color: $sidebar-indigo;
+    }
+  }
+}
+
+//Button Group
+.indigo .btn-group > .gx-btn,
+.indigo .btn-group-vertical > .gx-btn {
+  &.active {
+    background-color: $gx-primary-indigo;
+    border-color: $gx-primary-indigo;
+  }
+
+  &.gx-flat-btn {
+    border-color: transparent;
+    &.active {
+      background-color: transparent;
+      color: $gx-primary-indigo;
+
+      &:hover,
+      &:focus {
+        background-color: rgba($gx-primary-indigo, 0.12);
+        color: $gx-primary-indigo;
+      }
+    }
+  }
+}
+
+//Custom Checkbox
+.indigo .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-indigo;
+}
+
+.indigo .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-indigo;
+}
+
+.indigo a.btn-link {
+  color: $gx-primary-indigo;
+  background-color: transparent;
+
+  @include hover {
+    color: darken($gx-primary-indigo, 5%);;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    border-color: transparent;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+}
+
+.indigo .dropdown-more,
+.indigo .dropdown-item,
+.indigo a.badge-light,
+.indigo a.btn-light {
+  color: $body-color;
+
+  &:hover,
+  &:focus {
+    color: $body-color;
+  }
+}
+
+.indigo a.gx-btn-default {
+  background-color: $sidebar-indigo;
+  color: $body-color;
+  border: 1px solid $gray-300;
+  &:hover,
+  &:focus {
+    background-color: darken($sidebar-indigo, 5%);
+    color: $body-color;
+  }
+}
+
+.indigo a.gx-flat-btn {
+  background-color: transparent;
+  color: $body-color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: map_get($gray, lighten-4);
+    color: $body-color;
+  }
+}
+
+.indigo a.gx-flat-btn.gx-btn-primary {
+  background-color: transparent;
+  color: $gx-primary-indigo;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($gx-primary-indigo, 0.12);
+    color: $gx-primary-indigo;
+  }
+}
+
+.indigo .bg-primary {
+  & a.gx-flat-btn.gx-btn-primary {
+    background-color: transparent;
+    color: $sidebar-indigo;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($sidebar-indigo, 0.12);
+      color: $sidebar-indigo;
+    }
+  }
+}
+
+.indigo a.gx-flat-btn.gx-btn-secondary {
+  background-color: transparent;
+  color: $secondary-indigo;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($secondary-indigo, 0.12);
+    color: $secondary-indigo;
+  }
+}
+
+.indigo .bg-secondary {
+  & a.gx-flat-btn.gx-btn-secondary {
+    background-color: transparent;
+    color: $sidebar-indigo;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($sidebar-indigo, 0.12);
+      color: $sidebar-indigo;
+    }
+  }
+}
+
+.indigo .action-btn {
+  color: rgba($black, 0.54);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: rgba($black, 0.64);
+  }
+}
+
+//_header.scss
+.indigo .main-header {
+  & .search-dropdown input {
+    @media screen and (max-width: 575px) {
+      background-color: $white;
+    }
+  }
+}
+
+//Messages List
+.indigo {
+  & .messages-list ul li {
+    & .user-name a {
+      color: $gx-primary-indigo;
+    }
+  }
+}
+
+//_right-sidebar.scss
+.indigo .color-theme-header {
+  background-color: $gx-primary-indigo;
+}
+
+//_sidebar.scss
+.indigo ul.nav-menu > li.selected > a,
+.indigo ul.nav-menu > li.open > a,
+.indigo ul.nav-menu > li > a:hover,
+.indigo ul.nav-menu > li > a:focus {
+  background-color: $sidebar-indigo;
+  color: $gx-primary-indigo;
+}
+
+.indigo ul.nav-menu li.menu > a:focus:before,
+.indigo ul.nav-menu li.menu > a:hover:before {
+  color: $gx-primary-indigo;
+}
+
+.indigo ul.nav-menu li ul {
+  background-color: $sidebar-indigo;
+}
+
+.indigo ul.nav-menu li.menu.selected > a:before,
+.indigo ul.nav-menu li.menu.open > a:before,
+.indigo ul.nav-menu li.menu > a:focus:before,
+.indigo ul.nav-menu li.menu li > a:hover:before {
+  color: $gx-primary-indigo;
+}
+
+.indigo ul.nav-menu li.menu .sub-menu li.active > a .nav-text {
+  background-color: $gx-primary-indigo;
+  color: $sidebar-indigo;
+}
+
+.indigo ul.nav-menu li.menu .sub-menu li > a:hover,
+.indigo ul.nav-menu li.menu .sub-menu li > a:focus,
+.indigo ul.nav-menu li.menu.open .sub-menu li.active > a:before,
+.indigo ul.nav-menu li.menu .sub-menu li > a:focus:before,
+.indigo ul.nav-menu li.menu .sub-menu li > a:hover:before {
+  background-color: $sidebar-indigo;
+  color: $gx-primary-indigo;
+}
+
+//_module.scss
+.indigo .module-nav {
+  & li a.active {
+    color: $gx-primary-indigo;
+  }
+}
+
+.indigo .module-tab-nav {
+  & li a.nav-link.active {
+    border-color: $gx-primary-indigo;
+    color: $gx-primary-indigo;
+  }
+}
+
+.indigo .nav-pills-module {
+  & > li > a {
+    background-color: $gx-primary-indigo;
+    color: $white;
+    border-color: $gx-primary-indigo;
+
+    &.nav-link-border {
+      background-color: transparent;
+      border-color: $gray-500;
+      color: $gray-800;
+    }
+  }
+}
+
+//_calendar.scss
+.indigo .fc-event,
+.indigo .fc-event-dot {
+  background-color: $gx-primary-indigo;
+}
+
+//_chat.scss
+.indigo {
+  & .chat-sidenav-header {
+    & .tab-link .nav-link.active {
+      color: $gx-primary-indigo;
+      border-color: $gx-primary-indigo;
+    }
+  }
+
+  & .chat-item.flex-row-reverse .bubble {
+    background-color: $gx-primary-indigo;
+  }
+
+  & .chat-user-item {
+    &.active,
+    &:hover {
+      background-color: $gx-primary-indigo;
+    }
+  }
+}
+
+.indigo .chat-main-header {
+  background-color: $gx-primary-indigo;
+
+  & .action-btn {
+    color: $white;
+  }
+}
+
+//_dashboard.scss
+.indigo .contact-list {
+  & i {
+    color: $gx-primary-indigo;
+  }
+}
+
+.indigo .nav-pill-sales {
+  & .nav-link {
+    &.active {
+      background-color: $gx-primary-indigo;
+      border-color: $gx-primary-indigo;
+    }
+  }
+}
+
+//The link which when clicked opens the collapsable ChatUserList
+.indigo .Collapsible__trigger {
+  background: $gx-primary-indigo;
+}
+
+.indigo .categories-list {
+  & li a:focus,
+  & li a:hover,
+  & li.active a {
+    color: $gx-primary-indigo;
+  }
+}
+
+//_login.scss
+
+.indigo .login-content .form-control {
+  &:focus {
+    border-color: $gx-primary-indigo;
+  }
+}
+
+//_portfolio.scss
+.indigo .filter-with-bg-color ul li {
+  & a {
+    border-color: $gx-primary-indigo;
+
+    &:hover,
+    &:focus,
+    &.active {
+      background-color: $gx-primary-indigo;
+    }
+  }
+}
+
+//_card.scss
+.indigo .profile-intro {
+  & .icon {
+    color: $gx-primary-indigo;
+  }
+}
+
+.indigo .social-link {
+  & li.active a,
+  & li a:hover,
+  & li a:focus {
+    color: $secondary-indigo;
+  }
+}
+
+//_tables.scss
+.indigo .actions {
+  color: $secondary-indigo;
+}
+
+.indigo .table-hover tbody tr:hover {
+  background-color: rgba($gx-primary-indigo, 0.075);
+}
+
+//Border Color
+.indigo .module-nav ul.module-nav-team .dashed-circle,
+.indigo .border-primary {
+  border-color: $gx-primary-indigo !important;
+}
+
+.indigo .border-secondary {
+  border-color: $secondary-indigo !important;
+}
+
+//_picker.scss
+.indigo .bootstrap-datetimepicker-widget table {
+  & td span.active,
+  & td.active,
+  & td.active:hover {
+    background-color: $gx-primary-indigo;
+  }
+}
+
+//_color-picker.scss
+.indigo .noUi-connect {
+  background: $gx-primary-indigo !important;
+}
+
+//mouldifi-form.css
+.indigo {
+  & .form-checkbox {
+    & > input + .check {
+      color: $gx-primary-indigo;
+    }
+  }
+
+  & .checkbox-primary {
+    & label::before {
+      border-color: $gx-primary-indigo;
+    }
+
+    & input[type="checkbox"]:checked + label::after {
+      background-color: $gx-primary-indigo;
+    }
+  }
+
+  & .radio-primary {
+    & input[type="radio"]:checked + label::before {
+      border-color: $gx-primary-indigo;
+    }
+
+    & input[type="radio"]:checked + label::after {
+      background-color: $gx-primary-indigo;
+    }
+  }
+}
+
+//Ecommerce.scss
+.indigo .gx-cart {
+  & .cart-item {
+    &:hover .icon-outline {
+      color: $gx-primary-indigo;
+      border-color: $gx-primary-indigo;
+    }
+  }
+
+  & .cart-action-btn {
+    & .icon-outline {
+      color: $gx-primary-indigo;
+    }
+
+    & .icon-outline:hover {
+      background-color: $gx-primary-indigo;
+      color: $white;
+    }
+  }
+}
+
+.indigo .is-focused {
+  &:hover,
+  &:focus {
+    background-image: linear-gradient($gx-primary-indigo, $gx-primary-indigo);
+  }
+}
+
+/*Icons Styles*/
+.indigo .icons-showcase > div {
+  &:hover {
+    background-color: $gx-primary-indigo;
+  }
+}
+
+/* Input Style */
+.indigo .form-control {
+  &:focus {
+    border-color: $gx-primary-indigo;
+  }
+}
+
+//_input.scss
+.indigo .select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $gx-primary-indigo;
+}
+
+/*Accordions Styles*/
+.indigo .accordion-heading .accordion-toggle {
+  color: $white;
+  background-color: $gx-primary-indigo;
+}
+
+.indigo .accordion-heading .accordion-toggle.collapsed {
+  background-color: $white;
+  color: $body-color;
+}
+
+//Form Wizard
+.indigo {
+  & .wizard-navbar > ul li {
+    &.completed a span.wz-number {
+      background-color: $gx-primary-indigo;
+      color: $white;
+    }
+
+    & a.active span.wz-number {
+      background-color: $secondary-indigo;
+      color: $white;
+    }
+
+    & a.active:before,
+    & a.active:after {
+      background-color: $secondary-indigo;
+    }
+
+    &.completed a:before,
+    &.completed a:after {
+      background-color: $gx-primary-indigo;
+    }
+  }
+
+  & .pager {
+    & > li > a,
+    & > li > span {
+      color: $gx-primary-indigo;
+    }
+  }
+}
+
+//Dropzone
+.indigo .dropzone {
+  border-color: $gx-primary-indigo;
+}
+
+//Tabs
+.indigo .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $gx-primary-indigo;
+  }
+}
+
+.indigo .bg-primary .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $white;
+  }
+}
+
+//Progress Bar
+.indigo .progress-bar {
+  background-color: $gx-primary-indigo;
+}
+
+//Sweet-alert
+.indigo .swal-button {
+  background-color: $gx-primary-indigo;
+  color: $white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($gx-primary-indigo, 5%);
+  }
+
+  &.swal-button--cancel {
+    color: $body-color;
+    background-color: darken($body-bg, 5%);
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: darken($body-bg, 10%);
+    }
+  }
+}
+
+//Bottom Navigation
+.indigo .bottom-navigation {
+  & > li.active > a {
+    color: $gx-primary-indigo;
+    padding-top: 6px;
+  }
+}

@@ -1,0 +1,42 @@
+/*Alert Styles*/
+.alert {
+  border: 0 none;
+}
+
+.alert {
+  padding: 20px 24px;
+  @include border-radius($border-radius-lg);
+  position: relative;
+
+  & .close {
+    line-height: inherit;
+    font-weight: $font-weight-light;
+  }
+
+  & .alert-addon {
+    width: $size-60;
+    @include border-radius($border-radius-lg 0 0 $border-radius-lg);
+    background-color: rgba($black, 0.2);
+    @include display-flex(flex, column, nowrap);
+    @include justify-content(center);
+    @include align-items(center);
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    bottom: -1px;
+    z-index: 1;
+  }
+}
+
+.alert-dismissible {
+  padding-right: $size-60;
+
+  & .close:hover,
+  & .close:focus {
+    color: inherit;
+  }
+}
+
+.alert-addon-card {
+  padding-left: $size-80;
+}

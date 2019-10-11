@@ -1,0 +1,68 @@
+/*Bottom Navigation Styles*/
+.bottom-navigation {
+  list-style: none;
+  @include display-flex(flex, row, wrap);
+  @include justify-content(space-around);
+  margin-bottom: 0;
+  @include transition(all 0.3s $transition-ease);
+  padding-left: 0;
+
+  & > li {
+    flex: 1;
+    display: inline-flex;
+    min-height: 70px;
+    min-width: 10px;
+  }
+
+  & > li > a {
+    color: $gray-600;
+    text-align: center;
+    text-decoration: none;
+    font-size: $font-size-base;
+    padding: 8px 12px 10px;
+    width: 100%;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    @include align-items(center);
+    @include justify-content(center);
+
+    & i {
+      font-size: 28px;
+      display: block;
+      margin: auto;
+    }
+    & span {
+      @include transition(font-size 0.2s, opacity 0.2s);
+    }
+  }
+
+  & > li.active > a {
+    color: $gx-primary;
+    padding-top: 6px;
+
+    & span {
+      font-size: ($font-size-base + 2px);
+    }
+  }
+}
+
+.bottom-navigation.active-label {
+  & > li > a span {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+  }
+
+  & > li.active > a span {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+  }
+}

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Leaguemanager - A fully responsive, HTML5 Sport Manager">
+    <meta name="keywords" content="Responsive, HTML5, admin theme, business, professional, jQuery, web design, CSS3, sass">
+    <title>LeagueManager</title>
+
+    <!-- Site favicon -->
+    <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+    <!-- /site favicon -->
+
+    <!-- Font Material stylesheet -->
+    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <!-- /font material stylesheet -->
+
+    <!-- sprite-flags-master stylesheet -->
+    <link rel="stylesheet" href="fonts/sprite-flags-master/sprite-flags-32x32.css">
+    <!-- /sprite-flags-master stylesheet -->
+
+    <!-- Bootstrap stylesheet -->
+    <link href="css/mouldifi-bootstrap.css" rel="stylesheet">
+    <!-- /bootstrap stylesheet -->
+
+    <!-- Perfect Scrollbar stylesheet -->
+    <link href="node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <!-- /perfect scrollbar stylesheet -->
+
+    <!-- Mouldifi-core stylesheet -->
+    <link href="css/mouldifi-core.css" rel="stylesheet">
+    <!-- /mouldifi-core stylesheet -->
+
+    <!-- Color-Theme stylesheet -->
+    <link id="override-css-id" href="css/theme-indigo.min.css" rel="stylesheet">
+    <!-- Color-Theme stylesheet -->
+
+</head>
+
+<body id="body" data-theme="indigo">
+
+<!-- Loader Backdrop -->
+<div class="loader-backdrop">
+    <!-- Loader -->
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+    </div>
+    <!-- /loader-->
+</div>
+<!-- loader backdrop -->
+
+<!-- Page container -->
+<div class="gx-container">
+
+    <!-- Main Container -->
+    <div class="gx-main-container">       
+
+        <!-- Main Content -->
+        <div class="gx-main-content">
+            <!--gx-wrapper-->
+            <div class="gx-wrapper">
+                <div class="login-container d-flex justify-content-center align-items-center animated slideInUpTiny animation-duration-3">
+                    <div class="login-content">
+                        <div class="login-header">
+                            <a class="site-logo" href="#" title="LeagueManager">
+                                <img src="./images/logo.png" alt="LeagueManager" title="LeagueManager">
+                            </a>
+                        </div>
+                        <div class="login-form">
+                            <form>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <input name="email" id="email" class="form-control form-control-lg" placeholder="Email" type="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="password" id="password" class="form-control form-control-lg" placeholder="Password" type="password">
+                                    </div>
+                                    <div class="form-group text-row-between">
+                                        <div class="custom-control custom-checkbox mr-2">
+                                            <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                            <label class="custom-control-label" for="customControlInline">Recordar Datos</label>
+                                        </div>
+                                        <p>
+                                            <a href="forgot-password1.html" title="Reset Password">Recuperar Constraseña</a>
+                                        </p>
+                                    </div>
+                                    <a href="javascript:void(0)" class="gx-btn gx-btn-rounded gx-btn-primary">Ingresar</a>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/gx-wrapper-->
+
+            <!-- Footer -->
+            <footer class="gx-footer">
+                <div class="d-flex flex-row justify-content-between">
+                    <p> Copyright MakeSW © 2019</p>
+                </div>
+            </footer>
+            <!-- /footer -->
+
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /main container -->
+
+</div>
+
+<!--Load JQuery-->
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<!--Bootstrap JQuery-->
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!--Perfect Scrollbar JQuery-->
+<script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+<!--Big Slide JQuery-->
+<script src="node_modules/bigslide/dist/bigSlide.min.js"></script>
+<!--Custom JQuery-->
+<script src="js/functions.js"></script>
+<script>	
+jQuery(document).on('submit','#formLogin', function(event){
+	event.preventDefault();	
+	jQuery.ajax({
+		url: 'login.php',
+		type:'POST',
+		dataType: 'json',
+		data: $(this).serialize()
+	})
+	.done(function(respuesta){	  
+		if( !respuesta.error ){
+			if( respuesta.perfil == 'admin' ){
+				location.href= './admin/';
+			}else if( respuesta.perfil == 'usuario' ){
+				location.href= './user/';
+			}else if( respuesta.perfil == 'colaborador' ){
+				location.href= './colaborator/';
+			}
+		}else{
+			$('#msg-fail').show();
+			setTimeout(function(){
+				$('#msg-fail').hide();
+			},3000);
+		}
+	})
+	.fail(function(resp){
+		console.log(resp.responseText);	  
+		$('#msg-fail').show();
+		setTimeout(function(){
+			$('#msg-fail').hide();
+		},3000);
+	})
+	.always(function(respuesta){ 
+		console.log(respuesta);	
+	})
+});
+</script>
+</body>
+</html>

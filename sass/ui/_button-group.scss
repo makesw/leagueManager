@@ -1,0 +1,252 @@
+/*Button Group Styles*/
+
+// stylelint-disable selector-no-qualifying-type
+
+// Make the div behave like a button
+.btn-group,
+.btn-group-vertical {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+
+  > .gx-btn {
+    position: relative;
+    flex: 0 1 auto;
+    border-color: $border-color;
+
+    // Bring the hover, focused, and "active" buttons to the front to overlay
+    // the borders properly
+    @include hover {
+      z-index: 2;
+    }
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+
+    &.active {
+      background-color: $gx-primary;
+      color: $white;
+      border-color: $gx-primary;
+    }
+
+    &.gx-flat-btn {
+      border-color: transparent;
+      &.active {
+        background-color: transparent;
+        color: $gx-primary;
+
+        &:hover,
+        &:focus {
+          background-color: rgba($gx-primary, 0.12);
+          color: $gx-primary;
+        }
+      }
+    }
+  }
+
+  // Prevent double borders when buttons are next to each other
+  .gx-btn + .gx-btn,
+  .gx-btn + .btn-group,
+  .btn-group + .gx-btn,
+  .btn-group + .btn-group {
+    margin-left: -$input-btn-border-width;
+  }
+}
+
+.btn-group,
+.btn-group-vertical {
+
+  &.no-border > .btn-group > .gx-btn,
+  &.no-border > .btn-group-vertical > .gx-btn,
+  &.no-border > .gx-btn {
+    border-color: transparent;
+  }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.btn-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .input-group {
+    width: auto;
+  }
+}
+
+.btn-group > .gx-btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+
+// Set corners individual because sometimes a single button can be in a .btn-group
+// and we need :first-child and :last-child to both match
+.btn-group > .gx-btn:first-child {
+  margin-left: 0;
+
+  &:not(:last-child):not(.dropdown-toggle) {
+    @include border-right-radius(0);
+  }
+}
+
+// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu
+// immediately after it
+.btn-group > .gx-btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  @include border-left-radius(0);
+}
+
+// Custom edits for including btn-groups within btn-groups (useful for including
+// dropdown buttons within a btn-group)
+.btn-group > .btn-group {
+  float: left;
+}
+
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .gx-btn {
+  border-radius: 0;
+}
+
+.btn-group > .btn-group:first-child:not(:last-child) {
+  > .gx-btn:last-child,
+  > .dropdown-toggle {
+    @include border-right-radius(0);
+  }
+}
+
+.btn-group > .btn-group:last-child:not(:first-child) > .gx-btn:first-child {
+  @include border-left-radius(0);
+}
+
+
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+
+.btn-group-sm > .gx-btn { @extend .gx-btn-sm; }
+.btn-group-lg > .gx-btn { @extend .gx-btn-lg; }
+
+
+//
+// Split button dropdowns
+//
+
+.gx-btn + .dropdown-toggle-split {
+  padding-right: $input-btn-padding-x * .75;
+  padding-left: $input-btn-padding-x * .75;
+
+  &::after {
+    margin-left: 0;
+  }
+}
+
+.gx-btn-sm + .dropdown-toggle-split {
+  padding-right: $input-btn-padding-x-sm * .75;
+  padding-left: $input-btn-padding-x-sm * .75;
+}
+
+.gx-btn-lg + .dropdown-toggle-split {
+  padding-right: $input-btn-padding-x-lg * .75;
+  padding-left: $input-btn-padding-x-lg * .75;
+}
+
+// The clickable button for toggling the menu
+// Set the same inset shadow as the :active state
+.btn-group.show .dropdown-toggle {
+  @include box-shadow($btn-active-box-shadow);
+
+  // Show no shadow for `.btn-link` since it has no other button styles.
+  &.btn-link {
+    @include box-shadow(none);
+  }
+}
+
+
+//
+// Vertical button groups
+//
+
+.btn-group-vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  .gx-btn,
+  .btn-group {
+    width: 100%;
+  }
+
+  > .gx-btn + .gx-btn,
+  > .gx-btn + .btn-group,
+  > .btn-group + .gx-btn,
+  > .btn-group + .btn-group {
+    margin-top: -$input-btn-border-width;
+    margin-left: 0;
+  }
+
+  > .gx-btn {
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    &:first-child:not(:last-child) {
+      @include border-bottom-radius(0);
+    }
+
+    &:last-child:not(:first-child) {
+      @include border-top-radius(0);
+    }
+  }
+
+  > .btn-group:not(:first-child):not(:last-child) > .gx-btn {
+    border-radius: 0;
+  }
+
+  > .btn-group:first-child:not(:last-child) {
+    > .gx-btn:last-child,
+    > .dropdown-toggle {
+      @include border-bottom-radius(0);
+    }
+  }
+
+  > .btn-group:last-child:not(:first-child) > .gx-btn:first-child {
+    @include border-top-radius(0);
+  }
+}
+
+
+// Checkbox and radio options
+//
+// In order to support the browser's form validation feedback, powered by the
+// `required` attribute, we have to "hide" the inputs via `clip`. We cannot use
+// `display: none;` or `visibility: hidden;` as that also hides the popover.
+// Simply visually hiding the inputs via `opacity` would leave them clickable in
+// certain cases which is prevented by using `clip` and `pointer-events`.
+// This way, we ensure a DOM element is visible to position the popover from.
+//
+// See https://github.com/twbs/bootstrap/pull/12794 and
+// https://github.com/twbs/bootstrap/pull/14559 for more information.
+
+[data-toggle="buttons"] {
+  > .gx-btn,
+  > .btn-group > .gx-btn {
+    input[type="radio"],
+    input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0,0,0,0);
+      //pointer-events: none;
+    }
+  }
+}
+
+// Make the div behave like a button
+.btn-group,
+.btn-group-vertical {
+
+  // Over Write To jr btn Margin
+  > .gx-btn,
+  > .btn {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}

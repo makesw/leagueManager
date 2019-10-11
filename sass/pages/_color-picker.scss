@@ -1,0 +1,56 @@
+/*Color Picker*/
+.minicolors-theme-default {
+  & .minicolors-input {
+    height: 28px;
+    width: 100%;
+    display: inline-block;
+    padding-left: 34px;
+  }
+
+  &.minicolors-position-right .minicolors-input {
+    padding-right: 26px;
+    padding-left: 10px;
+  }
+
+  &.minicolors {
+    width: 100%;
+    display: block;
+  }
+}
+
+.input-group .minicolors {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0;
+  display: flex;
+
+  & .form-control {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+  }
+}
+
+.colorpicker {
+  margin-top: 0;
+
+  &.dropdown-menu {
+    z-index: 2500;
+  }
+}
+
+.input-group-addon .icon-color-preview {
+  background-color: $white;
+  border: 1px solid map_get($gray, lighten-2);
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.noUi-connect {
+  background: $gx-primary !important;
+}

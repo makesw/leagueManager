@@ -1,0 +1,34 @@
+/*Sweet Alerts*/
+
+.swal-button {
+  background-color: $gx-primary;
+  color: $white;
+  box-shadow: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($gx-primary, 10%);
+    box-shadow: none;
+  }
+
+  &.swal-button--cancel {
+    color: $gray-700;
+    background-color: $gray-300;
+  }
+
+  &.swal-button--danger {
+    background-color: $danger;
+
+    &:hover,
+    :focus,
+    :active {
+      background-color: darken($danger, 10%);
+    }
+  }
+}
+
+.custom-swal-modal {
+  background-color: rgba(map_get($teal, accent-3),0.69);
+  border: 3px solid $white;
+}

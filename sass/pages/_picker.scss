@@ -1,0 +1,53 @@
+/*Picker Styles*/
+.input-group-addon {
+  background-color: $input-border-color;
+  padding: 7px 10px;
+
+  &:last-child {
+    @include border-radius(0 $border-radius $border-radius 0);
+  }
+
+  &:first-child {
+    @include border-radius($border-radius 0 0 $border-radius);
+  }
+
+  & .zmdi-calendar {
+    font-size: 24px;
+  }
+
+  .date & {
+    padding: 7px 10px 1px;
+  }
+
+  .color-picker & {
+    min-width: 40px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
+//Date Picker
+.timepicker-sbs .datepicker-days,
+.timepicker-sbs .datepicker-months,
+.timepicker-sbs .datepicker-years,
+.timepicker-sbs .datepicker-decades,
+.timepicker-sbs .timepicker-picker,
+.timepicker-sbs .timepicker-hours,
+.timepicker-sbs .timepicker-minutes {
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid map_get($gray, lighten-2);
+  @include border-radius($border-radius);
+}
+
+.bootstrap-datetimepicker-widget table {
+  & td span.active,
+  & td.active,
+  & td.active:hover {
+    background-color: $gx-primary;
+  }
+}
+
+.gj-datepicker-bootstrap span[role="right-icon"] .input-group-text {
+  padding: 6px 8px 7px 30px;
+}

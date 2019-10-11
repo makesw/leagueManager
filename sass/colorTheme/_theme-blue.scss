@@ -1,0 +1,772 @@
+/*Theme Blue Styles*/
+$gx-primary-blue: #2196F3 !default;
+$secondary-blue: #FF6E40;
+
+$sidebar-blue: $white !default;
+$sidebar-text-blue: #868e96 !default;
+
+//-Base-scss
+.blue .right-arrow {
+  color: $gx-primary-blue;
+  &:after {
+    color: $gx-primary-blue;
+  }
+}
+
+//Button function
+@each $color_name, $color in $colors_palette {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .blue .gx-btn-#{$color_name} {
+        background-color: $color_value;
+        color: $white;
+        &:hover,
+        &:focus {
+          background-color: darken($color_value, 5%);
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+//
+// Alternate buttons
+//
+@each $color, $value in $theme-colors {
+  .blue .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .blue a.btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .blue .btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $sidebar-blue);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .blue a.btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $sidebar-blue);
+    }
+  }
+}
+
+.blue .btn-outline-primary,
+.blue a.btn-outline-primary {
+  color: $gx-primary-blue;
+  border-color: $gx-primary-blue;
+
+  &:focus,
+  &:hover {
+    color: $white;
+    border-color: $gx-primary-blue;
+    background-color: $gx-primary-blue;
+  }
+}
+
+//- Bootstrap file Style
+.blue {
+  & a {
+    color: $gx-primary-blue;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-blue, 10%);
+    }
+  }
+
+  & a.text-primary {
+    color: $gx-primary-blue !important;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-blue, 10%) !important;
+    }
+  }
+
+  & .text-primary {
+    color: $gx-primary-blue !important;
+  }
+
+  & .page-link {
+    color: $gx-primary-blue;
+    &:focus,
+    &:hover {
+      color: $gx-primary-blue;
+    }
+  }
+
+  & .page-item.active .page-link {
+    color: $sidebar-blue;
+    background-color: $gx-primary-blue;
+    border-color: $gx-primary-blue;
+  }
+
+  & .badge-primary {
+    background-color: $gx-primary-blue;
+    color: $sidebar-blue;
+  }
+
+  & .bg-primary {
+    background-color: $gx-primary-blue !important;
+    color: $sidebar-blue !important;
+  }
+
+  & .btn-primary,
+  & .gx-btn-primary,
+  & a.btn-primary,
+  & a.gx-btn-primary {
+    background-color: $gx-primary-blue;
+    border-color: $gx-primary-blue;
+    color: $sidebar-blue;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($gx-primary-blue, 5%);
+      border-color: darken($gx-primary-blue, 5%);
+      color: $sidebar-blue;
+    }
+  }
+
+  & .bg-primary {
+    &.lighten-4 {
+      background-color: #BBDEFB !important;
+    }
+
+    &.lighten-3 {
+      background-color: #90CAF9 !important;
+    }
+
+    &.lighten-2 {
+      background-color: #64B5F6 !important;
+    }
+
+    &.lighten-1 {
+      background-color: #42A5F5 !important;
+    }
+
+    &.darken-1 {
+      background-color: #1E88E5 !important;
+    }
+
+    &.darken-2 {
+      background-color: #1976D2 !important;
+    }
+
+    &.darken-3 {
+      background-color: #1565C0 !important;
+    }
+
+    &.darken-4 {
+      background-color: #0D47A1 !important;
+    }
+
+    &.accent-1 {
+      background-color: #82B1FF !important;
+    }
+
+    &.accent-2 {
+      background-color: #448AFF !important;
+    }
+
+    &.accent-3 {
+      background-color: #2979FF !important;
+    }
+
+    &.accent-4 {
+      background-color: #2962FF !important;
+    }
+  }
+}
+
+//Secondary
+.blue {
+  & a.text-secondary {
+    color: $secondary-blue;
+    &:focus,
+    &:hover {
+      color: darken($secondary-blue, 10%) !important;
+    }
+  }
+
+  & .text-secondary {
+    color: $secondary-blue !important;
+  }
+
+  & .bg-secondary,
+  & .badge-secondary {
+    background-color: $secondary-blue !important;
+    color: $sidebar-blue !important;
+  }
+
+  & .btn-secondary,
+  & .gx-btn-secondary,
+  & a.btn-secondary,
+  & a.gx-btn-secondary {
+    background-color: $secondary-blue;
+    border-color: $secondary-blue;
+    color: $sidebar-blue;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($secondary-blue, 5%);
+      border-color: darken($secondary-blue, 5%);
+      color: $sidebar-blue;
+    }
+  }
+}
+
+//Button Group
+.blue .btn-group > .gx-btn,
+.blue .btn-group-vertical > .gx-btn {
+  &.active {
+    background-color: $gx-primary-blue;
+    border-color: $gx-primary-blue;
+  }
+
+  &.gx-flat-btn {
+    border-color: transparent;
+    &.active {
+      background-color: transparent;
+      color: $gx-primary-blue;
+
+      &:hover,
+      &:focus {
+        background-color: rgba($gx-primary-blue, 0.12);
+        color: $gx-primary-blue;
+      }
+    }
+  }
+}
+
+//Custom Checkbox
+.blue .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-blue;
+}
+
+.blue .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-blue;
+}
+
+.blue a.btn-link {
+  color: $gx-primary-blue;
+  background-color: transparent;
+
+  @include hover {
+    color: darken($gx-primary-blue, 5%);;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    border-color: transparent;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+}
+
+.blue .dropdown-more,
+.blue .dropdown-item,
+.blue a.badge-light,
+.blue a.btn-light {
+  color: $body-color;
+
+  &:hover,
+  &:focus {
+    color: $body-color;
+  }
+}
+
+.blue a.gx-btn-default {
+  background-color: $sidebar-blue;
+  color: $body-color;
+  border: 1px solid $gray-300;
+  &:hover,
+  &:focus {
+    background-color: darken($sidebar-blue, 5%);
+    color: $body-color;
+  }
+}
+
+.blue a.gx-flat-btn {
+  background-color: transparent;
+  color: $body-color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: map_get($gray, lighten-4);
+    color: $body-color;
+  }
+}
+
+.blue a.gx-flat-btn.gx-btn-primary {
+  background-color: transparent;
+  color: $gx-primary-blue;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($gx-primary-blue, 0.12);
+    color: $gx-primary-blue;
+  }
+}
+
+.blue .bg-primary {
+  & a.gx-flat-btn.gx-btn-primary {
+    background-color: transparent;
+    color: $sidebar-blue;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($sidebar-blue, 0.12);
+      color: $sidebar-blue;
+    }
+  }
+}
+
+.blue a.gx-flat-btn.gx-btn-secondary {
+  background-color: transparent;
+  color: $secondary-blue;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($secondary-blue, 0.12);
+    color: $secondary-blue;
+  }
+}
+
+.blue .bg-secondary {
+  & a.gx-flat-btn.gx-btn-secondary {
+    background-color: transparent;
+    color: $sidebar-blue;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($sidebar-blue, 0.12);
+      color: $sidebar-blue;
+    }
+  }
+}
+
+.blue .action-btn {
+  color: rgba($black, 0.54);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: rgba($black, 0.64);
+  }
+}
+
+//_header.scss
+.blue .main-header {
+  & .search-dropdown input {
+    @media screen and (max-width: 575px) {
+      background-color: $white;
+    }
+  }
+}
+
+//Messages List
+.blue {
+  & .messages-list ul li {
+    & .user-name a {
+      color: $gx-primary-blue;
+    }
+  }
+}
+
+//_right-sidebar.scss
+.blue .color-theme-header {
+  background-color: $gx-primary-blue;
+}
+
+//_sidebar.scss
+.blue ul.nav-menu > li.selected > a,
+.blue ul.nav-menu > li.open > a,
+.blue ul.nav-menu > li > a:hover,
+.blue ul.nav-menu > li > a:focus {
+  background-color: $sidebar-blue;
+  color: $gx-primary-blue;
+}
+
+.blue ul.nav-menu li.menu > a:focus:before,
+.blue ul.nav-menu li.menu > a:hover:before {
+  color: $gx-primary-blue;
+}
+
+.blue ul.nav-menu li ul {
+  background-color: $sidebar-blue;
+}
+
+.blue ul.nav-menu li.menu.selected > a:before,
+.blue ul.nav-menu li.menu.open > a:before,
+.blue ul.nav-menu li.menu > a:focus:before,
+.blue ul.nav-menu li.menu li > a:hover:before {
+  color: $gx-primary-blue;
+}
+
+.blue ul.nav-menu li.menu .sub-menu li.active > a .nav-text {
+  background-color: $gx-primary-blue;
+  color: $sidebar-blue;
+}
+
+.blue ul.nav-menu li.menu .sub-menu li > a:hover,
+.blue ul.nav-menu li.menu .sub-menu li > a:focus,
+.blue ul.nav-menu li.menu.open .sub-menu li.active > a:before,
+.blue ul.nav-menu li.menu .sub-menu li > a:focus:before,
+.blue ul.nav-menu li.menu .sub-menu li > a:hover:before {
+  background-color: $sidebar-blue;
+  color: $gx-primary-blue;
+}
+
+//_module.scss
+.blue .module-nav {
+  & li a.active {
+    color: $gx-primary-blue;
+  }
+}
+
+.blue .module-tab-nav {
+  & li a.nav-link.active {
+    border-color: $gx-primary-blue;
+    color: $gx-primary-blue;
+  }
+}
+
+.blue .nav-pills-module {
+  & > li > a {
+    background-color: $gx-primary-blue;
+    color: $white;
+    border-color: $gx-primary-blue;
+
+    &.nav-link-border {
+      background-color: transparent;
+      border-color: $gray-500;
+      color: $gray-800;
+    }
+  }
+}
+
+//_calendar.scss
+.blue .fc-event,
+.blue .fc-event-dot {
+  background-color: $gx-primary-blue;
+}
+
+//_chat.scss
+.blue {
+  & .chat-sidenav-header {
+    & .tab-link .nav-link.active {
+      color: $gx-primary-blue;
+      border-color: $gx-primary-blue;
+    }
+  }
+
+  & .chat-item.flex-row-reverse .bubble {
+    background-color: $gx-primary-blue;
+  }
+
+  & .chat-user-item {
+    &.active,
+    &:hover {
+      background-color: $gx-primary-blue;
+    }
+  }
+}
+
+.blue .chat-main-header {
+  background-color: $gx-primary-blue;
+
+  & .action-btn {
+    color: $white;
+  }
+}
+
+//_dashboard.scss
+.blue .contact-list {
+  & i {
+    color: $gx-primary-blue;
+  }
+}
+
+.blue .nav-pill-sales {
+  & .nav-link {
+    &.active {
+      background-color: $gx-primary-blue;
+      border-color: $gx-primary-blue;
+    }
+  }
+}
+
+//The link which when clicked opens the collapsable ChatUserList
+.blue .Collapsible__trigger {
+  background: $gx-primary-blue;
+}
+
+.blue .categories-list {
+  & li a:focus,
+  & li a:hover,
+  & li.active a {
+    color: $gx-primary-blue;
+  }
+}
+
+//_login.scss
+.blue .login-content .form-control {
+  &:focus {
+    border-color: $gx-primary-blue;
+  }
+}
+
+//_portfolio.scss
+.blue .filter-with-bg-color ul li {
+  & a {
+    border-color: $gx-primary-blue;
+
+    &:hover,
+    &:focus,
+    &.active {
+      background-color: $gx-primary-blue;
+    }
+  }
+}
+
+//_card.scss
+.blue .profile-intro {
+  & .icon {
+    color: $gx-primary-blue;
+  }
+}
+
+.blue .social-link {
+  & li.active a,
+  & li a:hover,
+  & li a:focus {
+    color: $secondary-blue;
+  }
+}
+
+//_tables.scss
+.blue .actions {
+  color: $secondary-blue;
+}
+
+.blue .table-hover tbody tr:hover {
+  background-color: rgba($gx-primary-blue, 0.075);
+}
+
+//Border Color
+.blue .module-nav ul.module-nav-team .dashed-circle,
+.blue .border-primary {
+  border-color: $gx-primary-blue !important;
+}
+
+.blue .border-secondary {
+  border-color: $secondary-blue !important;
+}
+
+//_picker.scss
+.blue .bootstrap-datetimepicker-widget table {
+  & td span.active,
+  & td.active,
+  & td.active:hover {
+    background-color: $gx-primary-blue;
+  }
+}
+
+//_color-picker.scss
+.blue .noUi-connect {
+  background: $gx-primary-blue !important;
+}
+
+//mouldifi-form.css
+.blue {
+  & .form-checkbox {
+    & > input + .check {
+      color: $gx-primary-blue;
+    }
+  }
+
+  & .checkbox-primary {
+    & label::before {
+      border-color: $gx-primary-blue;
+    }
+
+    & input[type="checkbox"]:checked + label::after {
+      background-color: $gx-primary-blue;
+    }
+  }
+
+  & .radio-primary {
+    & input[type="radio"]:checked + label::before {
+      border-color: $gx-primary-blue;
+    }
+
+    & input[type="radio"]:checked + label::after {
+      background-color: $gx-primary-blue;
+    }
+  }
+}
+
+//Ecommerce.scss
+.blue .gx-cart {
+  & .cart-item {
+    &:hover .icon-outline {
+      color: $gx-primary-blue;
+      border-color: $gx-primary-blue;
+    }
+  }
+
+  & .cart-action-btn {
+    & .icon-outline {
+      color: $gx-primary-blue;
+    }
+
+    & .icon-outline:hover {
+      background-color: $gx-primary-blue;
+      color: $white;
+    }
+  }
+}
+
+.blue .is-focused {
+  &:hover,
+  &:focus {
+    background-image: linear-gradient($gx-primary-blue, $gx-primary-blue);
+  }
+}
+
+/*Icons Styles*/
+.blue .icons-showcase > div {
+  &:hover {
+    background-color: $gx-primary-blue;
+  }
+}
+
+/* Input Style */
+.blue .form-control {
+  &:focus {
+    border-color: $gx-primary-blue;
+  }
+}
+
+//_input.scss
+.blue .select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $gx-primary-blue;
+}
+
+/*Accordions Styles*/
+.blue .accordion-heading .accordion-toggle {
+  color: $white;
+  background-color: $gx-primary-blue;
+}
+
+.blue .accordion-heading .accordion-toggle.collapsed {
+  background-color: $white;
+  color: $body-color;
+}
+
+//Form Wizard
+.blue {
+  & .wizard-navbar > ul li {
+    &.completed a span.wz-number {
+      background-color: $gx-primary-blue;
+      color: $white;
+    }
+
+    & a.active span.wz-number {
+      background-color: $secondary-blue;
+      color: $white;
+    }
+
+    & a.active:before,
+    & a.active:after {
+      background-color: $secondary-blue;
+    }
+
+    &.completed a:before,
+    &.completed a:after {
+      background-color: $gx-primary-blue;
+    }
+  }
+
+  & .pager {
+    & > li > a,
+    & > li > span {
+      color: $gx-primary-blue;
+    }
+  }
+}
+
+//Dropzone
+.blue .dropzone {
+  border-color: $gx-primary-blue;
+}
+
+//Tabs
+.blue .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $gx-primary-blue;
+  }
+}
+
+.blue .bg-primary .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $white;
+  }
+}
+
+//Progress Bar
+.blue .progress-bar {
+  background-color: $gx-primary-blue;
+}
+
+//Sweet-alert
+.blue .swal-button {
+  background-color: $gx-primary-blue;
+  color: $white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($gx-primary-blue, 5%);
+  }
+
+  &.swal-button--cancel {
+    color: $body-color;
+    background-color: darken($body-bg, 5%);
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: darken($body-bg, 10%);
+    }
+  }
+}
+
+//Bottom Navigation
+.blue .bottom-navigation {
+  & > li.active > a {
+    color: $gx-primary-blue;
+    padding-top: 6px;
+  }
+}

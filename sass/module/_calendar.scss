@@ -1,0 +1,62 @@
+/* Calendar Module Style */
+/*Full calender*/
+#loader {
+  border: 4px solid $gray-300;
+  border-radius: 50%;
+  @include border-radius($border-radius-circle);
+  border-top: 4px solid $secondary;
+  width: $size-30;
+  height: $size-30;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+  display: none;
+  position: absolute;
+  top: 86px;
+  right: 60px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+#locale-selector.custom-select {
+  height: auto;
+}
+
+#external-events .fc-event {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.fc-event, .fc-event-dot {
+  background-color: $gx-primary;
+  color: $white !important;
+  padding: 3px 5px;
+  border: 0 none;
+}
+
+@media screen and (max-width: 575px) {
+  .fc-toolbar .fc-left,
+  .fc-toolbar .fc-right {
+    float: none;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+
+  .fc-toolbar .fc-center {
+    display: block;
+    overflow: hidden;
+  }
+
+  #loader {
+    top: 135px;
+  }
+}

@@ -1,0 +1,772 @@
+/*Theme Deep Purple Styles*/
+$gx-primary-deep-purple: #673ab7 !default;
+$secondary-deep-purple: #FFAB00;
+
+$sidebar-deep-purple: $white !default;
+$sidebar-text-deep-purple: #868e96 !default;
+
+//-Base-scss
+.deep-purple .right-arrow {
+  color: $gx-primary-deep-purple;
+  &:after {
+    color: $gx-primary-deep-purple;
+  }
+}
+
+//Button function
+@each $color_name, $color in $colors_palette {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .deep-purple .gx-btn-#{$color_name} {
+        background-color: $color_value;
+        color: $white;
+        &:hover,
+        &:focus {
+          background-color: darken($color_value, 5%);
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+//
+// Alternate buttons
+//
+@each $color, $value in $theme-colors {
+  .deep-purple .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .deep-purple a.btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .deep-purple .btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $sidebar-deep-purple);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .deep-purple a.btn-outline-#{$color} {
+    @if $color == "light" {
+      @include button-outline-variant($value, $gray-900);
+    } @else {
+      @include button-outline-variant($value, $sidebar-deep-purple);
+    }
+  }
+}
+
+.deep-purple .btn-outline-primary,
+.deep-purple a.btn-outline-primary {
+  color: $gx-primary-deep-purple;
+  border-color: $gx-primary-deep-purple;
+
+  &:focus,
+  &:hover {
+    color: $white;
+    border-color: $gx-primary-deep-purple;
+    background-color: $gx-primary-deep-purple;
+  }
+}
+
+//- Bootstrap file Style
+.deep-purple {
+  & a {
+    color: $gx-primary-deep-purple;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-deep-purple, 10%);
+    }
+  }
+
+  & a.text-primary {
+    color: $gx-primary-deep-purple !important;
+    &:focus,
+    &:hover {
+      color: darken($gx-primary-deep-purple, 10%) !important;
+    }
+  }
+
+  & .text-primary {
+    color: $gx-primary-deep-purple !important;
+  }
+
+  & .page-link {
+    color: $gx-primary-deep-purple;
+    &:focus,
+    &:hover {
+      color: $gx-primary-deep-purple;
+    }
+  }
+
+  & .page-item.active .page-link {
+    color: $sidebar-deep-purple;
+    background-color: $gx-primary-deep-purple;
+    border-color: $gx-primary-deep-purple;
+  }
+
+  & .badge-primary {
+    background-color: $gx-primary-deep-purple;
+    color: $sidebar-deep-purple;
+  }
+
+  & .bg-primary {
+    background-color: $gx-primary-deep-purple !important;
+    color: $sidebar-deep-purple !important;
+  }
+
+  & .btn-primary,
+  & .gx-btn-primary,
+  & a.btn-primary,
+  & a.gx-btn-primary {
+    background-color: $gx-primary-deep-purple;
+    border-color: $gx-primary-deep-purple;
+    color: $sidebar-deep-purple;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($gx-primary-deep-purple, 5%);
+      border-color: darken($gx-primary-deep-purple, 5%);
+      color: $sidebar-deep-purple;
+    }
+  }
+
+  & .bg-primary {
+    &.lighten-4 {
+      background-color: #d1c4e9 !important;
+    }
+
+    &.lighten-3 {
+      background-color: #b39ddb !important;
+    }
+
+    &.lighten-2 {
+      background-color: #9575cd !important;
+    }
+
+    &.lighten-1 {
+      background-color: #7e57c2 !important;
+    }
+
+    &.darken-1 {
+      background-color: #5e35b1 !important;
+    }
+
+    &.darken-2 {
+      background-color: #512da8 !important;
+    }
+
+    &.darken-3 {
+      background-color: #4527a0 !important;
+    }
+
+    &.darken-4 {
+      background-color: #311b92 !important;
+    }
+
+    &.accent-1 {
+      background-color: #b388ff !important;
+    }
+
+    &.accent-2 {
+      background-color: #7c4dff !important;
+    }
+
+    &.accent-3 {
+      background-color: #651fff !important;
+    }
+
+    &.accent-4 {
+      background-color: #6200ea !important;
+    }
+  }
+}
+
+//Secondary
+.deep-purple {
+  & a.text-secondary {
+    color: $secondary-deep-purple;
+    &:focus,
+    &:hover {
+      color: darken($secondary-deep-purple, 10%) !important;
+    }
+  }
+
+  & .text-secondary {
+    color: $secondary-deep-purple !important;
+  }
+
+  & .bg-secondary,
+  & .badge-secondary {
+    background-color: $secondary-deep-purple !important;
+    color: $sidebar-deep-purple !important;
+  }
+
+  & .btn-secondary,
+  & .gx-btn-secondary,
+  & a.btn-secondary,
+  & a.gx-btn-secondary {
+    background-color: $secondary-deep-purple;
+    border-color: $secondary-deep-purple;
+    color: $sidebar-deep-purple;
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($secondary-deep-purple, 5%);
+      border-color: darken($secondary-deep-purple, 5%);
+      color: $sidebar-deep-purple;
+    }
+  }
+}
+
+//Button Group
+.deep-purple .btn-group > .gx-btn,
+.deep-purple .btn-group-vertical > .gx-btn {
+  &.active {
+    background-color: $gx-primary-deep-purple;
+    border-color: $gx-primary-deep-purple;
+  }
+
+  &.gx-flat-btn {
+    border-color: transparent;
+    &.active {
+      background-color: transparent;
+      color: $gx-primary-deep-purple;
+
+      &:hover,
+      &:focus {
+        background-color: rgba($gx-primary-deep-purple, 0.12);
+        color: $gx-primary-deep-purple;
+      }
+    }
+  }
+}
+
+//Custom Checkbox
+.deep-purple .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-deep-purple;
+}
+
+.deep-purple .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $gx-primary-deep-purple;
+}
+
+.deep-purple a.btn-link {
+  color: $gx-primary-deep-purple;
+  background-color: transparent;
+
+  @include hover {
+    color: darken($gx-primary-deep-purple, 5%);;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    border-color: transparent;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+}
+
+.deep-purple .dropdown-more,
+.deep-purple .dropdown-item,
+.deep-purple a.badge-light,
+.deep-purple a.btn-light {
+  color: $body-color;
+
+  &:hover,
+  &:focus {
+    color: $body-color;
+  }
+}
+
+.deep-purple a.gx-btn-default {
+  background-color: $sidebar-deep-purple;
+  color: $body-color;
+  border: 1px solid $gray-300;
+  &:hover,
+  &:focus {
+    background-color: darken($sidebar-deep-purple, 5%);
+    color: $body-color;
+  }
+}
+
+.deep-purple a.gx-flat-btn {
+  background-color: transparent;
+  color: $body-color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: map_get($gray, lighten-4);
+    color: $body-color;
+  }
+}
+
+.deep-purple a.gx-flat-btn.gx-btn-primary {
+  background-color: transparent;
+  color: $gx-primary-deep-purple;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($gx-primary-deep-purple, 0.12);
+    color: $gx-primary-deep-purple;
+  }
+}
+
+.deep-purple .bg-primary {
+  & a.gx-flat-btn.gx-btn-primary {
+    background-color: transparent;
+    color: $sidebar-deep-purple;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($sidebar-deep-purple, 0.12);
+      color: $sidebar-deep-purple;
+    }
+  }
+}
+
+.deep-purple a.gx-flat-btn.gx-btn-secondary {
+  background-color: transparent;
+  color: $secondary-deep-purple;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($secondary-deep-purple, 0.12);
+    color: $secondary-deep-purple;
+  }
+}
+
+.deep-purple .bg-secondary {
+  & a.gx-flat-btn.gx-btn-secondary {
+    background-color: transparent;
+    color: $sidebar-deep-purple;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($sidebar-deep-purple, 0.12);
+      color: $sidebar-deep-purple;
+    }
+  }
+}
+
+.deep-purple .action-btn {
+  color: rgba($black, 0.54);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: rgba($black, 0.64);
+  }
+}
+
+//_header.scss
+.deep-purple .main-header {
+  & .search-dropdown input {
+    @media screen and (max-width: 575px) {
+      background-color: $white;
+    }
+  }
+}
+
+//Messages List
+.deep-purple {
+  & .messages-list ul li {
+    & .user-name a {
+      color: $gx-primary-deep-purple;
+    }
+  }
+}
+
+//_right-sidebar.scss
+.deep-purple .color-theme-header {
+  background-color: $gx-primary-deep-purple;
+}
+
+//_sidebar.scss
+.deep-purple ul.nav-menu > li.selected > a,
+.deep-purple ul.nav-menu > li.open > a,
+.deep-purple ul.nav-menu > li > a:hover,
+.deep-purple ul.nav-menu > li > a:focus {
+  background-color: $sidebar-deep-purple;
+  color: $gx-primary-deep-purple;
+}
+
+.deep-purple ul.nav-menu li.menu > a:focus:before,
+.deep-purple ul.nav-menu li.menu > a:hover:before {
+  color: $gx-primary-deep-purple;
+}
+
+.deep-purple ul.nav-menu li ul {
+  background-color: $sidebar-deep-purple;
+}
+
+.deep-purple ul.nav-menu li.menu.selected > a:before,
+.deep-purple ul.nav-menu li.menu.open > a:before,
+.deep-purple ul.nav-menu li.menu > a:focus:before,
+.deep-purple ul.nav-menu li.menu li > a:hover:before {
+  color: $gx-primary-deep-purple;
+}
+
+.deep-purple ul.nav-menu li.menu .sub-menu li.active > a .nav-text {
+  background-color: $gx-primary-deep-purple;
+  color: $sidebar-deep-purple;
+}
+
+.deep-purple ul.nav-menu li.menu .sub-menu li > a:hover,
+.deep-purple ul.nav-menu li.menu .sub-menu li > a:focus,
+.deep-purple ul.nav-menu li.menu.open .sub-menu li.active > a:before,
+.deep-purple ul.nav-menu li.menu .sub-menu li > a:focus:before,
+.deep-purple ul.nav-menu li.menu .sub-menu li > a:hover:before {
+  background-color: $sidebar-deep-purple;
+  color: $gx-primary-deep-purple;
+}
+
+//_module.scss
+.deep-purple .module-nav {
+  & li a.active {
+    color: $gx-primary-deep-purple;
+  }
+}
+
+.deep-purple .module-tab-nav {
+  & li a.nav-link.active {
+    border-color: $gx-primary-deep-purple;
+    color: $gx-primary-deep-purple;
+  }
+}
+
+.deep-purple .nav-pills-module {
+  & > li > a {
+    background-color: $gx-primary-deep-purple;
+    color: $white;
+    border-color: $gx-primary-deep-purple;
+
+    &.nav-link-border {
+      background-color: transparent;
+      border-color: $gray-500;
+      color: $gray-800;
+    }
+  }
+}
+
+//_calendar.scss
+.deep-purple .fc-event,
+.deep-purple .fc-event-dot {
+  background-color: $gx-primary-deep-purple;
+}
+
+//_chat.scss
+.deep-purple {
+  & .chat-sidenav-header {
+    & .tab-link .nav-link.active {
+      color: $gx-primary-deep-purple;
+      border-color: $gx-primary-deep-purple;
+    }
+  }
+
+  & .chat-item.flex-row-reverse .bubble {
+    background-color: $gx-primary-deep-purple;
+  }
+
+  & .chat-user-item {
+    &.active,
+    &:hover {
+      background-color: $gx-primary-deep-purple;
+    }
+  }
+}
+
+.deep-purple .chat-main-header {
+  background-color: $gx-primary-deep-purple;
+
+  & .action-btn {
+    color: $white;
+  }
+}
+
+//_dashboard.scss
+.deep-purple .contact-list {
+  & i {
+    color: $gx-primary-deep-purple;
+  }
+}
+
+.deep-purple .nav-pill-sales {
+  & .nav-link {
+    &.active {
+      background-color: $gx-primary-deep-purple;
+      border-color: $gx-primary-deep-purple;
+    }
+  }
+}
+
+//The link which when clicked opens the collapsable ChatUserList
+.deep-purple .Collapsible__trigger {
+  background: $gx-primary-deep-purple;
+}
+
+.deep-purple .categories-list {
+  & li a:focus,
+  & li a:hover,
+  & li.active a {
+    color: $gx-primary-deep-purple;
+  }
+}
+
+//_login.scss
+.deep-purple .login-content .form-control {
+  &:focus {
+    border-color: $gx-primary-deep-purple;
+  }
+}
+
+//_portfolio.scss
+.deep-purple .filter-with-bg-color ul li {
+  & a {
+    border-color: $gx-primary-deep-purple;
+
+    &:hover,
+    &:focus,
+    &.active {
+      background-color: $gx-primary-deep-purple;
+    }
+  }
+}
+
+//_card.scss
+.deep-purple .profile-intro {
+  & .icon {
+    color: $gx-primary-deep-purple;
+  }
+}
+
+.deep-purple .social-link {
+  & li.active a,
+  & li a:hover,
+  & li a:focus {
+    color: $secondary-deep-purple;
+  }
+}
+
+//_tables.scss
+.deep-purple .actions {
+  color: $secondary-deep-purple;
+}
+
+.deep-purple .table-hover tbody tr:hover {
+  background-color: rgba($gx-primary-deep-purple, 0.075);
+}
+
+//Border Color
+.deep-purple .module-nav ul.module-nav-team .dashed-circle,
+.deep-purple .border-primary {
+  border-color: $gx-primary-deep-purple !important;
+}
+
+.deep-purple .border-secondary {
+  border-color: $secondary-deep-purple !important;
+}
+
+//_picker.scss
+.deep-purple .bootstrap-datetimepicker-widget table {
+  & td span.active,
+  & td.active,
+  & td.active:hover {
+    background-color: $gx-primary-deep-purple;
+  }
+}
+
+//_color-picker.scss
+.deep-purple .noUi-connect {
+  background: $gx-primary-deep-purple !important;
+}
+
+//mouldifi-form.css
+.deep-purple {
+  & .form-checkbox {
+    & > input + .check {
+      color: $gx-primary-deep-purple;
+    }
+  }
+
+  & .checkbox-primary {
+    & label::before {
+      border-color: $gx-primary-deep-purple;
+    }
+
+    & input[type="checkbox"]:checked + label::after {
+      background-color: $gx-primary-deep-purple;
+    }
+  }
+
+  & .radio-primary {
+    & input[type="radio"]:checked + label::before {
+      border-color: $gx-primary-deep-purple;
+    }
+
+    & input[type="radio"]:checked + label::after {
+      background-color: $gx-primary-deep-purple;
+    }
+  }
+}
+
+//Ecommerce.scss
+.deep-purple .gx-cart {
+  & .cart-item {
+    &:hover .icon-outline {
+      color: $gx-primary-deep-purple;
+      border-color: $gx-primary-deep-purple;
+    }
+  }
+
+  & .cart-action-btn {
+    & .icon-outline {
+      color: $gx-primary-deep-purple;
+    }
+
+    & .icon-outline:hover {
+      background-color: $gx-primary-deep-purple;
+      color: $white;
+    }
+  }
+}
+
+.deep-purple .is-focused {
+  &:hover,
+  &:focus {
+    background-image: linear-gradient($gx-primary-deep-purple, $gx-primary-deep-purple);
+  }
+}
+
+/*Icons Styles*/
+.deep-purple .icons-showcase > div {
+  &:hover {
+    background-color: $gx-primary-deep-purple;
+  }
+}
+
+//_input.scss
+.deep-purple .select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $gx-primary-deep-purple;
+}
+
+/* Input Style */
+.deep-purple .form-control {
+  &:focus {
+    border-color: $gx-primary-deep-purple;
+  }
+}
+
+/*Accordions Styles*/
+.deep-purple .accordion-heading .accordion-toggle {
+  color: $white;
+  background-color: $gx-primary-deep-purple;
+}
+
+.deep-purple .accordion-heading .accordion-toggle.collapsed {
+  background-color: $white;
+  color: $body-color;
+}
+
+//Form Wizard
+.deep-purple {
+  & .wizard-navbar > ul li {
+    &.completed a span.wz-number {
+      background-color: $gx-primary-deep-purple;
+      color: $white;
+    }
+
+    & a.active span.wz-number {
+      background-color: $secondary-deep-purple;
+      color: $white;
+    }
+
+    & a.active:before,
+    & a.active:after {
+      background-color: $secondary-deep-purple;
+    }
+
+    &.completed a:before,
+    &.completed a:after {
+      background-color: $gx-primary-deep-purple;
+    }
+  }
+
+  & .pager {
+    & > li > a,
+    & > li > span {
+      color: $gx-primary-deep-purple;
+    }
+  }
+}
+
+//Dropzone
+.deep-purple .dropzone {
+  border-color: $gx-primary-deep-purple;
+}
+
+//Tabs
+.deep-purple .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $gx-primary-deep-purple;
+  }
+}
+
+.deep-purple .bg-primary .nav-pills {
+  & .nav-link.active,
+  & .show > .nav-link {
+    background-color: $white;
+  }
+}
+
+//Progress Bar
+.deep-purple .progress-bar {
+  background-color: $gx-primary-deep-purple;
+}
+
+//Sweet-alert
+.deep-purple .swal-button {
+  background-color: $gx-primary-deep-purple;
+  color: $white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($gx-primary-deep-purple, 5%);
+  }
+
+  &.swal-button--cancel {
+    color: $body-color;
+    background-color: darken($body-bg, 5%);
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: darken($body-bg, 10%);
+    }
+  }
+}
+
+//Bottom Navigation
+.deep-purple .bottom-navigation {
+  & > li.active > a {
+    color: $gx-primary-deep-purple;
+    padding-top: 6px;
+  }
+}

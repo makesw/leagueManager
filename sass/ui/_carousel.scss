@@ -1,0 +1,136 @@
+/*Carousel Styles*/
+.owl-carousel .owl-item img {
+  display: inline-block;
+  width: auto;
+}
+
+.carousel-caption {
+  & h3 {
+    font-size: $h2-font-size;
+  }
+}
+
+.carousel-control-prev {
+  @extend %pointer;
+}
+
+.carousel-control-next {
+  @extend %pointer;
+}
+
+.chat-testimonial-carousel {
+  @media screen and (max-width: 500px) {
+    .customer > img.size-120 {
+      width: 90px !important;
+      height: 90px !important;
+    }
+  }
+
+  @media screen and (max-width: 430px) {
+    .customer > img.size-120 {
+      width: 50px !important;
+      height: 50px !important;
+    }
+  }
+}
+
+.classic-testimonial-carousel {
+  & .item {
+    padding: 0 50px
+  }
+
+  & .description {
+    position: relative;
+    color: $gray-900;
+    &:before {
+      content: "\f1b2";
+      font: {
+        family: 'Material-Design-Iconic-Font';
+        size: 74px;
+      }
+      opacity: 0.8;
+      position: absolute;
+      color: $warning;
+      bottom: auto;
+      left: 0;
+      right: 0;
+      top: -35px;
+      line-height: 1;
+      -moz-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      transform: scaleX(-1);
+      z-index: -1;
+    }
+  }
+
+  .owl-nav {
+    position: absolute;
+    bottom: 40%;
+    width: 100%;
+    & .owl-next.disabled,
+    & .owl-prev.disabled {
+      border-color: lighten($black, 50%);
+      opacity: 1;
+
+      &:after {
+        color: lighten($black, 50%);
+      }
+    }
+  }
+
+  .owl-nav button.owl-next,
+  .owl-nav button.owl-prev,
+  button.owl-dot {
+    background-color: transparent;
+    border: 1px solid $black;
+    @include border-radius(0);
+    color: $black;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    padding: 0;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
+  .owl-prev:after,
+  .owl-next:after {
+    content: "\f2ea";
+    font: {
+      family: 'Material-Design-Iconic-Font';
+      size: 16px;
+    }
+    color: $black;
+  }
+  .owl-next:after {
+    content: "\f2ee";
+  }
+
+  .owl-prev {
+    left: 0;
+  }
+  .owl-next {
+    right: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    .owl-prev {
+      left: 0;
+    }
+    .owl-next {
+      right: 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .owl-theme .owl-controls {
+      top: 48%;
+    }
+  }
+}

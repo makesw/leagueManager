@@ -1,0 +1,60 @@
+/*Accordions Styles*/
+.accordion-group {
+  border: $gx-border;
+  @include border-radius($border-radius-lg);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.accordion-inner {
+  border: 0 none;
+  padding: 30px;
+  background-color: $white;
+
+  & .intro-video {
+    width: 200px;
+    height: auto;
+    max-height: 200px;
+  }
+}
+
+.accordion-heading .accordion-toggle {
+  display: block;
+  position: relative;
+  color: $white;
+  padding: 26px 20px 26px 50px;
+  background-color: $gx-primary;
+  text-decoration: none;
+}
+
+.accordion-heading .accordion-toggle.collapsed {
+  background-color: $white;
+  color: $body-color;
+}
+
+.accordion-heading .accordion-toggle:before {
+  color: $white;
+  content: "\f273";
+  display: inline-block;
+  font: {
+    family: 'Material-Design-Iconic-Font', serif;
+    size: 20px;
+  }
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  @include transition(all 200ms ease-in-out);
+}
+
+.accordion-heading .accordion-toggle.collapsed:before {
+  color: $body-color;
+  content: "\f278";
+  font: {
+    family: 'Material-Design-Iconic-Font', serif;
+  }
+}
+
+.accordion-heading .title {
+  margin: 0;
+  font-weight: 400;
+}
