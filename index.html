@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Leaguemanager - A fully responsive, HTML5 Sport Manager">
+    <meta name="description" content="Leaguemanager - A fully responsive, HTML5 Football League Manager">
     <meta name="keywords" content="Responsive, HTML5, admin theme, business, professional, jQuery, web design, CSS3, sass">
     <title>LeagueManager</title>
 
@@ -70,14 +70,15 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form>
+                            <form class="form-login" id="formLogin" method="post"> 
                                 <fieldset>
                                     <div class="form-group">
-                                        <input name="email" id="email" class="form-control form-control-lg" placeholder="Email" type="email">
+                                        <input name="correo" id="correo" class="form-control form-control-lg" placeholder="Email" type="email">
                                     </div>
                                     <div class="form-group">
                                         <input name="password" id="password" class="form-control form-control-lg" placeholder="Password" type="password">
-                                    </div>
+                                    </div>                                    
+                                    <div id="msg-fail" class="border alert alert-danger fade show" role="alert"><strong>Error!</strong> Datos incorrectos, o el usario no existe.!</div>
                                     <div class="form-group text-row-between">
                                         <div class="custom-control custom-checkbox mr-2">
                                             <input type="checkbox" class="custom-control-input" id="customControlInline">
@@ -87,7 +88,7 @@
                                             <a href="forgot-password1.html" title="Reset Password">Recuperar Constraseña</a>
                                         </p>
                                     </div>
-                                    <a href="javascript:void(0)" class="gx-btn gx-btn-rounded gx-btn-primary">Ingresar</a>
+                                    <button class="jr-btn btn btn-primary">Ingresar</button>
                                 </fieldset>
                             </form>
                         </div>
@@ -123,6 +124,7 @@
 <!--Custom JQuery-->
 <script src="js/functions.js"></script>
 <script>	
+$('#msg-fail').hide();
 jQuery(document).on('submit','#formLogin', function(event){
 	event.preventDefault();	
 	jQuery.ajax({
@@ -148,14 +150,36 @@ jQuery(document).on('submit','#formLogin', function(event){
 		}
 	})
 	.fail(function(resp){
-		console.log(resp.responseText);	  
-		$('#msg-fail').show();
-		setTimeout(function(){
-			$('#msg-fail').hide();
-		},3000);
+		if( !respuesta.error ){
+			if( respuesta.perfil == 'admin' ){
+				location.href= './admin/';
+			}else if( respuesta.perfil == 'usuario' ){
+				location.href= './user/';
+			}else if( respuesta.perfil == 'colaborador' ){
+				location.href= './colaborator/';
+			}
+		}else{
+			$('#msg-fail').show();
+			setTimeout(function(){
+				$('#msg-fail').hide();
+			},3000);
+		}
 	})
 	.always(function(respuesta){ 
-		console.log(respuesta);	
+		if( !respuesta.error ){
+			if( respuesta.perfil == 'admin' ){
+				location.href= './admin/';
+			}else if( respuesta.perfil == 'usuario' ){
+				location.href= './user/';
+			}else if( respuesta.perfil == 'colaborador' ){
+				location.href= './colaborator/';
+			}
+		}else{
+			$('#msg-fail').show();
+			setTimeout(function(){
+				$('#msg-fail').hide();
+			},3000);
+		}
 	})
 });
 </script>

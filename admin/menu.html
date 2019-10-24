@@ -1,0 +1,60 @@
+<div id="main-menu" class="main-menu navbar-collapse collapse">
+	<ul class="nav-menu">
+		<li class="nav-header">Menú</li>
+		<li class="menu">
+			<a href="#"> 
+			<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> 
+				<span class="nav-text">GENERAL</span>
+			</a>
+			<ul class="sub-menu">
+				<li class=""><a href="javaScript:loadPage('sedes.php');"><span class="title">Sedes</span></a></li>
+				<li class=""><a href="javaScript:loadPage('escenarios.php');"><span class="title">Escenarios</span></a></li>
+				<li class=""><a href="javaScript:loadPage('tipoSanciones.php');"><span class="title">Tipos de Sanción</span></a></li>
+				<li class=""><a href="usuarios.php"><span class="title">Usuarios</span></a></li>
+				<li class=""><a href="estiloCarnet.php"><span class="title">Estilo Carnet</span></a></li>
+			</ul>
+		</li>
+		<li class="menu">
+			<a href="#"> 
+			<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> 
+				<span class="nav-text">LIGA</span>
+			</a>
+			<ul class="sub-menu">
+				<li class=""><a href="competicion.php"><span class="title">Competiciones</span></a></li>
+				<li class=""><a href="fases.php"><span class="title">Fases</span></a></li>
+				<li class=""><a href="grupos.php"><span class="title">Grupos</span></a></li>
+				<li class=""><a href="equipos.php"><span class="title">Equipos</span></a></li>			
+				<li class=""><a href="inscripciones.php"><span class="title">Inscripciones</span></a></li>
+				<li class=""><a href="grupos_equipos.php"><span class="title">Grupos/Equipos</span></a></li>
+				<li class=""><a href="juegos.php"><span class="title">Juegos Oficiales</span></a></li>
+				<li class=""><a href="juegos_amistosos.php"><span class="title">Juegos Amisitosos</span></a></li>
+				<li class=""><a href="informe_1.php"><span class="title">Informe de Juego</span></a></li>
+				<li class=""><a href="pagos.php"><span class="title">Pagos</span></a></li>
+				<li class=""><a href="carnet.php"><span class="title">Carnets</span></a></li>
+				<li class=""><a href="vetarJugadores.php"><span class="title">Vetar Jugadores</span></a></li>
+			</ul>
+		</li>
+		<li class="menu">
+			<a href="#"> 
+			<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> 
+				<span class="nav-text">CONSULTAS</span>
+			</a>
+			<ul class="sub-menu">
+				<li class=""><a href="proximaFecha.php"><span class="title">Próxima Fecha</span></a></li>
+				<li class=""><a href="resultados.php"><span class="title">Resultados</span></a></li>
+				<li class=""><a href="posiciones.php"><span class="title">Posiciones</span></a></li>
+				<li class=""><a href="posicionesGral.php"><span class="title">Posiciones General</span></a></li>
+				<li class=""><a href="goleadores.php"><span class="title">Goleadores</span></a></li>
+				<li class=""><a href="sancionados.php"><span class="title">Sancionados</span></a></li>
+				<li class=""><a href="juegoLimpio.php"><span class="title">Juego Limpio</span></a></li>
+				<li class=""><a href="vallaMenosVencida.php"><span class="title">Valla Menos Vencida</span></a></li>			
+				<li class=""><a href="jugadoresVetados.php"><span class="title">Jugadores Vetados</span></a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<script>
+function loadPage( page ) {
+	$("#divContenido").load(page);
+}
+</script>
