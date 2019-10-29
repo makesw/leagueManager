@@ -30,19 +30,15 @@ $resultSedesSelect2 = $connect->query( "select * from sede order by nombre asc" 
 							<table class="table table-striped table-bordered table-hover dataTables-escena" >
 									<thead>
 											<tr>
-												<th>#</th>
 												<th>Nombre</th>
 												<th>Sede</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php $iter = 1;
+											<?php
 											while($escena = mysqli_fetch_array($resultEscena)){?>
 											<tr>
-												<td>
-													<?php echo $iter; ?>
-												</td>
 												<td>
 													<?php echo $escena['nombre']; ?>
 												</td>
@@ -58,7 +54,7 @@ $resultSedesSelect2 = $connect->query( "select * from sede order by nombre asc" 
 												</a>												
 												</td>
 											</tr>
-											<?php $iter++; } ?>
+											<?php } ?>
 										</tbody>
 								</table>
 

@@ -28,7 +28,6 @@ $resultTSuspencion = $connect->query( "select * from tipo_sancion order by nombr
 							<table class="table table-striped table-bordered table-hover dataTables-tpsancion" >
 									<thead>
 											<tr>
-												<th>#</th>
 												<th>Nombre</th>
 												<th>Puntos</th>
 												<th>Fechas</th>
@@ -38,12 +37,9 @@ $resultTSuspencion = $connect->query( "select * from tipo_sancion order by nombr
 											</tr>
 										</thead>
 										<tbody>
-											<?php $iter = 1;
+											<?php
 									while($tSusp = mysqli_fetch_array($resultTSuspencion)){?>
 											<tr>
-												<td>
-													<?php echo $iter; ?>
-												</td>
 												<td>
 													<?php echo $tSusp['nombre']; ?>
 												</td>
@@ -68,7 +64,7 @@ $resultTSuspencion = $connect->query( "select * from tipo_sancion order by nombr
 												</a>												
 												</td>
 											</tr>
-											<?php $iter++; } ?>
+											<?php } ?>
 										</tbody>
 								</table>
 

@@ -29,7 +29,6 @@ $resultSedes = $connect->query("select * from sede order by nombre asc");
 								class="table table-striped table-bordered table-hover dataTables-sedes" id="tableSedes">
 								<thead>
 									<tr>
-										<th>#</th>
 										<th>Nombre</th>
 										<th>Acciones</th>
 									</tr>
@@ -37,13 +36,10 @@ $resultSedes = $connect->query("select * from sede order by nombre asc");
 								<tbody>
 									<?php
 
-        $iter = 1;
+        
         while ($sede = mysqli_fetch_array($resultSedes)) {
             ?>
-											<tr>
-										<td>
-													<?php echo $iter; ?>
-												</td>
+											<tr>										
 										<td>
 													<?php echo $sede['nombre']; ?>
 												</td>
@@ -55,7 +51,7 @@ $resultSedes = $connect->query("select * from sede order by nombre asc");
 												class="zmdi zmdi-delete"></i>
 										</a></td>
 									</tr>
-											<?php $iter++; } ?>
+											<?php } ?>
 								</tbody>
 							</table>
 
@@ -67,8 +63,7 @@ $resultSedes = $connect->query("select * from sede order by nombre asc");
 	</div>
 </div>
 <!--/gx-wrapper-->
-<div id="modal-create-sede" class="modal fade" tabindex="-1"
-	role="dialog">
+<div id="modal-create-sede" class="modal fade" tabindex="-1" role="dialog">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
 			<div class="modal-header border-0">
