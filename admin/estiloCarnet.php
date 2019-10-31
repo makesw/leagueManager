@@ -10,44 +10,10 @@ if (! isset($_SESSION['dataSession'])) {
 require '../conexion.php';
 $styleCarnet = mysqli_fetch_array($connect->query("select * from carnet WHERE id=1"));
 ?>
-<!-- Font Material stylesheet -->
-<link rel="stylesheet"
-	href="../fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
-<!-- /font material stylesheet -->
-
-<!-- sprite-flags-master stylesheet -->
-<link rel="stylesheet"
-	href="../fonts/sprite-flags-master/sprite-flags-32x32.css">
-<!-- /sprite-flags-master stylesheet -->
-
-<!--Weather stylesheet -->
-<link rel="stylesheet"
-	href="../fonts/weather-icons-master/css/weather-icons.min.css">
-<!-- /Weather stylesheet -->
-
-<!-- Bootstrap stylesheet -->
-<link href="../css/mouldifi-bootstrap.css" rel="stylesheet">
-<!-- /bootstrap stylesheet -->
-
-<!-- Perfect Scrollbar stylesheet -->
-<link href="../node_modules/perfect-scrollbar/css/perfect-scrollbar.css"
-	rel="stylesheet">
-<!-- /perfect scrollbar stylesheet -->
-
 <!-- jquery.minicolorsstylesheet -->
 <link href="../node_modules/jquery-minicolors/jquery.minicolors.css"
 	rel="stylesheet">
 <!-- /jquery.minicolors stylesheet -->
-
-<!-- Mouldifi-core stylesheet -->
-<link href="../css/mouldifi-core.css" rel="stylesheet">
-<!-- /mouldifi-core stylesheet -->
-
-<!-- Color-Theme stylesheet -->
-<link id="override-css-id" href="../css/theme-indigo.min.css"
-	rel="stylesheet">
-<!-- Color-Theme stylesheet -->
-
 <!--gx-wrapper-->
 <div class="gx-wrapper">
 
@@ -287,26 +253,9 @@ $styleCarnet = mysqli_fetch_array($connect->query("select * from carnet WHERE id
 <!-- Menu Backdrop -->
 <div class="menu-backdrop fade"></div>
 <!-- /menu backdrop -->
-
-<!--Custom JQuery-->
-<script src="../js/functions.js"></script>
-<script src="../js/custom/color-pickers.js"></script>
-
-<!--Load JQuery-->
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<!--Bootstrap JQuery-->
-<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<!--Perfect Scrollbar JQuery-->
-<script
-	src="../node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-<!--Big Slide JQuery-->
-<script src="../node_modules/bigslide/dist/bigSlide.min.js"></script>
 <!--Minicolors JQuery-->
 <script src="../js/jquery.minicolors.js"></script>
-
-
-
-
+<script src="../js/custom/color-pickers.js"></script>
 <script>
 $( "#formSaveTempCarnet" ).submit(function( event ) {
 	event.preventDefault();
