@@ -191,7 +191,7 @@ $( "#formCreate" ).submit(function( event ) {
 				$('#modal-crear').modal('hide');
 				setTimeout(function(){											
 					loadPage( 'usuarios.php' );				
-				},150);
+				},200);
 			}			
 		},
 		error: function ( data ) {
@@ -261,7 +261,7 @@ function delUser( id ) {
 			data: new FormData(  ),
 			success: function ( data ) {
 				//console.log( data );
-				location.href = './usuarios.php';
+				loadPage( 'usuarios.php' );
 			},
 			error: function ( data ) {
 				//console.log( data );

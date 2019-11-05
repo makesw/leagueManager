@@ -1,18 +1,18 @@
 <?php
 session_start();
-if ( !isset( $_SESSION[ 'dataSession' ] ) ) {
-    header( 'Location: ../index.html' );
-}else{
-    if($_SESSION[ 'dataSession' ]['perfil'] != 'admin'){
-        header( 'Location: ../salir.php' );
+if (! isset($_SESSION['dataSession'])) {
+    header('Location: ../index.html');
+} else {
+    if ($_SESSION['dataSession']['perfil'] != 'admin') {
+        header('Location: ../salir.php');
     }
 }
 header('Cache-Control: no-store, no-cache, must-revalidate');
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');
 require '../conexion.php';
-//las del ultimo año:
-$resultCompetencias = $connect->query( "select * from competicion WHERE  now() <= ADDDATE(DATE(fecha_creacion), interval 1  YEAR) order by fecha_creacion desc,nombre asc" );
+// las del ultimo año:
+$resultCompetencias = $connect->query("select * from competicion WHERE  now() <= ADDDATE(DATE(fecha_creacion), interval 1  YEAR) order by fecha_creacion desc,nombre asc");
 ?>
 <!--gx-wrapper-->
 <div class="gx-wrapper">
@@ -25,7 +25,9 @@ $resultCompetencias = $connect->query( "select * from competicion WHERE  now() <
 			<div class="col-lg-12">
 				<div class="gx-card">
 					<div class="gx-card-body">
-						
+						<div class="table-responsive">
+							<table class="table table-bordered table-hover dataTables-comp"></table>
+						</div>
 					</div>
 				</div>
 			</div>

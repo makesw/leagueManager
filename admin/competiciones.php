@@ -1,18 +1,18 @@
 <?php
 session_start();
-if ( !isset( $_SESSION[ 'dataSession' ] ) ) {
-    header( 'Location: ../index.html' );
-}else{
-    if($_SESSION[ 'dataSession' ]['perfil'] != 'admin'){
-        header( 'Location: ../salir.php' );
+if (! isset($_SESSION['dataSession'])) {
+    header('Location: ../index.html');
+} else {
+    if ($_SESSION['dataSession']['perfil'] != 'admin') {
+        header('Location: ../salir.php');
     }
 }
 header('Cache-Control: no-store, no-cache, must-revalidate');
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');
 require '../conexion.php';
-//las del ultimo año:
-$resultCompetencias = $connect->query( "select * from competicion WHERE  now() <= ADDDATE(DATE(fecha_creacion), interval 1  YEAR) order by fecha_creacion desc,nombre asc" );
+// las del ultimo año:
+$resultCompetencias = $connect->query("select * from competicion WHERE  now() <= ADDDATE(DATE(fecha_creacion), interval 1  YEAR) order by fecha_creacion desc,nombre asc");
 ?>
 <!--gx-wrapper-->
 <div class="gx-wrapper">
@@ -21,64 +21,56 @@ $resultCompetencias = $connect->query( "select * from competicion WHERE  now() <
 		<div class="page-heading">
 			<h2 class="title">Competiciones</h2>
 		</div>
+		<button class="jr-btn btn-primary btn btn-default" data-toggle="modal"
+			data-target="#modal-comp" onclick="javascript:clearFormComp();">Crear</button>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="gx-card">
 					<div class="gx-card-body">
-					
+
 						<div class="table-responsive">
-									<table class="table table-bordered table-hover dataTables-comp" >
-										<thead>
-											<tr>
-												<th>Código</th>
-												<th>Nombre</th>
-												<th># Jug. x Equipo</th>
-												<th>Fech. Max. Mod. Planilla</th>
-												<th>Valor Inscripción</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
+							<table class="table table-bordered table-hover dataTables-comp">
+								<thead>
+									<tr>
+										<th>Nombre</th>
+										<th>Fech. Max. Mod. Equipo</th>
+										<th>Valor Inscripción</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
 											<?php
-											while($row = mysqli_fetch_array($resultCompetencias)){
-											    $date_aux = null;
-											    if(!empty($row["fech_max_pla"])){
-											        $date_aux = new DateTime($row["fech_max_pla"]);
-											    }
-											?>
-											<tr>												
-												<td>
-													<?php echo $row['id']; ?>
-												</td>
-												<td>
+        while ($row = mysqli_fetch_array($resultCompetencias)) {
+            $date_aux = null;
+            if (! empty($row["fech_max_pla"])) {
+                $date_aux = new DateTime($row["fech_max_pla"]);
+            }
+            ?>
+											<tr>
+										<td>
 													<?php echo $row['nombre']; ?>
 												</td>
-												<td>
-													<?php echo $row['nummxjug']; ?>
-												</td>
-												<td>
+										<td>
 													<?php if(!empty($date_aux)){echo $date_aux->format('d-m-Y');} ?>
-												</td>														
-												<td>
+												</td>
+										<td>
 													<?php echo $row['valor']; ?>
 												</td>
-												<td>
-												<a href="javaScript:editComp(<?php echo $row['id']; ?>)">
-												<i class="fa fa-edit"></i>
-												</a>
-												<a title="Borrar" href="javaScript:delComp('<?php echo $row['id']; ?>');">
-												<i class="icon-cancel icon-larger red-color"></i>
-												</a>
-												<a title="Borrar" href="javaScript:verDetalleComp('<?php echo $row['id']; ?>');">
-													<button class="btn btn-link" type="button">Más Detalle</button>			
-												</a>									
-												</td>
-											</tr>
+										<td><a href="javaScript:editComp(<?php echo $row['id']; ?>)">
+												<i class="zmdi zmdi-edit zmdi-hc-2x"></i>
+										</a> <a title="Borrar"
+											href="javaScript:delComp('<?php echo $row['id']; ?>');"> <i
+												class="zmdi zmdi-close zmdi-hc-2x text-red"></i>
+										</a> <a title="Borrar"
+											href="javaScript:verDetalleComp('<?php echo $row['id']; ?>');">
+												<button class="btn btn-link" type="button">Más Detalles</button>
+										</a></td>
+									</tr>
 											<?php } ?>
 										</tbody>
-									</table>
-								</div>
-						
+							</table>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -87,76 +79,87 @@ $resultCompetencias = $connect->query( "select * from competicion WHERE  now() <
 </div>
 <!--/gx-wrapper-->
 <div id="modal-comp" class="modal fade" tabindex="-1" role="dialog">
-	<div class="modal-dialog modal-lg">
+	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Competición</h4>
+			<div class="modal-header border-0">
+				<h2 class="modal-title" id="mySmallModalLabel">Competición</h2>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal" id="formCreateComp" method="post"> 
-						 	<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="nombre">Nombre</label> 
-								<div class="col-sm-10"> 
-									<input type="text" onblur="javascript:aMayusculas(this.value,this.id);" placeholder="Nombre" id="nombre" name="nombre" class="form-control">
-								 </div> 
-							</div> 
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="puntosp">Activa</label> 
-								<div class="col-sm-10">
-									<input type="checkbox" id="activa" name="activa">
-								 </div> 
-							</div>
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="puntosp">Inscripción Activa</label> 
-								<div class="col-sm-10">
-									<input type="checkbox" id="inscripcion" name="inscripcion">
-								 </div> 
-							</div>
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="puntosp">Puntos Ganador</label> 
-								<div class="col-sm-10">
-									<input type="text" placeholder="Puntos Ganador" value="3" id="puntosg" name="puntosg" class="form-control">
-								 </div> 
-							</div>
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="puntosp">Puntos Perdedor</label> 
-								<div class="col-sm-10">
-									<input type="text" placeholder="Puntos Perdedor" value="0" id="puntosp" name="puntosp" class="form-control">
-								 </div> 
-							</div> 
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="puntosp">Puntos Empate</label> 
-								<div class="col-sm-10">
-									<input type="text" placeholder="Puntos Empate" value="1" id="puntose" name="puntose" class="form-control">
-								 </div> 
-							</div>
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="puntosp" title="Valor Iscripción Competencia">$ Valor</label> 
-								<div class="col-sm-10">
-									<input type="text" placeholder="Valor" value="0" id="valor" name="valor" class="form-control">
-								 </div> 
-							</div>
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="maxJug"># Max. Jugadores</label> 
-								<div class="col-sm-10">
-									<input type="number" placeholder="# Max. Jugadores x equipo" id="maxJug" name="maxJug" class="form-control" min="0" max="100">
-								 </div> 
-							</div>
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="maxFech">Fecha Max. Modif. Planilla</label> 
-								<div class="col-sm-10">
-									<input type="date" name="fechaMax" id="fechaMax" required>
-								 </div>
-							</div>  
-							<div class="form-group"> 
-								<div class="col-sm-offset-2 col-sm-10"> 
-									<button type="submit" class="btn btn-primary">Guardar</button> 
-								</div> 
-							</div> 
-							<input type="hidden" id="bthAction" name="bthAction" value="1" />
-							<input type="hidden" id="bthValId" name="bthValId" value="" />
-						</form>
+				<form class="form-horizontal" id="formCreateComp" method="post">				
+					<div class="form-group">
+						<label for="nombre">Nombre</label>
+						
+							<input type="text"
+								onblur="javascript:aMayusculas(this.value,this.id);"
+								placeholder="Nombre" id="nombre" name="nombre"
+								class="form-control">
+						
+					</div>
+					<div class="form-group">
+						<label for="activa">Activa</label>
+						<div class="col-sm-10">
+							<input type="checkbox" id="activa" name="activa">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inscripcion">Inscripción Activa</label>
+						<div class="col-sm-10">
+							<input type="checkbox" id="inscripcion" name="inscripcion">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="puntosg">Puntos Ganador</label>
+						
+							<input type="text" placeholder="Puntos Ganador" value="3"
+								id="puntosg" name="puntosg" class="form-control">
+						
+					</div>
+					<div class="form-group">
+						<label for="puntosp">Puntos Perdedor</label>
+						
+							<input type="text" placeholder="Puntos Perdedor" value="0"
+								id="puntosp" name="puntosp" class="form-control">
+						
+					</div>
+					<div class="form-group">
+						<label for="puntose">Puntos Empate</label>
+						
+							<input type="text" placeholder="Puntos Empate" value="1"
+								id="puntose" name="puntose" class="form-control">
+						
+					</div>
+					<div class="form-group">
+						<label for="valor" title="Valor Iscripción Competencia">$ Valor</label>
+						
+							<input type="text" placeholder="Valor" value="0" id="valor"
+								name="valor" class="form-control">
+						
+					</div>
+					<div class="form-group">
+						<label for="maxJug"># Max. Jugadores</label>
+						
+							<input type="number" placeholder="# Max. Jugadores x equipo"
+								id="maxJug" name="maxJug" class="form-control" min="0" max="100">
+						
+					</div>
+					<div class="form-group">
+						<label for="fechaMax">Fecha Max. Modif. Planilla</label>
+						
+							<input type="date" name="fechaMax" id="fechaMax" required class="form-control">
+						
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</div>
+					</div>
+					<input type="hidden" id="bthAction" name="bthAction" value="1" /> <input
+						type="hidden" id="bthValId" name="bthValId" value="" />
+				</form>
 			</div>
 		</div>
 		<!-- /.modal-content -->
@@ -165,51 +168,81 @@ $resultCompetencias = $connect->query( "select * from competicion WHERE  now() <
 </div>
 
 <div id="modal-comp-det" class="modal fade" tabindex="-1" role="dialog">
-	<div class="modal-dialog modal-lg">
+	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Detalle Competición</h4>
+			<div class="modal-header border-0">
+				<h2 class="modal-title" id="mySmallModalLabel">Detalle Competición</h2>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
 			</div>
 			<div class="modal-body">
-						 <form class="form-horizontal" id="a" method="post"> 	
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="activaDet">Activa</label> 
-								<div class="col-sm-10">
-									<input type="checkbox" id="activaDet" name="activaDet" disabled="disabled">
-								 </div> 
-							</div>
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="inscripcionDet">Inscripción Activa</label> 
-								<div class="col-sm-10">
-									<input type="checkbox" id="inscripcionDet" name="inscripcionDet" disabled="disabled">
-								 </div> 
-							</div>
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="puntosgDet">Puntos Ganador</label> 
-								<div class="col-sm-10">
-									<input type="text" placeholder="Puntos Ganador" value="3" id="puntosgDet" name="puntosgDet" class="form-control" disabled>
-								 </div> 
-							</div>
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="puntospDet">Puntos Perdedor</label> 
-								<div class="col-sm-10">
-									<input type="text" placeholder="Puntos Ganador" value="3" id="puntospDet" name="puntospDet" class="form-control" disabled>
-								 </div> 
-							</div> 
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="puntoseDet">Puntos Empate</label> 
-								<div class="col-sm-10">
-									<input type="text" placeholder="Puntos Ganador" value="3" id="puntoseDet" name="puntoseDet" class="form-control" disabled>
-								 </div> 
-							</div>
-							<div class="form-group"> 
-								<label class="col-sm-2 control-label" for="feCreacionDet">Fecha Creación</label> 
-								<div class="col-sm-10">
-									<input type="text"  id="feCreacionDet" name="feCreacionDet" class="form-control">
-								 </div> 
-							</div>
-						</form>
+				<form class="form-horizontal" id="a" method="post">
+					<div class="form-group">
+						<label for="puntosgDet">Código</label>
+						
+							<input type="text" placeholder="Código" value="3"
+								id="codigo" name="codigo" class="form-control" disabled>
+						
+					</div>
+					<div class="form-group">
+						<label for="nombre"># Max. Jug. x Equipo</label>
+						
+							<input type="text"
+								onblur="javascript:aMayusculas(this.value,this.id);"
+								placeholder="num" id="maxJug" name="maxJug"
+								class="form-control" disabled="disabled">
+						
+					</div>
+					<div class="form-group">
+						<label for="activaDet">Activa</label>
+						<div class="col-sm-10">
+							<input type="checkbox" id="activaDet" name="activaDet"
+								disabled="disabled">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inscripcionDet">Inscripción
+							Activa</label>
+						<div class="col-sm-10">
+							<input type="checkbox" id="inscripcionDet" name="inscripcionDet"
+								disabled="disabled">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="puntosgDet">Puntos
+							Ganador</label>
+						
+							<input type="text" placeholder="Puntos Ganador" value="3"
+								id="puntosgDet" name="puntosgDet" class="form-control" disabled>
+						
+					</div>
+					<div class="form-group">
+						<label for="puntospDet">Puntos
+							Perdedor</label>
+						
+							<input type="text" placeholder="Puntos Ganador" value="3"
+								id="puntospDet" name="puntospDet" class="form-control" disabled>
+						
+					</div>
+					<div class="form-group">
+						<label for="puntoseDet">Puntos
+							Empate</label>
+						
+							<input type="text" placeholder="Puntos Ganador" value="3"
+								id="puntoseDet" name="puntoseDet" class="form-control" disabled>
+						
+					</div>
+					<div class="form-group">
+						<label for="feCreacionDet">Fecha
+							Creación</label>
+						
+							<input type="text" id="feCreacionDet" name="feCreacionDet"
+								class="form-control" disabled>
+						
+					</div>
+				</form>
 			</div>
 		</div>
 		<!-- /.modal-content -->
@@ -229,16 +262,20 @@ $('.dataTables-comp').DataTable({
 	"bInfo": false,
 	"pageLength": 5
 });
-});
-	
-jQuery( document ).on( 'submit', '#formCreateComp', function ( event ) {
+});	
+
+$( "#formCreateComp" ).submit(function( event ) {
+	event.preventDefault();
 	$.ajax( {
 		url: 'server.php?action=addUpdComp',
 		type: 'POST',
 		data: new FormData( this ),
 		success: function ( data ) {
-			//console.log( data );
-			location.href = './competicion.php';
+			//console.log( data );			
+			$('#modal-comp').modal('hide');
+			setTimeout(function(){											
+				loadPage( 'competiciones.php' );				
+			},150);
 		},
 		error: function ( data ) {
 			//console.log( data );
@@ -259,6 +296,8 @@ function editComp( id ) {
 				//console.log(data);
 				$("#bthAction").val(2);
 				$("#bthValId").val(data.id);
+				$("#codigo").val(data.id);
+				$("#maxJug").val(data.nummxjug);
 				$("#nombre").val(data.nombre);
 				$("#puntosg").val(data.puntos_ganador);
 				$("#puntosp").val(data.puntos_perdedor);
@@ -300,6 +339,7 @@ function editComp( id ) {
 			contentType: false,
 			processData: false
 		} );
+	return false;
 }
 function verDetalleComp( id ) {
 	var formData = new FormData();
@@ -340,6 +380,7 @@ function verDetalleComp( id ) {
 			contentType: false,
 			processData: false
 		} );
+	return false;
 }
 function delComp( id ) {
 	if ( confirm( 'Confirma Eliminar?' ) ) {
@@ -348,8 +389,8 @@ function delComp( id ) {
 			type: 'POST',
 			data: new FormData(  ),
 			success: function ( data ) {
-				//console.log( data );
-				location.href = './competicion.php';
+				//console.log( data );				
+				loadPage( 'competiciones.php' );				
 			},
 			error: function ( data ) {
 				//console.log( data );
@@ -359,9 +400,23 @@ function delComp( id ) {
 			processData: false
 		} );
 	}
+	return false;
+}
+function clearFormComp(){
+	$("#bthAction").val(1);
+	$("#maxJug").val(null);
+	$("#nombre").val(null);
+	$("#puntosg").val(3);
+	$("#puntosp").val(0);
+	$("#puntose").val(1);
+	$("#valor").val(0);
+	$("#maxJug").val(0);
+	$("#activa").prop("checked", false);
+	$("#inscripcion").prop("checked", false);	
 }
 function aMayusculas(obj,id){
     obj = obj.toUpperCase();
     document.getElementById(id).value = obj;
 }
+</script>
 <?php $connect->close(); ?>

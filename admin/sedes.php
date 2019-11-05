@@ -45,10 +45,10 @@ $resultSedes = $connect->query("select * from sede order by nombre asc");
 												</td>
 										<td><a title="Modificar"
 											href="javaScript:editSede(<?php echo $sede['id']; ?>)"> <i
-												class="zmdi zmdi-edit"></i>
+												class="zmdi zmdi-edit zmdi-hc-2x"></i>
 										</a>  <a title="Borrar"
 											href="javaScript:delSede('<?php echo $sede['id']; ?>');"> <i
-												class="zmdi zmdi-delete"></i>
+												class="zmdi zmdi-close zmdi-hc-2x text-red"></i>
 										</a></td>
 									</tr>
 											<?php } ?>

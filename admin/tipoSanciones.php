@@ -57,10 +57,10 @@ $resultTSuspencion = $connect->query( "select * from tipo_sancion order by nombr
 												</td>
 												<td>
 												<a href="javaScript:editTsancion(<?php echo $tSusp['id']; ?>)">
-												<i class="zmdi zmdi-edit"></i>
+												<i class="zmdi zmdi-edit zmdi-hc-2x"></i>
 												</a>
 												<a title="Borrar" href="javaScript:delTsanc('<?php echo $tSusp['id']; ?>');">
-												<i class="zmdi zmdi-delete"></i>
+												<i class="zmdi zmdi-close zmdi-hc-2x text-red"></i>
 												</a>												
 												</td>
 											</tr>

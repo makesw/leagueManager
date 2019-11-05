@@ -47,10 +47,10 @@ $resultSedesSelect2 = $connect->query( "select * from sede order by nombre asc" 
 												</td>
 												<td>
 												<a href="javaScript:editEscena(<?php echo $escena['id']; ?>)">
-												<i class="zmdi zmdi-edit"></i>
+												<i class="zmdi zmdi-edit zmdi-hc-2x"></i>
 												</a>
 												<a title="Borrar" href="javaScript:delEscena('<?php echo $escena['id']; ?>');">
-												<i class="zmdi zmdi-delete"></i>
+												<i class="zmdi zmdi-close zmdi-hc-2x text-red"></i>
 												</a>												
 												</td>
 											</tr>
