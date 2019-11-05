@@ -152,14 +152,18 @@ $('.dataTables-comp').DataTable({
 });
 });
 	
-jQuery( document ).on( 'submit', '#formCreateGrupo', function ( event ) {
+$( "#formCreateGrupo" ).submit(function( event ) {
+    event.preventDefault();
 	$.ajax( {
 		url: 'server.php?action=addUpdGrupo',
 		type: 'POST',
 		data: new FormData( this ),
 		success: function ( data ) {
 			//console.log( data );
-			location.href = './grupos.php';
+			$('#modal-grupo').modal('hide');
+			setTimeout(function(){											
+				loadPage( 'grupos.php' );				
+			},150);
 		},
 		error: function ( data ) {
 			//console.log( data );
@@ -183,7 +187,7 @@ function editGrupo( id, idFase ) {
 				$("#clasi").val(data.clasifican);
 				$("#cmbComp" ).val(data.id_competicion);
 				elegido=$("#cmbComp" ).val();
-				$.post("ajaxFases.php", { elegido: elegido }, function(data){
+				$.post("./ajax/ajaxFases.php", { elegido: elegido }, function(data){
             		$("#cmbFase").html(data);
 					$("#cmbFase" ).val(idFase);
 				});     				
@@ -196,6 +200,7 @@ function editGrupo( id, idFase ) {
 			contentType: false,
 			processData: false
 		} );
+	return false;
 }
 function delGrupo( id ) {
 	if ( confirm( 'Confirma Eliminar?' ) ) {
@@ -205,7 +210,7 @@ function delGrupo( id ) {
 			data: new FormData(  ),
 			success: function ( data ) {
 				//console.log( data );
-				location.href = './grupos.php';
+				loadPage( 'grupos.php' );
 			},
 			error: function ( data ) {
 				//console.log( data );
@@ -220,8 +225,8 @@ $(document).ready(function(){
    $("#cmbComp").change(function () {
    		$("#cmbComp option:selected").each(function () {
             elegido=$(this).val();
-            $.post("ajax/ajaxFases.php", { elegido: elegido }, function(data){
-            $("#cmbFase").html(data);
+            $.post("./ajax/ajaxFases.php", { elegido: elegido }, function(data){
+           	 $("#cmbFase").html(data);
             });            
         });
    })

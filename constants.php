@@ -1,7 +1,7 @@
 <?php 
-$RAIZ = 'https://www.copaemprendedores.com/'; 
-$correoUsuarios = 'usuarios@copaemprendedores.com';
-$correoProg = 'programaciones@copaemprendedores.com';
+$RAIZ = 'https://www.demoflm.makesw.com/'; 
+$correoUsuarios = 'usuarios-lm@makesw.com';
+$correoProg = 'programaciones-lm@makesw.com';
 $DOMINIOCLIENTE = 'www.demoflm.makesw.com';
 $CORREOCLIENTE = 'www.demoflm.makesw.com';
 ?>
