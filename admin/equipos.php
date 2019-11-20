@@ -26,6 +26,8 @@ $idComp = 0;
 		<div class="page-heading">
 			<h2 class="title">Equipos</h2>
 		</div>
+		<button class="jr-btn btn-primary btn btn-default" data-toggle="modal"
+			data-target="#modal-equi" onclick="javascript:clearForm();">Crear</button>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="gx-card">
@@ -116,9 +118,7 @@ $idComp = 0;
 					</div>
 					<div class="form-group">
 								<label for="color" >Color</label>
-									<input type="hidden" class="color-picker"
-										placeholder="color" id="color" value=""
-										name="color">
+									<input type="color" id="color" name="color" class="form-control">
 							</div>
 					<div class="form-group">
 						<label  for="nombre">Usuario</label>
@@ -203,15 +203,18 @@ $('.dataTables-table').DataTable({
 	"pageLength": 10
 });
 });
-	
-jQuery( document ).on( 'submit', '#formCreateEqui', function ( event ) {
+$( "#formCreateEqui" ).submit(function( event ) {
+	    event.preventDefault();
 	$.ajax( {
 		url: 'server.php?action=addUpdEqui',
 		type: 'POST',
 		data: new FormData( this ),
 		success: function ( data ) {
 			//console.log( data );
-			location.href = './equipos.php';
+			$('#modal-equi').modal('hide');
+			setTimeout(function(){											
+				loadPage( 'equipos.php' );				
+			},200);	
 		},
 		error: function ( data ) {
 			console.log( data );
@@ -244,6 +247,7 @@ function editEqui( id ) {
 			contentType: false,
 			processData: false
 		} );
+	return false;
 }
 function delEqui( id ) {
 	if ( confirm( 'Confirma Eliminar?' ) ) {
@@ -253,7 +257,10 @@ function delEqui( id ) {
 			data: new FormData(  ),
 			success: function ( data ) {
 				//console.log( data );
-				location.href = './equipos.php';
+				$('#modal-equi').modal('hide');
+				setTimeout(function(){											
+					loadPage( 'equipos.php' );				
+				},150);
 			},
 			error: function ( data ) {
 				//console.log( data );
@@ -263,6 +270,7 @@ function delEqui( id ) {
 			processData: false
 		} );
 	}
+	return false;
 }
 function aMayusculas(obj,id){
     obj = obj.toUpperCase();
@@ -280,6 +288,13 @@ function readURL( input ) {
 function viewPhoto( urlfoto ) { 
 	$("#imgTeam").attr("src",urlfoto);						
 	$('#modal-viewPhoto').modal('show');
+}
+function clearForm(){
+	$("#bthAction").val(1);
+	$("#nombre").val(null);
+	$("#color").val(null);
+	$("#cmbUser").val(null);
+	$("#cmbComp").val(null);
 }
 </script>
 <?php $connect->close(); ?>
