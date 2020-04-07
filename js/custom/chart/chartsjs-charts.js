@@ -124,11 +124,11 @@
     var ctx = document.getElementById("barChart").getContext("2d");
 
     var barChartData = barData;
-    barChartData.datasets[1].fillColor = "#3F51B5";
+    barChartData.datasets[1].fillColor = "#009c00";
     barChartData.datasets[1].strokeColor = "#bfbfbf";
-    barChartData.datasets[1].pointColor = "#3F51B5";
+    barChartData.datasets[1].pointColor = "#009c00";
     barChartData.datasets[0].backgroundColor="#bfbfbf";
-    barChartData.datasets[1].backgroundColor="#3F51B5";
+    barChartData.datasets[1].backgroundColor="#009c00";
     barChartOptions.datasetFill = false;
     var barChart = new Chart(ctx, {
         type: 'bar',
@@ -139,7 +139,7 @@
     var polarData = {
         datasets: [{
             data: [300, 140, 200],
-            backgroundColor: ['#3F51B5','#00A8D2','#EB9100']
+            backgroundColor: ['#009c00','#00A8D2','#EB9100']
         }],
 
         // These labels appear in the legend and in the tooltips when hovering different arcs
@@ -178,7 +178,7 @@
     var pieChartData = {
         datasets: [{
             data: [700, 500, 400,600,300,100],
-            backgroundColor: ["#3F51B5","#00a65a","#f39c12","#00c0ef", "#3c8dbc",  "#d2d6de"]
+            backgroundColor: ["#009c00","#00a65a","#f39c12","#00c0ef", "#3c8dbc",  "#d2d6de"]
         }],
 
         // These labels appear in the legend and in the tooltips when hovering different arcs

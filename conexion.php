@@ -1,5 +1,5 @@
 <?php
-$connect = new mysqli( 'localhost', 'root', '', 'lmbase' );
+$connect = new mysqli( 'localhost:3308', 'root', '', 'leaguemanager' );
 if ( $connect->connect_errno ) {
 	echo "Fallo al conectar a MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
 }

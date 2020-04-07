@@ -1,17 +1,17 @@
 /*Theme Indigo Styles*/
 .indigo .right-arrow {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo .right-arrow:after {
-    color: #3f51b5;
+    color: #009c00;
 }
 
 .indigo .gx-btn-primary {
-  background-color: #3f51b5;
+  background-color: #009c00;
   color: #fff; }
 
 .indigo .gx-btn-primary:hover, .indigo .gx-btn-primary:focus {
-    background-color: #3849a2;
+    background-color: #009c00;
     color: #fff;
 }
 
@@ -52,11 +52,11 @@
 }
 
 .indigo .gx-btn-indigo {
-  background-color: #3f51b5;
+  background-color: #009c00;
   color: #fff; }
 
 .indigo .gx-btn-indigo:hover, .indigo .gx-btn-indigo:focus {
-    background-color: #3849a2;
+    background-color: #009c00;
     color: #fff;
 }
 
@@ -188,8 +188,8 @@
 
 .indigo .btn-primary {
   color: #fff;
-  background-color: #3f51b5;
-  border-color: #3f51b5;
+  background-color: #009c00;
+  border-color: #009c00;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075); }
 
 .indigo .btn-primary:hover {
@@ -204,8 +204,8 @@
 
 .indigo .btn-primary.disabled, .indigo .btn-primary:disabled {
     color: #fff;
-    background-color: #3f51b5;
-    border-color: #3f51b5;
+    background-color: #009c00;
+    border-color: #009c00;
 }
 
 .indigo .btn-primary:not(:disabled):not(.disabled):active, .indigo .btn-primary:not(:disabled):not(.disabled).active, .show > .indigo .btn-primary.dropdown-toggle {
@@ -444,8 +444,8 @@
 
 .indigo a.btn-primary {
   color: #fff;
-  background-color: #3f51b5;
-  border-color: #3f51b5;
+  background-color: #009c00;
+  border-color: #009c00;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075); }
 
 .indigo a.btn-primary:hover {
@@ -460,8 +460,8 @@
 
 .indigo a.btn-primary.disabled, .indigo a.btn-primary:disabled {
     color: #fff;
-    background-color: #3f51b5;
-    border-color: #3f51b5;
+    background-color: #009c00;
+    border-color: #009c00;
 }
 
 .indigo a.btn-primary:not(:disabled):not(.disabled):active, .indigo a.btn-primary:not(:disabled):not(.disabled).active, .show > .indigo a.btn-primary.dropdown-toggle {
@@ -699,15 +699,15 @@
 }
 
 .indigo .btn-outline-primary {
-  color: #3f51b5;
+  color: #009c00;
   background-color: transparent;
   background-image: none;
-  border-color: #3f51b5; }
+  border-color: #009c00; }
 
 .indigo .btn-outline-primary:hover {
     color: #fff;
-    background-color: #3f51b5;
-    border-color: #3f51b5;
+    background-color: #009c00;
+    border-color: #009c00;
 }
 
 .indigo .btn-outline-primary:focus, .indigo .btn-outline-primary.focus {
@@ -715,14 +715,14 @@
 }
 
 .indigo .btn-outline-primary.disabled, .indigo .btn-outline-primary:disabled {
-    color: #3f51b5;
+    color: #009c00;
     background-color: transparent;
 }
 
 .indigo .btn-outline-primary:not(:disabled):not(.disabled):active, .indigo .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .indigo .btn-outline-primary.dropdown-toggle {
     color: #fff;
-    background-color: #3f51b5;
-    border-color: #3f51b5;
+    background-color: #009c00;
+    border-color: #009c00;
 }
 
 .indigo .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .indigo .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .indigo .btn-outline-primary.dropdown-toggle:focus {
@@ -947,15 +947,15 @@
 }
 
 .indigo a.btn-outline-primary {
-  color: #3f51b5;
+  color: #009c00;
   background-color: transparent;
   background-image: none;
-  border-color: #3f51b5; }
+  border-color: #009c00; }
 
 .indigo a.btn-outline-primary:hover {
     color: #fff;
-    background-color: #3f51b5;
-    border-color: #3f51b5;
+    background-color: #009c00;
+    border-color: #009c00;
 }
 
 .indigo a.btn-outline-primary:focus, .indigo a.btn-outline-primary.focus {
@@ -963,14 +963,14 @@
 }
 
 .indigo a.btn-outline-primary.disabled, .indigo a.btn-outline-primary:disabled {
-    color: #3f51b5;
+    color: #009c00;
     background-color: transparent;
 }
 
 .indigo a.btn-outline-primary:not(:disabled):not(.disabled):active, .indigo a.btn-outline-primary:not(:disabled):not(.disabled).active, .show > .indigo a.btn-outline-primary.dropdown-toggle {
     color: #fff;
-    background-color: #3f51b5;
-    border-color: #3f51b5;
+    background-color: #009c00;
+    border-color: #009c00;
 }
 
 .indigo a.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .indigo a.btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .indigo a.btn-outline-primary.dropdown-toggle:focus {
@@ -1195,56 +1195,56 @@
 }
 
 .indigo .btn-outline-primary, .indigo a.btn-outline-primary {
-  color: #3f51b5;
-  border-color: #3f51b5; }
+  color: #009c00;
+  border-color: #009c00; }
 
 .indigo .btn-outline-primary:focus, .indigo .btn-outline-primary:hover, .indigo a.btn-outline-primary:focus, .indigo a.btn-outline-primary:hover {
     color: #fff;
-    border-color: #3f51b5;
-    background-color: #3f51b5;
+    border-color: #009c00;
+    background-color: #009c00;
 }
 
 .indigo a {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo a:focus, .indigo a:hover {
     color: #32408f;
 }
 .indigo a.text-primary {
-  color: #3f51b5 !important; }
+  color: #009c00 !important; }
 
 .indigo a.text-primary:focus, .indigo a.text-primary:hover {
     color: #32408f !important;
 }
 .indigo .text-primary {
-  color: #3f51b5 !important; }
+  color: #009c00 !important; }
 .indigo .page-link {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo .page-link:focus, .indigo .page-link:hover {
-    color: #3f51b5;
+    color: #009c00;
 }
 .indigo .page-item.active .page-link {
   color: #fff;
-  background-color: #3f51b5;
-  border-color: #3f51b5; }
+  background-color: #009c00;
+  border-color: #009c00; }
 
 .indigo .badge-primary {
-    background-color: #3f51b5;
+    background-color: #009c00;
     color: #fff;
 }
 
 .indigo .bg-primary {
-  background-color: #3f51b5 !important;
+  background-color: #009c00 !important;
   color: #fff !important; }
 .indigo .btn-primary, .indigo .gx-btn-primary, .indigo a.btn-primary, .indigo a.gx-btn-primary {
-  background-color: #3f51b5;
-  border-color: #3f51b5;
+  background-color: #009c00;
+  border-color: #009c00;
   color: #fff; }
 
 .indigo .btn-primary:hover, .indigo .btn-primary:focus, .indigo .btn-primary:not([disabled]):not(.disabled):active, .indigo .gx-btn-primary:hover, .indigo .gx-btn-primary:focus, .indigo .gx-btn-primary:not([disabled]):not(.disabled):active, .indigo a.btn-primary:hover, .indigo a.btn-primary:focus, .indigo a.btn-primary:not([disabled]):not(.disabled):active, .indigo a.gx-btn-primary:hover, .indigo a.gx-btn-primary:focus, .indigo a.gx-btn-primary:not([disabled]):not(.disabled):active {
-    background-color: #3849a2;
-    border-color: #3849a2;
+    background-color: #009c00;
+    border-color: #009c00;
     color: #fff;
 }
 .indigo .bg-primary.lighten-4 {
@@ -1295,8 +1295,8 @@
 }
 
 .indigo .btn-group > .gx-btn.active, .indigo .btn-group-vertical > .gx-btn.active {
-    background-color: #3f51b5;
-    border-color: #3f51b5;
+    background-color: #009c00;
+    border-color: #009c00;
 }
 
 .indigo .btn-group > .gx-btn.gx-flat-btn, .indigo .btn-group-vertical > .gx-btn.gx-flat-btn {
@@ -1305,26 +1305,26 @@
 
 .indigo .btn-group > .gx-btn.gx-flat-btn.active, .indigo .btn-group-vertical > .gx-btn.gx-flat-btn.active {
     background-color: transparent;
-    color: #3f51b5;
+    color: #009c00;
 }
 
 .indigo .btn-group > .gx-btn.gx-flat-btn.active:hover, .indigo .btn-group > .gx-btn.gx-flat-btn.active:focus, .indigo .btn-group-vertical > .gx-btn.gx-flat-btn.active:hover, .indigo .btn-group-vertical > .gx-btn.gx-flat-btn.active:focus {
     background-color: rgba(63, 81, 181, 0.12);
-    color: #3f51b5;
+    color: #009c00;
 }
 
 .indigo .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 .indigo .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 .indigo a.btn-link {
-  color: #3f51b5;
+  color: #009c00;
   background-color: transparent; }
 
 .indigo a.btn-link:hover {
-    color: #3849a2;
+    color: #009c00;
     background-color: transparent;
     border-color: transparent;
 }
@@ -1367,11 +1367,11 @@
 
 .indigo a.gx-flat-btn.gx-btn-primary {
   background-color: transparent;
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo a.gx-flat-btn.gx-btn-primary:hover, .indigo a.gx-flat-btn.gx-btn-primary:focus {
     background-color: rgba(63, 81, 181, 0.12);
-    color: #3f51b5;
+    color: #009c00;
 }
 
 .indigo .bg-primary a.gx-flat-btn.gx-btn-primary {
@@ -1413,46 +1413,46 @@
     background-color: #fff; } }
 
 .indigo .messages-list ul li .user-name a {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo .color-theme-header {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 .indigo ul.nav-menu > li.selected > a, .indigo ul.nav-menu > li.open > a, .indigo ul.nav-menu > li > a:hover, .indigo ul.nav-menu > li > a:focus {
   background-color: #fff;
-    color: #3f51b5;
+    color: #009c00;
 }
 
 .indigo ul.nav-menu li.menu > a:focus:before, .indigo ul.nav-menu li.menu > a:hover:before {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo ul.nav-menu li ul {
   background-color: #fff; }
 
 .indigo ul.nav-menu li.menu.selected > a:before, .indigo ul.nav-menu li.menu.open > a:before, .indigo ul.nav-menu li.menu > a:focus:before, .indigo ul.nav-menu li.menu li > a:hover:before {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo ul.nav-menu li.menu .sub-menu li.active > a .nav-text {
-    background-color: #3f51b5;
+    background-color: #009c00;
     color: #fff;
 }
 
 .indigo ul.nav-menu li.menu .sub-menu li > a:hover, .indigo ul.nav-menu li.menu .sub-menu li > a:focus, .indigo ul.nav-menu li.menu.open .sub-menu li.active > a:before, .indigo ul.nav-menu li.menu .sub-menu li > a:focus:before, .indigo ul.nav-menu li.menu .sub-menu li > a:hover:before {
   background-color: #fff;
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo .module-nav li a.active {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo .module-tab-nav li a.nav-link.active {
-    border-color: #3f51b5;
-    color: #3f51b5;
+    border-color: #009c00;
+    color: #009c00;
 }
 
 .indigo .nav-pills-module > li > a {
-    background-color: #3f51b5;
+    background-color: #009c00;
     color: #fff;
-    border-color: #3f51b5;
+    border-color: #009c00;
 }
 
 .indigo .nav-pills-module > li > a.nav-link-border {
@@ -1462,19 +1462,19 @@
 }
 
 .indigo .fc-event, .indigo .fc-event-dot {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 .indigo .chat-sidenav-header .tab-link .nav-link.active {
-  color: #3f51b5;
-  border-color: #3f51b5; }
+  color: #009c00;
+  border-color: #009c00; }
 .indigo .chat-item.flex-row-reverse .bubble {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 .indigo .chat-user-item.active, .indigo .chat-user-item:hover {
-    background-color: #3f51b5;
+    background-color: #009c00;
 }
 
 .indigo .chat-main-header {
-    background-color: #3f51b5;
+    background-color: #009c00;
 }
 
 .indigo .chat-main-header .action-btn {
@@ -1482,31 +1482,31 @@
 }
 
 .indigo .contact-list i {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo .nav-pill-sales .nav-link.active {
-    background-color: #3f51b5;
-    border-color: #3f51b5;
+    background-color: #009c00;
+    border-color: #009c00;
 }
 
 .indigo .Collapsible__trigger {
-  background: #3f51b5; }
+  background: #009c00; }
 
 .indigo .categories-list li a:focus, .indigo .categories-list li a:hover, .indigo .categories-list li.active a {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo .login-content .form-control:focus {
-  border-color: #3f51b5; }
+  border-color: #009c00; }
 
 .indigo .filter-with-bg-color ul li a {
-  border-color: #3f51b5; }
+  border-color: #009c00; }
 
 .indigo .filter-with-bg-color ul li a:hover, .indigo .filter-with-bg-color ul li a:focus, .indigo .filter-with-bg-color ul li a.active {
-    background-color: #3f51b5;
+    background-color: #009c00;
 }
 
 .indigo .profile-intro .icon {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo .social-link li.active a, .indigo .social-link li a:hover, .indigo .social-link li a:focus {
   color: #FF4081; }
@@ -1518,56 +1518,56 @@
   background-color: rgba(63, 81, 181, 0.075); }
 
 .indigo .module-nav ul.module-nav-team .dashed-circle, .indigo .border-primary {
-  border-color: #3f51b5 !important; }
+  border-color: #009c00 !important; }
 
 .indigo .border-secondary {
     border-color: #FF4081 !important;
 }
 
 .indigo .bootstrap-datetimepicker-widget table td span.active, .indigo .bootstrap-datetimepicker-widget table td.active, .indigo .bootstrap-datetimepicker-widget table td.active:hover {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 .indigo .noUi-connect {
-  background: #3f51b5 !important; }
+  background: #009c00 !important; }
 
 .indigo .form-checkbox > input + .check {
-  color: #3f51b5; }
+  color: #009c00; }
 .indigo .checkbox-primary label::before {
-  border-color: #3f51b5; }
+  border-color: #009c00; }
 .indigo .checkbox-primary input[type="checkbox"]:checked + label::after {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 .indigo .radio-primary input[type="radio"]:checked + label::before {
-  border-color: #3f51b5; }
+  border-color: #009c00; }
 .indigo .radio-primary input[type="radio"]:checked + label::after {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 .indigo .gx-cart .cart-item:hover .icon-outline {
-  color: #3f51b5;
-  border-color: #3f51b5; }
+  color: #009c00;
+  border-color: #009c00; }
 .indigo .gx-cart .cart-action-btn .icon-outline {
-  color: #3f51b5; }
+  color: #009c00; }
 .indigo .gx-cart .cart-action-btn .icon-outline:hover {
-  background-color: #3f51b5;
+  background-color: #009c00;
   color: #fff; }
 
 .indigo .is-focused:hover, .indigo .is-focused:focus {
-  background-image: linear-gradient(#3f51b5, #3f51b5); }
+  background-image: linear-gradient(#009c00, #009c00); }
 
 /*Icons Styles*/
 .indigo .icons-showcase > div:hover {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 /* Input Style */
 .indigo .form-control:focus {
-  border-color: #3f51b5; }
+  border-color: #009c00; }
 
 .indigo .select2-container--default .select2-results__option--highlighted[aria-selected] {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 /*Accordions Styles*/
 .indigo .accordion-heading .accordion-toggle {
   color: #fff;
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 .indigo .accordion-heading .accordion-toggle.collapsed {
   background-color: #fff;
@@ -1575,7 +1575,7 @@
 }
 
 .indigo .wizard-navbar > ul li.completed a span.wz-number {
-  background-color: #3f51b5;
+  background-color: #009c00;
   color: #fff; }
 .indigo .wizard-navbar > ul li a.active span.wz-number {
   background-color: #FF4081;
@@ -1583,28 +1583,28 @@
 .indigo .wizard-navbar > ul li a.active:before, .indigo .wizard-navbar > ul li a.active:after {
   background-color: #FF4081; }
 .indigo .wizard-navbar > ul li.completed a:before, .indigo .wizard-navbar > ul li.completed a:after {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 .indigo .pager > li > a, .indigo .pager > li > span {
-  color: #3f51b5; }
+  color: #009c00; }
 
 .indigo .dropzone {
-  border-color: #3f51b5; }
+  border-color: #009c00; }
 
 .indigo .nav-pills .nav-link.active, .indigo .nav-pills .show > .nav-link {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 .indigo .bg-primary .nav-pills .nav-link.active, .indigo .bg-primary .nav-pills .show > .nav-link {
   background-color: #fff; }
 
 .indigo .progress-bar {
-  background-color: #3f51b5; }
+  background-color: #009c00; }
 
 .indigo .swal-button {
-  background-color: #3f51b5;
+  background-color: #009c00;
   color: #fff; }
 
 .indigo .swal-button:hover, .indigo .swal-button:focus, .indigo .swal-button:active {
-    background-color: #3849a2;
+    background-color: #009c00;
 }
 
 .indigo .swal-button.swal-button--cancel {
@@ -1617,7 +1617,7 @@
 }
 
 .indigo .bottom-navigation > li.active > a {
-  color: #3f51b5;
+  color: #009c00;
   padding-top: 6px; }
 
 /*# sourceMappingURL=theme-indigo.css.map */

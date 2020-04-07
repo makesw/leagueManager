@@ -6,7 +6,7 @@
 
     var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
     gradientStroke.addColorStop(0, '#E91E63');
-    gradientStroke.addColorStop(1, '#3F51B5');
+    gradientStroke.addColorStop(1, '#009c00');
 
 
     var gradientFill = ctx.createLinearGradient(500, 0, 100, 0);
@@ -73,7 +73,7 @@
     var polarData = {
         datasets: [{
                 data: [300, 140, 200],
-                backgroundColor: ['#3F51B5', '#00A8D2', '#EB9100']
+                backgroundColor: ['#009c00', '#00A8D2', '#EB9100']
             }],
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
@@ -209,7 +209,7 @@
     var pieChartData = {
         datasets: [{
                 data: [700, 500, 400, 600, 300, 100],
-                backgroundColor: ["#3F51B5", "#00a65a", "#f39c12", "#00c0ef", "#3c8dbc", "#d2d6de"]
+                backgroundColor: ["#009c00", "#00a65a", "#f39c12", "#00c0ef", "#3c8dbc", "#d2d6de"]
             }],
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [

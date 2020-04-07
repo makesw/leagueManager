@@ -16,7 +16,7 @@
 .form-checkbox > input + .check {
     border: 1px solid #c3c2c2;
 	border-radius: 2px;
-    color: #3f51b5;
+    color: #009c00;
     cursor: pointer;
     display: inline-block;
     height: 20px;
@@ -119,10 +119,10 @@
 }
 
 .checkbox-primary label::before {
-   border-color: #3f51b5;
+   border-color: #009c00;
 }
 .checkbox-primary input[type="checkbox"]:checked + label::after {
-    background-color: #3f51b5;
+    background-color: #009c00;
 }
 
 .checkbox-danger label::before {
@@ -224,13 +224,13 @@
 }
 
 .radio-primary input[type="radio"] + label::after {
-  background-color: #3f51b5;
+  background-color: #009c00;
 }
 .radio-primary input[type="radio"]:checked + label::before {
-  border-color: #3f51b5;
+  border-color: #009c00;
 }
 .radio-primary input[type="radio"]:checked + label::after {
-  background-color: #3f51b5;
+  background-color: #009c00;
 }
 
 .radio-danger input[type="radio"] + label::after {
@@ -351,7 +351,7 @@
 }
 
 .wizard-navbar > ul li.completed a span.wz-number {
-	background-color: #3f51b5;
+	background-color: #009c00;
 	color: #FFF;
 }
 
@@ -388,7 +388,7 @@
 
 .wizard-navbar > ul li.completed a:before,
 .wizard-navbar > ul li.completed a:after {
-	background-color: #3f51b5;
+	background-color: #009c00;
 }
 
 label.error {

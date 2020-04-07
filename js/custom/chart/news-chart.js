@@ -47,7 +47,7 @@
                 ['data1', 60, 20, 80, 30, 70]
             ],
             colors: {
-                data1: '#3f51b5'
+                data1: '#009c00'
             }
         }, padding: {
             right: 0,

@@ -117,7 +117,7 @@
                 data1: 'spline'
             },
             colors: {
-                data1: "#3f51b5"
+                data1: "#009c00"
             }
         },
         axis: {
