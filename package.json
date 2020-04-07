@@ -18,7 +18,7 @@
   "homepage": "index.html",
   "dependencies": {
     "bigslide": "^0.12.1",
-    "bootstrap": "^4.0.0-beta.3",
+    "bootstrap": "^4.3.1",
     "bootstrap-colorpicker": "^2.5.2",
     "bootstrap-markdown": "^2.10.0",
     "bootstrap4-datetimepicker": "^5.2.3",
